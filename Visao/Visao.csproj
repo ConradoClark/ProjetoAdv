@@ -1,0 +1,735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C1F2C88-8FFC-4686-8E53-131B1B7A507F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Visao</RootNamespace>
+    <AssemblyName>Visao</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TXTextControl, Version=17.0.1000.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638" />
+    <Reference Include="TXTextControl.Windows.Forms, Version=17.0.200.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CadastroAdvogados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroAdvogados.designer.cs">
+      <DependentUpon>CadastroAdvogados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroBeneficios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroBeneficios.designer.cs">
+      <DependentUpon>CadastroBeneficios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroCliente.designer.cs">
+      <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroGrupoAcao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroGrupoAcao.designer.cs">
+      <DependentUpon>CadastroGrupoAcao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroGrupoDiferencial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroGrupoDiferencial.designer.cs">
+      <DependentUpon>CadastroGrupoDiferencial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroPendencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroPendencia.designer.cs">
+      <DependentUpon>CadastroPendencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TelaCarregamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaCarregamento.designer.cs">
+      <DependentUpon>TelaCarregamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaPrincipal.designer.cs">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CadastroAdvogados.resx">
+      <DependentUpon>CadastroAdvogados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroBeneficios.resx">
+      <DependentUpon>CadastroBeneficios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroCliente.resx">
+      <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroGrupoAcao.resx">
+      <DependentUpon>CadastroGrupoAcao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroGrupoDiferencial.resx">
+      <DependentUpon>CadastroGrupoDiferencial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroPendencia.resx">
+      <DependentUpon>CadastroPendencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TelaCarregamento.resx">
+      <DependentUpon>TelaCarregamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaPrincipal.resx">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\logo01.psd" />
+    <None Include="Resources\logo_Jardim Advocacia.psd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abono24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abono32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Advogado16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Advogado24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Advogado32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appadd16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appadd24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appadd32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appadd48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appadd64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atend16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atend32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atend64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atend128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculator-16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculator-24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculator-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\canc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\canc24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffee.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffee_stain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conf24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conf32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conf48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conf128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsAvancada16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsAvancada24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsAvancada32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsProcessoCliente16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsProcessoCliente24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsProcessoCliente32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsSimples16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsSimples24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsSimples32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\convmoeda16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\convmoeda24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\convmoeda32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copiaindices16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copiaindices24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copiaindices32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correcaoindice24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correcaoindice32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correcaoindice48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EA_16x16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EALOGO.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\evo-24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\evo-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\evot-16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ferramentas16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ferramentas24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ferramentas32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fundo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graf24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graf32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grupo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grupo24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grupo32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grupo64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hist16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hist24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hist32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hist64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hist128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Honorarios16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Honorarios24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Honorarios32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indice16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indice24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indice32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indice48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\intervalo32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\intervaloabono24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\intervaloabono32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\limpar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_Jardim-Advocacia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoJardim.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimizar16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimizar24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimizar32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\msg24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSG32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\param16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\param24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\param32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\param48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\param128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdf-16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdf-24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdf-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pend16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pend24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pend32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pend64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preco16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preco24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preco32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preco48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preco128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prim16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prim24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prim32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prim48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prim64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\processo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\processo24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\processo32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\processo48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\processo64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\processo128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProcuracaoINSS16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProcuracaoINSS24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProcuracaoINSS32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SairPrograma16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SairPrograma24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SairPrograma32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salario24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salario32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\senha32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tabelafria32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tabelaquente32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOOL-16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOOL-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ult16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ult24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ult32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ult48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ult64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{97753A4A-DD02-4112-9B35-0EFFFAB1B7C9}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VisaoControles\VisaoControles.csproj">
+      <Project>{7AF4977A-FDB0-406C-B4F6-0460AE406CCC}</Project>
+      <Name>VisaoControles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VisaoEstrutura\VisaoEstrutura.csproj">
+      <Project>{2D2DFDBA-4F76-45CF-951C-A186A75D3C00}</Project>
+      <Name>VisaoEstrutura</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

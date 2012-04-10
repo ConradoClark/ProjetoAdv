@@ -1,0 +1,211 @@
+﻿<#@ include file="SaveOutput.tt" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ Assembly Name="Roslyn.Services.dll" #>
+<#@ Assembly Name="Roslyn.Compilers.dll" #>
+<#@ Assembly Name="Roslyn.Compilers.CSharp.dll" #>
+<#@ Assembly Name="EnvDTE80.dll" #>
+<#@ Assembly Name="EnvDTE.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="EnvDTE80" #>
+<#@ import namespace="Roslyn.Compilers.CSharp" #>
+<#@ import namespace="System.Windows.Forms" #>
+
+<#
+	foreach(string fileName in  GetFilesStartingWith("Modelo")){
+		//MessageBox.Show(fileName);
+		string content = File.ReadAllText(fileName);
+		SyntaxTree syntaxTree = SyntaxTree.ParseCompilationUnit(content);
+		GenerateFile(syntaxTree);
+		string outputFile = fileName.Replace(".cs",".gen.cs");
+		SaveOutput(outputFile);		
+		GetProject("Modelo").ProjectItems.AddFromFile(outputFile);
+	}
+	;#>
+<#+ void GenerateFile(SyntaxTree origin){
+	foreach (string usingDecl in getUsings(origin)){#>
+		<#=usingDecl#>
+	<#+}
+	#>
+
+namespace <#= getNamespace(origin)#>{
+	<#=getClassSyntax(origin)#>{	
+	        public  <#= getMethodNew(getClassName(origin))#> event PropertyChangedEventHandler PropertyChanged;
+			public <#= getMethodVirtual(getClassName(origin))#> bool Sujo{get;set;}
+			public <#=getClassName(origin)#>(){
+					<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
+						<#+ if (kvp.Value == "_origemDados"){#>								
+							<#=PascalWordify(kvp.Value.Substring(1))#>Alterado+= (_old,_new) =>Sujo=false;
+						<#+}else{#>
+							<#=PascalWordify(kvp.Value.Substring(1))#>Alterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
+						<#+}#>	
+					<#+}#>
+			}
+     		<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
+#region Eventos do <#=PascalWordify(kvp.Value.Substring(1))#>
+				public delegate void <#=kvp.Value#>Alterado(<#=kvp.Key#> valorAntigo, <#=kvp.Key#> valorNovo);
+				public event <#=kvp.Value#>Alterado <#=PascalWordify(kvp.Value.Substring(1))#>Alterado;				
+			#endregion			
+			<#+}#>
+			<#+foreach (KeyValuePair<string,string> kvp2 in getFields(origin)){#>
+			public <#=kvp2.Key#> <#=PascalWordify(kvp2.Value.Substring(1))#>{
+				get{
+					return <#=kvp2.Value#>;
+				}
+				set{
+					if (<#=kvp2.Value#> != value){
+						if (<#=PascalWordify(kvp2.Value.Substring(1))#>Alterado != null){
+							<#=PascalWordify(kvp2.Value.Substring(1))#>Alterado(<#=kvp2.Value#>,value);
+							this.NotifyPropertyChanged("<#=PascalWordify(kvp2.Value.Substring(1))#>");
+						}
+						<#=kvp2.Value#> = value;
+					}
+				}
+			}
+		<#+}#>
+			public <#= getMethodVirtual(getClassName(origin))#> void Limpar(){
+			    this.OrigemDados = Modelo.Comum.OrigemDados.Local;
+				<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
+					<#+if (kvp.Key.StartsWith("Modelo")){#>			
+						<#=PascalWordify(kvp.Value.Substring(1))#>.Limpar();
+					<#+}else{#>
+						<#=PascalWordify(kvp.Value.Substring(1))#> = default(<#=kvp.Key#>);
+					<#+}#>					
+				<#+}#>
+			}
+			private void NotifyPropertyChanged(string name)
+  			{
+    			if(PropertyChanged != null)
+      				PropertyChanged(this, new PropertyChangedEventArgs(name));
+  			}
+			public <#=getClassName(origin)#> Clone(Func< <#=getClassName(origin)#> > criarObjeto){
+				<#=getClassName(origin)#> clone = criarObjeto();
+				<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
+					clone.<#=PascalWordify(kvp.Value.Substring(1))#> = this.<#=PascalWordify(kvp.Value.Substring(1))#>;
+				<#+}#>
+				clone.OrigemDados = this.OrigemDados;
+				return clone;
+			}
+			<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
+				<#+if (kvp.Value == "_id"){#>
+					public override bool Equals(object obj){
+						if (obj is <#=getClassName(origin)#>){
+							return this.Id == ((<#=getClassName(origin)#>)obj).Id;
+						}
+						return false;
+					}
+				<#+}#>
+			<#+}#>
+ 	}
+}
+<#+}
+    DTE2 dte = null;
+	string getNamespace(SyntaxTree syntaxTree)
+    {      
+        var namespaceName = (NamespaceDeclarationSyntax)syntaxTree.
+        Root.
+        DescendentNodes().
+        First(n => n.Kind == SyntaxKind.NamespaceDeclaration);
+		
+        return namespaceName.Name.GetText();
+    }	
+	
+	string getMethodNew(string className){
+		if (className.Contains("ModeloBase")){
+			return "";
+		}else{
+			return "new";
+		}
+	}
+	
+	string getMethodVirtual(string className){
+		if (className.Contains("ModeloBase")){
+			return "virtual";
+		}else{
+			return "override";
+		}
+	}
+	
+	string getClassSyntax(SyntaxTree syntaxTree){
+		var className = (ClassDeclarationSyntax)syntaxTree.
+        Root.
+        DescendentNodes().
+        First(n => n.Kind == SyntaxKind.ClassDeclaration);
+		return className.GetText().Substring(0, className.GetText().IndexOf("{"));
+	}
+	
+	string getClassName(SyntaxTree syntaxTree){
+		var className = (ClassDeclarationSyntax)syntaxTree.
+        Root.
+        DescendentNodes().
+        First(n => n.Kind == SyntaxKind.ClassDeclaration);
+		return className.Identifier.ValueText;
+	}
+	
+	IEnumerable<string> getUsings(SyntaxTree syntaxTree){
+		foreach (SyntaxNode node in syntaxTree.Root.DescendentNodes()){
+			if (node.Kind == SyntaxKind.UsingDirective){								
+				yield return node.GetText();
+			}
+		}
+		
+	}
+	
+	IEnumerable<KeyValuePair<string,string>> getFields(SyntaxTree syntaxTree)
+	    {
+            foreach (SyntaxNode node in syntaxTree.Root.DescendentNodes())
+            {
+                if (node is FieldDeclarationSyntax)
+                {
+                    FieldDeclarationSyntax fds = (FieldDeclarationSyntax) node;
+                    yield return new KeyValuePair<string, string>(fds.Declaration.Type.GetText(), fds.Declaration.Variables[0].Identifier.ValueText);
+                }
+            }
+	    }
+	
+	DTE2 GetActiveIDE()
+	{
+		if (dte==null){
+	    	dte = (DTE2)System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE.10.0");	    	
+		}
+		return dte;
+	}
+
+	EnvDTE.Project GetProject(string projectName)
+    {
+        DTE2 dte2 = GetActiveIDE();
+        foreach (EnvDTE.Project proj in dte2.Solution.Projects){
+            if (proj.Name == projectName)
+            {
+                return proj;
+            }
+        }
+        return null;
+    }
+	
+	IEnumerable<string> GetFilesStartingWith(string startsWith)
+    {
+		string startingPath = Path.GetDirectoryName(Host.TemplateFile);
+        foreach (string f in Directory.GetFiles(startingPath,startsWith+"*.cs",SearchOption.AllDirectories)){
+			if (f.Contains(".gen.cs")) continue;
+			if (f.Contains("Template")) continue;
+            yield return f;
+        }
+    }
+	
+	public static string PascalWordify(string pascalCaseString)
+	{            
+    	Regex r = new Regex("(?<=[a-z])(?<x>[A-Z])|(?<=.)(?<x>[A-Z])(?=[a-z])");
+    	return pascalCaseString[0].ToString().ToUpper() + r.Replace(pascalCaseString, "${x}").Substring(1);
+	}
+	
+#>

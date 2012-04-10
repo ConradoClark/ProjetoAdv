@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F2875BA-918E-4F2B-98EC-50D8EA0BB512}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dados</RootNamespace>
+    <AssemblyName>Dados</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.4.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Program Files\MySQL\MySQL Connector Net 6.4.4\Assemblies\v2.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acao\AcessoTipoAcao.cs" />
+    <Compile Include="Beneficio\AcessoTipoBeneficio.cs" />
+    <Compile Include="Cliente\AcessoCliente.cs" />
+    <Compile Include="Cliente\AcessoClienteAtendimento.cs" />
+    <Compile Include="Cliente\AcessoClienteBeneficio.cs" />
+    <Compile Include="Cliente\AcessoClienteContato.cs" />
+    <Compile Include="Cliente\AcessoClienteDependente.cs" />
+    <Compile Include="Cliente\AcessoClienteGrupoDiferencial.cs" />
+    <Compile Include="Cliente\AcessoClienteProcesso.cs" />
+    <Compile Include="Comum\Utils.cs" />
+    <Compile Include="Grupo\AcessoGrupoDiferencial.cs" />
+    <Compile Include="Pendencia\AcessoPendencia.cs" />
+    <Compile Include="Processo\AcessoProcesso.cs" />
+    <Compile Include="Processo\AcessoProcessoCliente.cs" />
+    <Compile Include="Processo\AcessoProcessoRecorte.cs" />
+    <Compile Include="Usuario\AcessoUsuario.cs" />
+    <Compile Include="Advogado\AcessoAdvogado.cs" />
+    <Compile Include="Comum\Exceptions.cs" />
+    <Compile Include="Comum\ExecucaoProcedure.cs" />
+    <Compile Include="Comum\ObjetoBanco.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Conexao\Conexao.csproj">
+      <Project>{C0E7FB7A-2BDB-42B5-AB1D-BFAD6ED25A16}</Project>
+      <Name>Conexao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Constantes\Constantes.csproj">
+      <Project>{C368891F-1CE1-4753-82CA-70F9F42EF679}</Project>
+      <Name>Constantes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{97753A4A-DD02-4112-9B35-0EFFFAB1B7C9}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
