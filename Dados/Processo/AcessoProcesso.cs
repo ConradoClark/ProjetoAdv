@@ -75,7 +75,7 @@ namespace Dados
             }
         }
 
-        public static void ObterProcesso(Modelo.Processo.ModeloProcesso processo)
+        public static bool ObterProcesso(Modelo.Processo.ModeloProcesso processo)
         {
             ObjetoBanco objeto = null;
             try
@@ -98,7 +98,9 @@ namespace Dados
                     processo.NumeroOrdem = @dados.numeroOrdem;
                     processo.QuantidadeDiasAlerta = @dados.qtdeDiasAlerta;
                     processo.OrigemDados = Modelo.Comum.OrigemDados.Banco;
+                    return true;
                 }
+                return false;
             }
             finally
             {

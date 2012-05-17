@@ -16,7 +16,7 @@ namespace Modelo.Processo
         string _objetivo;
         string _vara;
         string _cabeca;
-        DateTime _dataAjuizamentoAcao;
+        DateTime? _dataAjuizamentoAcao;
         string _observacao;
         string _reu;
         string _numeroOrdem;

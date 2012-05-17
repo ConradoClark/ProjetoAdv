@@ -142,10 +142,14 @@ namespace Estrutura
             this.AcertarColecoes();
         }
 
-        public void Obter()
+        public bool Obter()
         {
-            Dados.AcessoProcesso.ObterProcesso(this);
-            this.ObterColecoes();
+            bool result = Dados.AcessoProcesso.ObterProcesso(this);
+            if (result)
+            {
+                this.ObterColecoes();
+            }
+            return result;
         }
 
         public void Listar()

@@ -60,7 +60,7 @@ namespace Modelo.Processo{
 				public event _cabecaAlterado CabecaAlterado;				
 			#endregion			
 			#region Eventos do DataAjuizamentoAcao
-				public delegate void _dataAjuizamentoAcaoAlterado(DateTime valorAntigo, DateTime valorNovo);
+				public delegate void _dataAjuizamentoAcaoAlterado(DateTime? valorAntigo, DateTime? valorNovo);
 				public event _dataAjuizamentoAcaoAlterado DataAjuizamentoAcaoAlterado;				
 			#endregion			
 			#region Eventos do Observacao
@@ -163,7 +163,7 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public DateTime DataAjuizamentoAcao{
+					public DateTime? DataAjuizamentoAcao{
 				get{
 					return _dataAjuizamentoAcao;
 				}
@@ -248,7 +248,7 @@ namespace Modelo.Processo{
 										
 															Cabeca = default(string);
 										
-															DataAjuizamentoAcao = default(DateTime);
+															DataAjuizamentoAcao = default(DateTime?);
 										
 															Observacao = default(string);
 										

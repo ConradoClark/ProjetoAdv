@@ -131,6 +131,7 @@
             this.Processos.Name = "Processos";
             this.Processos.Size = new System.Drawing.Size(170, 30);
             this.Processos.Text = "PROCESSOS";
+            this.Processos.Click += new System.EventHandler(this.Processos_Click);
             // 
             // Consulta
             // 

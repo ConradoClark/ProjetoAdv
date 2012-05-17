@@ -14,13 +14,13 @@ namespace Visao
 {
     public partial class TelaPrincipal : Form
     {
-
         CadastroPendencia cp;
         CadastroGrupoDiferencial cgd;
         CadastroCliente cli;
         CadastroBeneficios ben;
         CadastroGrupoAcao cga;
         CadastroAdvogados ca;
+        CadastroProcessos cpro;
         Login login;
 
         public TelaPrincipal()
@@ -262,6 +262,24 @@ namespace Visao
                     LightBox.Activate();
                     login.Activate();                    
                 }
+            }
+        }
+
+        private void Processos_Click(object sender, EventArgs e)
+        {
+            if (cpro == null || cpro.IsDisposed)
+            {
+                cpro = new CadastroProcessos();
+                cpro.MdiParent = this;
+            }
+            if (cpro.Visible)
+            {
+                cpro.BringToFront();
+            }
+            else
+            {
+                cpro.Show();
+                cpro.Update();
             }
         }
     }
