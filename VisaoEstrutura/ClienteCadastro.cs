@@ -556,7 +556,7 @@ namespace VisaoEstrutura
                 {
                     txtAtendimentosRealizados.Select(txtAtendimentosRealizados.Text.Length - 1, 1);            
 
-                    string append = ate.DataHoraAtendimento.Value.ToString("dd/MM/yyyy hh:mm:ss");
+                    string append = ate.DataHoraAtendimento.Value.ToString("dd/MM/yyyy hh:mm:ss") + " - " + ate.UsuarioAtendimento.Nome;
                     
                     txtAtendimentosRealizados.Selection.Load(String.Concat("<p style='color:midnightblue;'>",append,"</p>"),StringStreamType.HTMLFormat);
                     txtAtendimentosRealizados.Select(txtAtendimentosRealizados.Text.Length - 1, 1);                    

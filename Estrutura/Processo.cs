@@ -15,7 +15,7 @@ namespace Estrutura
 
         }
         public void Remover()
-        {            
+        {
             this.ConferirOrigemParaManipularDados();
             AcessoTipoAcao.RemoverTipoAcao(this);
         }
@@ -52,6 +52,11 @@ namespace Estrutura
                 return count;
             }
         }
+
+        public override string ToString()
+        {
+            return this.Descricao;
+        }
     }
 
     public static class TiposAcao
@@ -87,29 +92,31 @@ namespace Estrutura
 
     public class Processo : Modelo.Processo.ModeloProcesso
     {
-        public ObservableCollection<Cliente> Clientes { get; private set; }
+        public ListaAssociada<Cliente> Clientes { get; private set; }
         public ObservableCollection<Recorte> Recortes { get; private set; }
+        public ListaAssociada<ProcessoAdvogado> Responsaveis { get; private set; }
 
         public Processo()
             : base()
-        {    
+        {
             this.TipoAcao = new TipoAcao();
-            this.Clientes = new ObservableCollection<Cliente>();
-            this.Clientes.CollectionChanged += (sender, args) => Clientes.ToList().ForEach((cli) =>
+            this.Cabeca = new Cliente();
+            this.Clientes = new ListaAssociada<Cliente>(() => new Cliente());
+            this.Clientes.ListChanged += (sender, args) => Clientes.ToList().ForEach((cli) =>
             {
-                switch (args.Action)
+                switch (args.ListChangedType)
                 {
-                    case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
+                    case System.ComponentModel.ListChangedType.ItemAdded:
                         if (!cli.Processos.Contains(this))
                         {
                             cli.Processos.Add(this);
-                        }                
+                        }
                         break;
-                    case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
+                    case System.ComponentModel.ListChangedType.ItemDeleted:
                         if (cli.Processos.Contains(this))
                         {
                             cli.Processos.Remove(this);
-                        }                
+                        }
                         break;
                 }
             });
@@ -132,6 +139,20 @@ namespace Estrutura
                         break;
                 }
             });
+
+            this.Responsaveis = new ListaAssociada<ProcessoAdvogado>(() => new ProcessoAdvogado(new Advogado(), this));
+            this.Responsaveis.ListChanged += (sender, args) => Responsaveis.ToList().ForEach((proadv) =>
+            {
+                switch (args.ListChangedType)
+                {
+                    case System.ComponentModel.ListChangedType.ItemAdded:
+                        if (proadv.Processo != this)
+                        {
+                            proadv.Processo = this;
+                        }
+                        break;
+                }
+            });
         }
 
         #region Metodos Processo
@@ -147,6 +168,7 @@ namespace Estrutura
             bool result = Dados.AcessoProcesso.ObterProcesso(this);
             if (result)
             {
+                this.LimparColecoes();
                 this.ObterColecoes();
             }
             return result;
@@ -154,13 +176,13 @@ namespace Estrutura
 
         public void Listar()
         {
-            Dados.AcessoProcesso.PesquisarProcesso(this,()=> new Processo());
+            Dados.AcessoProcesso.PesquisarProcesso(this, () => new Processo());
         }
 
         public void ObterColecoes()
         {
             Dados.AcessoProcessoCliente.ListarClienteProcesso(this,
-                    () => (Modelo.Cliente.ModeloProcessoCliente)new ProcessoCliente(this,new Cliente()))
+                    () => (Modelo.Cliente.ModeloProcessoCliente)new ProcessoCliente(this, new Cliente()))
                     .Cast<ProcessoCliente>().ToList()
                     .ForEach((cli) => this.Clientes.Add((Cliente)cli.Cliente));
 
@@ -168,6 +190,17 @@ namespace Estrutura
                     () => (Modelo.Processo.ModeloRecorteProcesso)new Recorte(this, new Usuario()))
                     .Cast<Recorte>().ToList()
                     .ForEach((rec) => this.Recortes.Add((Recorte)rec));
+
+            Dados.AcessoProcessoAdvogado.ListarProcessoAdvogado(new ProcessoAdvogado(new Advogado(), this),
+                () => (Modelo.Advogado.ModeloAdvogadoProcesso)new ProcessoAdvogado(new Advogado(), this))
+                .Cast<ProcessoAdvogado>().ToList()
+                .ForEach((proadv) => this.Responsaveis.Add(proadv));
+
+            Dados.AcessoProcessoRecorte.ListarRecorteProcesso(this, 
+                () => (Modelo.Processo.ModeloRecorteProcesso) new Recorte(this, new Usuario()))
+                .Cast<Recorte>().ToList()
+                .ForEach((rec) => this.Recortes.Add(rec));
+
         }
 
         public void Salvar()
@@ -189,11 +222,14 @@ namespace Estrutura
         {
             this.AcertarClientes();
             this.AcertarRecortes();
+            this.AcertarAdvogadosResponsaveis();
         }
 
         private void LimparColecoes()
         {
             this.Clientes.Clear();
+            this.Recortes.Clear();
+            this.Responsaveis.Clear();
         }
 
         #region Metodos Cliente
@@ -241,7 +277,7 @@ namespace Estrutura
                 ProcessoCliente processoCliente = new ProcessoCliente(this, cliente);
                 if (!Dados.AcessoProcessoCliente.ObterClienteProcesso(processoCliente))
                 {
-                    acertar+= ()=> this.InserirCliente(processoCliente);
+                    acertar += () => this.InserirCliente(processoCliente);
                 }
             }
             acertar();
@@ -272,16 +308,16 @@ namespace Estrutura
 
         private void AcertarRecortes()
         {
-            Action acertar = new Action(() => { });
+            List<Modelo.Processo.ModeloRecorteProcesso> recortesAdicionar = new List<Modelo.Processo.ModeloRecorteProcesso>();
             foreach (Recorte recorte in this.Recortes)
             {
                 if (!Dados.AcessoProcessoRecorte.ObterRecorteProcesso(recorte))
                 {
-                   acertar+= ()=> this.InserirRecorte(recorte);
+                    recortesAdicionar.Add(recorte);
                 }
             }
-            acertar();
-            IEnumerable<Recorte> recortesListados = Dados.AcessoProcessoRecorte.ListarRecorteProcesso(this, () => (Modelo.Processo.ModeloRecorteProcesso)new Recorte(this,new Usuario())).Cast<Recorte>();
+            recortesAdicionar.ForEach((rec) => InserirRecorte(rec));
+            IEnumerable<Recorte> recortesListados = Dados.AcessoProcessoRecorte.ListarRecorteProcesso(this, () => (Modelo.Processo.ModeloRecorteProcesso)new Recorte(this, new Usuario())).Cast<Recorte>();
             foreach (Recorte recorte in recortesListados)
             {
                 if (this.Recortes.All((rec) => rec.Processo.Id != recorte.Processo.Id && rec.DataInclusao != recorte.DataInclusao))
@@ -292,13 +328,96 @@ namespace Estrutura
         }
         #endregion
 
+        #region Metodos Advogados Responsaveis
+
+        private void InserirProcessoAdvogado(Modelo.Advogado.ModeloAdvogadoProcesso processoAdvogado)
+        {
+            processoAdvogado.ConferirOrigemParaInserir();
+            Dados.AcessoProcessoAdvogado.InserirProcessoAdvogado(processoAdvogado);
+        }
+
+        private void RemoverProcessoAdvogado(Modelo.Advogado.ModeloAdvogadoProcesso processoAdvogado)
+        {
+            processoAdvogado.ConferirOrigemParaManipularDados();
+            Dados.AcessoProcessoAdvogado.RemoverProcessoAdvogado(processoAdvogado);
+        }
+
+        private void AcertarAdvogadosResponsaveis()
+        {
+            List<Modelo.Advogado.ModeloAdvogadoProcesso> responsaveisAdicionar = new List<Modelo.Advogado.ModeloAdvogadoProcesso>();
+            foreach (ProcessoAdvogado processoAdvogado in this.Responsaveis)
+            {
+                if (!Dados.AcessoProcessoAdvogado.ObterProcessoAdvogado(processoAdvogado))
+                {
+                    responsaveisAdicionar.Add(processoAdvogado);
+                }
+                responsaveisAdicionar.ForEach((proadv) => InserirProcessoAdvogado(proadv));
+            }
+
+            IEnumerable<ProcessoAdvogado> processoAdvogadoListados = Dados.AcessoProcessoAdvogado.ListarProcessoAdvogado(new ProcessoAdvogado(new Advogado(), this), () => (Modelo.Advogado.ModeloAdvogadoProcesso)new ProcessoAdvogado(new Advogado(), this)).Cast<ProcessoAdvogado>();
+            foreach (ProcessoAdvogado processoAdvogado in processoAdvogadoListados)
+            {
+                if (this.Responsaveis.All((adv) => adv.Advogado.Id != processoAdvogado.Advogado.Id))
+                {
+                    this.RemoverProcessoAdvogado(processoAdvogado);
+                }
+            }
+        }
+
         #endregion
+
+        #endregion
+    }
+
+    public class ProcessoAdvogado : Modelo.Advogado.ModeloAdvogadoProcesso
+    {
+        public ProcessoAdvogado(Modelo.Advogado.ModeloAdvogado advogado, Modelo.Processo.ModeloProcesso processo)
+        {
+            this.Processo = processo;
+            this.Advogado = advogado;
+        }
+
+        public string NomeAdvogado
+        {
+            get { return Advogado.Nome; }
+        }
+
+        public static IEnumerable<ProcessoAdvogado> ListarPorProcesso(Processo processo)
+        {
+            return AcessoAdvogado.ListarAdvogado(() => new Advogado())
+                .Select((obj) => new ProcessoAdvogado(obj, processo));
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is ProcessoAdvogado)
+            {
+                ProcessoAdvogado comp = (ProcessoAdvogado)obj;
+                if (this.Processo == null || comp.Processo == null)
+                {
+                    return comp.Processo == this.Processo && comp.Advogado.Equals(this.Advogado);
+                }
+                return comp.Processo.Equals(this.Processo) && comp.Advogado.Equals(this.Advogado);
+            }
+            return false;
+        }
+        public override int GetHashCode(){
+            if (this.Processo == null)
+            {
+                return Advogado.GetHashCode();
+            }
+            else
+            {
+                return Processo.GetHashCode() & Advogado.GetHashCode();
+            }            
+        }
     }
 
     public static class Processos
     {
-        public static IEnumerable<Modelo.Processo.ModeloProcesso> Listar(){
-            return AcessoProcesso.PesquisarProcesso(new Processo(),()=> new Processo());
+        public static IEnumerable<Modelo.Processo.ModeloProcesso> Listar()
+        {
+            return AcessoProcesso.PesquisarProcesso(new Processo(), () => new Processo());
         }
     }
 }

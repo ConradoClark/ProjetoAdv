@@ -145,15 +145,15 @@ namespace Estrutura
                         if (!pro.Clientes.Contains(this))
                         {
                             pro.Clientes.Add(this);
-                        }                
+                        }
                         break;
                     case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
                         if (pro.Clientes.Contains(this))
                         {
                             pro.Clientes.Remove(this);
-                        }                
+                        }
                         break;
-                }       
+                }
             });
             this.Atendimentos.ListChanged += (sender, args) => Atendimentos.ToList().ForEach((att) =>
             {
@@ -563,6 +563,11 @@ namespace Estrutura
         public static IEnumerable<Modelo.Cliente.ModeloCliente> Pesquisar(Modelo.Cliente.ModeloCliente clienteBase)
         {
             return Dados.AcessoCliente.PesquisarCliente(clienteBase, () => (Modelo.Cliente.ModeloCliente)new Cliente());
+        }
+
+        public static IEnumerable<Modelo.Cliente.ModeloCliente> PesquisarFullText(string textoBusca)
+        {
+            return Dados.AcessoCliente.PesquisarClienteFullText(textoBusca, () => (Modelo.Cliente.ModeloCliente)new Cliente());
         }
     }
 }

@@ -328,5 +328,85 @@ namespace Dados
             }
         }
 
+        public static IEnumerable<Modelo.Cliente.ModeloCliente> PesquisarClienteFullText(String textoBusca, Func<Modelo.Cliente.ModeloCliente> criacaoCliente)
+        {
+            ObjetoBanco objeto = null;
+            try
+            {
+                objeto = ExecucaoProcedure.ExecutarQuery(Constantes.Procedures.Cliente.ListarClienteFullText,
+                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.TextoBusca, textoBusca)
+                    );
+
+                dynamic dados = objeto as dynamic;
+                while (objeto.Reader.Read())
+                {
+                    Modelo.Cliente.ModeloCliente cliente = criacaoCliente();
+                    cliente.Id = @dados.idCliente;
+                    cliente.Nome = @dados.nome;
+                    cliente.Nome = @dados.nome;
+                    cliente.NomePai = @dados.nomePai;
+                    cliente.NomeMae = @dados.nomeMae;
+                    cliente.DataNascimento = @dados.dataNascimento;
+                    cliente.Profissao = @dados.profissao;
+                    cliente.Cpf = @dados.cpf;
+                    cliente.Rg = @dados.rg;
+                    cliente.OrgaoExpedidorRG = @dados.orgaoExpedidorRG;
+                    cliente.DataEmissaoRG = @dados.dataEmissaoRg;
+                    Modelo.Comum.EstadoCivil estadoCivil;
+                    if (Enum.TryParse(@dados.estadoCivil, out estadoCivil))
+                    {
+                        cliente.EstadoCivil = estadoCivil;
+                    }
+                    cliente.Nacionalidade = @dados.nacionalidade;
+                    cliente.Endereco.Logradouro = @dados.enderecoLogradouro;
+                    cliente.Endereco.Numero = @dados.enderecoNumero;
+                    cliente.Endereco.Complemento = @dados.enderecoComplemento;
+                    cliente.Endereco.Bairro = @dados.enderecoBairro;
+                    cliente.Endereco.Cidade = @dados.enderecoCidade;
+                    cliente.Endereco.Uf = @dados.enderecoUF;
+                    cliente.Endereco.Cep = @dados.enderecoCEP;
+                    cliente.TituloEleitor = @dados.tituloEleitor;
+                    cliente.ZonaEleitoral = @dados.zonaEleitoral;
+                    cliente.SecaoEleitoral = @dados.secaoEleitoral;
+                    cliente.IndGrupo = Convert.ToBoolean(@dados.indGrupo);
+                    cliente.IndCliente = Convert.ToBoolean(@dados.indCliente);
+                    cliente.IndContato = Convert.ToBoolean(@dados.indContato);
+                    cliente.IndDependente = Convert.ToBoolean(@dados.indDependente);
+                    cliente.IndPendencia = Convert.ToBoolean(@dados.indPendencia);
+                    cliente.IndFalecido = Convert.ToBoolean(@dados.indFalecido);
+                    cliente.DataFalecimento = @dados.dataFalecimento;
+                    cliente.Naturalidade = @dados.naturalidade;
+                    cliente.Ctps1 = @dados.ctps1;
+                    cliente.Ctps2 = @dados.ctps2;
+                    cliente.Ctps3 = @dados.ctps3;
+                    cliente.Ctps4 = @dados.ctps4;
+                    cliente.Ctps5 = @dados.ctps5;
+                    cliente.CtpsSerie1 = @dados.ctpsserie1;
+                    cliente.CtpsSerie2 = @dados.ctpsserie2;
+                    cliente.CtpsSerie3 = @dados.ctpsserie3;
+                    cliente.CtpsSerie4 = @dados.ctpsserie4;
+                    cliente.CtpsSerie5 = @dados.ctpsserie5;
+                    cliente.Nit1 = @dados.nit1;
+                    cliente.Nit2 = @dados.nit2;
+                    cliente.Nit3 = @dados.nit3;
+                    cliente.Nit4 = @dados.nit4;
+                    cliente.PisPasep1 = @dados.pispasep1;
+                    cliente.PisPasep2 = @dados.pispasep2;
+                    cliente.PisPasep3 = @dados.pispasep3;
+                    cliente.PisPasep4 = @dados.pispasep4;
+                    cliente.NomeClienteIndicacao = @dados.indicacao;
+                    cliente.OrigemDados = Modelo.Comum.OrigemDados.Banco;
+                    yield return cliente;
+                }
+            }
+            finally
+            {
+                if (objeto != null)
+                {
+                    objeto.Reader.Close();
+                }
+            }
+        }
+
     }
 }

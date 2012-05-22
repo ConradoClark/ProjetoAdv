@@ -3,16 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Modelo.Comum;
+using System.Collections.ObjectModel;
 
 namespace Estrutura
 {
     public class Advogado : Modelo.Advogado.ModeloAdvogado
     {
+        public ObservableCollection<ProcessoAdvogado> Processos { get; private set; }        
 
         public Advogado()
             : base()
-        {
+        {                        
+            this.Processos = new ObservableCollection<ProcessoAdvogado>();
+            this.Processos.CollectionChanged += (sender, args) => Processos.ToList().ForEach((proadv) =>
+            {
+                switch (args.Action)
+                {
+                    case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
+                        if (proadv.Advogado != this)
+                        {
+                            proadv.Advogado = this;
+                        }
+                        break;
+                    case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
+                        if (proadv.Advogado == this)
+                        {
+                            proadv.Advogado = null;
+                        }
+                        break;
+                }
+            });
+        }
 
+        public Advogado(Processo processo)
+            : this()
+        {
         }
 
         public void Inserir()
@@ -43,7 +68,15 @@ namespace Estrutura
         {
             get
             {
-                return 0;
+                return Processos.Count;
+            }
+        }
+
+        public Modelo.Advogado.ModeloAdvogado Self
+        {
+            get
+            {
+                return (Modelo.Advogado.ModeloAdvogado) this;
             }
         }
     }

@@ -56,7 +56,7 @@ namespace Modelo.Processo{
 				public event _varaAlterado VaraAlterado;				
 			#endregion			
 			#region Eventos do Cabeca
-				public delegate void _cabecaAlterado(string valorAntigo, string valorNovo);
+				public delegate void _cabecaAlterado(Modelo.Cliente.ModeloCliente valorAntigo, Modelo.Cliente.ModeloCliente valorNovo);
 				public event _cabecaAlterado CabecaAlterado;				
 			#endregion			
 			#region Eventos do DataAjuizamentoAcao
@@ -149,7 +149,7 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public string Cabeca{
+					public Modelo.Cliente.ModeloCliente Cabeca{
 				get{
 					return _cabeca;
 				}
@@ -246,7 +246,8 @@ namespace Modelo.Processo{
 										
 															Vara = default(string);
 										
-															Cabeca = default(string);
+												
+						Cabeca.Limpar();
 										
 															DataAjuizamentoAcao = default(DateTime?);
 										

@@ -15,7 +15,7 @@ namespace Modelo.Processo
         ModeloTipoAcao _tipoAcao;        
         string _objetivo;
         string _vara;
-        string _cabeca;
+        Modelo.Cliente.ModeloCliente _cabeca;
         DateTime? _dataAjuizamentoAcao;
         string _observacao;
         string _reu;

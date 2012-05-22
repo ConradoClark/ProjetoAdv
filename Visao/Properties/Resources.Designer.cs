@@ -235,6 +235,13 @@ namespace Visao.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap cabeca32 {
+            get {
+                object obj = ResourceManager.GetObject("cabeca32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap cad128 {
             get {
                 object obj = ResourceManager.GetObject("cad128", resourceCulture);

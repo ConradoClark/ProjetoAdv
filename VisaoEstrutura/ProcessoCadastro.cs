@@ -35,7 +35,7 @@ namespace VisaoEstrutura
         public event single AoLimpar;
         public event single AoCancelar;
 
-         #region Construtores
+        #region Construtores
         public ProcessoCadastro(Form tela, TextBoxBase buscaNumeroReferenciaInterna,
             ButtonBase botaoBusca, ButtonBase botaoAdicionar,
             ButtonBase botaoSalvar, ButtonBase botaoPDF, ButtonBase botaoFechar,
@@ -238,6 +238,159 @@ namespace VisaoEstrutura
         #endregion
 
         #region Abas
+
+        public void PopularAbaAndamento(
+                    TextControl txtAndamento,
+                    TextControl txtRegistroAndamento
+                    )
+        {
+            AoBuscar += () => { GetRegistroAndamento(txtRegistroAndamento); };
+            AoAdicionar += () => { GetRegistroAndamento(txtRegistroAndamento); };
+            AoLimpar += () => { GetRegistroAndamento(txtRegistroAndamento); };
+            AoCancelar += () => { GetRegistroAndamento(txtRegistroAndamento); };
+
+            AntesDeSalvar += () =>
+            {
+                if (!String.IsNullOrWhiteSpace(txtAndamento.Text))
+                {
+                    Recorte recorte = new Recorte(ProcessoAtivo, Sessao.UsuarioAtual);
+                    string result;
+                    txtAndamento.Save(out result, StringStreamType.HTMLFormat);
+                    recorte.TextoRecorte = result;
+                    recorte.DataInclusao = DateTime.Now;
+                    ProcessoAtivo.Recortes.Add(recorte);
+                    txtAndamento.Text = String.Empty;
+                    GetRegistroAndamento(txtRegistroAndamento);
+                }
+                return true;
+            };
+        }
+
+        void GetRegistroAndamento(TextControl txtAtendimentosRealizados)
+        {
+            txtAtendimentosRealizados.Text = "";
+            ProcessoAtivo.Recortes.OrderByDescending((re) => re.DataInclusao).ToList().ForEach((re) =>
+            {
+                if (re.DataInclusao.HasValue)
+                {
+                    txtAtendimentosRealizados.Select(txtAtendimentosRealizados.Text.Length - 1, 1);
+                    string append = re.DataInclusao.Value.ToString("dd/MM/yyyy hh:mm:ss") + " - " + re.UsuarioInclusao.Nome;
+
+                    txtAtendimentosRealizados.Selection.Load(String.Concat("<p style='color:midnightblue;'>", append, "</p>"), StringStreamType.HTMLFormat);
+                    txtAtendimentosRealizados.Select(txtAtendimentosRealizados.Text.Length - 1, 1);
+
+                    append = re.TextoRecorte;
+                    txtAtendimentosRealizados.Selection.Load(append, StringStreamType.HTMLFormat);
+                    txtAtendimentosRealizados.Select(txtAtendimentosRealizados.Text.Length - 1, 1);
+                }
+            });
+        }
+
+        public void PopularAbaAutores(
+            TextBoxBase txtPesquisa,
+            ButtonBase btnPesquisar,
+            ButtonBase btnAdicionarAutor,
+            ButtonBase btnRemoverAutor,
+            ButtonBase btnDefineCabeca,
+            DataGridView gridPesquisaClientes,
+            DataGridView gridAutoresProcesso)
+        {
+
+            gridAutoresProcesso.AutoGenerateColumns = false;
+            gridAutoresProcesso.DataSource = ProcessoAtivo.Clientes;
+            btnPesquisar.Click += (sender, args) =>
+            {
+                gridPesquisaClientes.AutoGenerateColumns = false;
+                gridPesquisaClientes.DataSource = Clientes.PesquisarFullText(txtPesquisa.Text).ToList();
+            };
+            btnAdicionarAutor.Click += (sender, args) =>
+            {
+                foreach(DataGridViewRow row in gridPesquisaClientes.SelectedRows)
+                {
+                    if (row.DataBoundItem != null)
+                    {
+                        Cliente cliente = (Cliente)row.DataBoundItem;
+                        if (ProcessoAtivo.Clientes.Count((cli) => cli.Id == cliente.Id)==0) { 
+                            ProcessoAtivo.Clientes.Add(cliente);
+                        }
+                    }
+                }
+            };
+
+            btnRemoverAutor.Click += (sender, args) =>
+            {
+                foreach (DataGridViewRow row in gridPesquisaClientes.SelectedRows)
+                {
+                    if (row.DataBoundItem != null)
+                    {
+                        Cliente cliente = (Cliente)row.DataBoundItem;
+                        ProcessoAtivo.Clientes.Remove(cliente);
+                    }
+                }
+            };
+
+            btnDefineCabeca.Click += (sender, args) =>
+            {
+                if (gridPesquisaClientes.SelectedRows.Count != 1)
+                {
+                    DialogoAlerta.Mostrar("Erro", "Selecione um e apenas um autor na lista para ser definido como cabeça do processo",
+                           MessageBoxIcon.Error,
+                           MessageBoxButtons.OK);
+                }
+                else
+                {
+                    Cliente cliente = (Cliente)gridAutoresProcesso.SelectedRows[0].DataBoundItem;
+                    DialogResult resposta = DialogoAlerta.Mostrar("Confirmação",
+                    String.Format("Deseja definir o cliente {0} - {1} como cabeça do processo?", cliente.Id,cliente.Nome),
+                                        MessageBoxIcon.Question,
+                                        MessageBoxButtons.YesNo);
+                    if (resposta == DialogResult.Yes) { 
+                        ProcessoAtivo.Cabeca = cliente;
+                    }
+                }
+            };
+        }
+
+        public void PopularAbaObservacao(
+            TextControl observacao
+            )
+        {
+            AoBuscar += () =>
+            {
+                CarregarObservacoes(observacao);
+            };
+
+            AoCancelar += () =>
+            {
+                CarregarObservacoes(observacao);
+            };
+
+            AntesDeSalvar += () =>
+            {
+                if (!String.IsNullOrWhiteSpace(observacao.Text))
+                {
+                    string result = String.Empty;
+                    observacao.Save(out result, StringStreamType.HTMLFormat);
+                    ProcessoAtivo.Observacao = result;
+                    CarregarObservacoes(observacao);
+                }
+                return true;
+            };
+        }
+
+        public void PopularAbaResponsavel(
+            DataGridView responsavelGrid,
+            DataGridViewComboBoxColumn advogadoColumn
+            )
+        {
+            responsavelGrid.AutoGenerateColumns = false;
+            responsavelGrid.DataSource = ProcessoAtivo.Responsaveis;
+            advogadoColumn.DataSource = ProcessoAdvogado.ListarPorProcesso(ProcessoAtivo).ToList();            
+            advogadoColumn.DisplayMember = "NomeAdvogado";
+            advogadoColumn.ValueMember = "Advogado";
+            responsavelGrid.DataError += responsavelGrid_DataError;
+        }
+
         public void PopularAbaPrincipal(
                         TextBoxBase codigo,
                         TextBoxBase cabeca,
@@ -253,8 +406,10 @@ namespace VisaoEstrutura
             //Bindings
             ProcessoAtivo.IdAlterado += (antigo, novo) => codigo.Text = novo.ToString();
 
-            cabeca.TextChanged += (sender, args) => { ProcessoAtivo.Cabeca = cabeca.Text; };
-            ProcessoAtivo.CabecaAlterado += (antigo, novo) => cabeca.Text = novo;
+            ProcessoAtivo.Cabeca.NomeAlterado += (antigo, novo) =>
+            {
+                cabeca.Text = novo;
+            };
 
             processo.TextChanged += (sender, args) => { ProcessoAtivo.NumeroProcesso = processo.Text; };
             ProcessoAtivo.NumeroProcessoAlterado += (antigo, novo) => processo.Text = novo;
@@ -268,13 +423,24 @@ namespace VisaoEstrutura
             forumVaraComarca.TextChanged += (sender, args) => { ProcessoAtivo.Vara = forumVaraComarca.Text; };
             ProcessoAtivo.VaraAlterado += (antigo, novo) => forumVaraComarca.Text = novo;
 
-            tipoAcao.SelectedIndexChanged += (sender, args) => { ProcessoAtivo.TipoAcao = tipoAcao.SelectedItem == null ? null : (TipoAcao) tipoAcao.SelectedItem; };
-            ProcessoAtivo.TipoAcaoAlterado += (antigo, novo) => tipoAcao.SelectedItem = novo;
+            tipoAcao.Items.AddRange(TiposAcao.Listar().ToArray());
+            tipoAcao.SelectedIndexChanged += (sender, args) => { ProcessoAtivo.TipoAcao = tipoAcao.SelectedItem == null ? null : (TipoAcao)tipoAcao.SelectedItem; };
+            ProcessoAtivo.TipoAcao.IdAlterado += (antigo, novo) =>
+            {
+                foreach (TipoAcao tpAcao in tipoAcao.Items)
+                {
+                    if (tpAcao.Id == novo)
+                    {
+                        tipoAcao.SelectedItem = tpAcao;
+                        break;
+                    }
+                }
+            };
 
             dataAjuizamento.TextChanged += (sender, args) =>
             {
                 DateTime result = default(DateTime);
-                if (DateTime.TryParseExact(dataAjuizamento.Text, "ddMMyyyy", CultureInfo.CurrentCulture, DateTimeStyles.AllowWhiteSpaces, out result))
+                if (DateTime.TryParseExact(dataAjuizamento.Text, "dd/MM/yyyy", CultureInfo.CurrentCulture, DateTimeStyles.AllowWhiteSpaces, out result))
                 {
                     ProcessoAtivo.DataAjuizamentoAcao = result;
                 }
@@ -289,18 +455,25 @@ namespace VisaoEstrutura
                 CarregarObjetivo(objetivo);
             };
 
-            AoCancelar+= ()=>{
+            AoCancelar += () =>
+            {
                 CarregarObjetivo(objetivo);
             };
-            
+
             AntesDeSalvar += () =>
             {
-                if (!String.IsNullOrWhiteSpace(objetivo.Text))
+                if (ProcessoAtivo.Responsaveis.Distinct().Count() != ProcessoAtivo.Responsaveis.Count)
                 {
+                    DialogoAlerta.Mostrar("Erro", "Não é possível salvar um processo com 2 advogados iguais como responsáveis.",
+                           MessageBoxIcon.Error,
+                           MessageBoxButtons.OK);
+                    return false;
+                }
+                if (!String.IsNullOrWhiteSpace(objetivo.Text))
+                {                    
                     string result = String.Empty;
                     objetivo.Save(out result, StringStreamType.HTMLFormat);
                     ProcessoAtivo.Objetivo = result;
-                    objetivo.Text = String.Empty;
                     CarregarObjetivo(objetivo);
                 }
                 return true;
@@ -309,9 +482,53 @@ namespace VisaoEstrutura
 
         protected void CarregarObjetivo(TextControl objetivo)
         {
+            if (ProcessoAtivo.Objetivo == null) return;
+            objetivo.Text = String.Empty;
             objetivo.Select(objetivo.Text.Length - 1, 1);
             objetivo.Selection.Load(ProcessoAtivo.Objetivo, StringStreamType.HTMLFormat);
         }
+
+        protected void CarregarObservacoes(TextControl observacao)
+        {
+            if (ProcessoAtivo.Observacao == null) return;
+            observacao.Text = String.Empty;
+            observacao.Select(observacao.Text.Length - 1, 1);
+            observacao.Selection.Load(ProcessoAtivo.Observacao, StringStreamType.HTMLFormat);
+        }
+
+        void responsavelGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            DataGridView view = sender as DataGridView;
+            if (view.CurrentCell is DataGridViewComboBoxCell)
+            {
+                if (view.CurrentCell.RowIndex != e.RowIndex && view.CurrentCell.ColumnIndex != e.ColumnIndex)
+                {
+                    view.CurrentCell = view.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    view.BeginEdit(true);
+                    view.CurrentCell.Selected = true;
+
+                    DialogoAlerta.Mostrar("Erro", "Um ou mais campos obtidos de outras tabelas (Grupos Diferenciais, Tipos de Benefícios, etc) foram deletados, verifique as informações do cliente antes de salvar.",
+                                                            MessageBoxIcon.Error,
+                                                            MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                if (view.CurrentCell.RowIndex != e.RowIndex && view.CurrentCell.ColumnIndex != e.ColumnIndex)
+                {
+                    view.CurrentCell = view.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    view.CurrentCell.Selected = true;
+                    view.BeginEdit(true);
+                }
+                else
+                {
+                    DialogoAlerta.Mostrar("Erro", "Dados digitados inválidos para o campo, verifique o preenchimento.",
+                        MessageBoxIcon.Error,
+                        MessageBoxButtons.OK);
+                }
+            }
+        }
+
         #endregion
     }
 }

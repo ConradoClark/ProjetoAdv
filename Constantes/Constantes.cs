@@ -61,6 +61,7 @@ namespace Constantes
             public const string RemoverCliente = "ClienteRemover";
             public const string ObterCliente = "ClienteObter";
             public const string ListarCliente = "ClienteListar";
+            public const string ListarClienteFullText = "ClienteListarFullText";
             public static class Atendimento
             {
                 public const string InserirAtendimentoCliente = "ClienteAtendimentoInserir";
@@ -126,6 +127,13 @@ namespace Constantes
                 public const string ObterRecorteProcesso = "ProcessoRecorteObter";
                 public const string ListarRecorteProcesso = "ProcessoRecorteListar";
             }
+
+            public static class Advogado
+            {
+                public const string InserirProcessoAdvogado = "ProcessoAdvogadoInserir";
+                public const string RemoverProcessoAdvogado = "ProcessoAdvogadoRemover";
+                public const string ListarProcessoAdvogado = "ProcessoAdvogadoListar";
+            }
         }
 
         public static class TipoBeneficio
@@ -187,6 +195,7 @@ namespace Constantes
             public const string DataEmissaoRG = "_dataEmissaoRg";
             public const string EstadoCivil = "_estadoCivil";
             public const string Nacionalidade = "_nacionalidade";
+            public const string TextoBusca = "_texto";
             public static class Endereco
             {
                 public const string Logradouro = "_enderecoLogradouro";
@@ -310,6 +319,11 @@ namespace Constantes
                 public const string DataInclusao = "_dataInclusao";
                 public const string IdUsuario = "_idUsuario";
                 public const string TextoRecorte = "_recorte";
+            }
+            public static class Advogado
+            {
+                public const string IdProcesso = "_idProcesso";
+                public const string IdAdvogado = "_idAdvogado";
             }
         }
 

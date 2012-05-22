@@ -18,7 +18,7 @@ namespace Dados
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.IdTipoAcao, processo.TipoAcao.Id),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.Objetivo, processo.Objetivo),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.Vara, processo.Vara),
-                    new KeyValuePair<string, object>(Constantes.Parametros.Processo.Cabeca, processo.Cabeca),
+                    new KeyValuePair<string, object>(Constantes.Parametros.Processo.Cabeca, processo.Cabeca.Id),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.DataAjuizamentoAcao, processo.DataAjuizamentoAcao),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.Observacao, processo.Observacao),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.Reu, processo.Reu),
@@ -56,7 +56,7 @@ namespace Dados
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.IdTipoAcao, processo.TipoAcao.Id),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.Objetivo, processo.Objetivo),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.Vara, processo.Vara),
-                    new KeyValuePair<string, object>(Constantes.Parametros.Processo.Cabeca, processo.Cabeca),
+                    new KeyValuePair<string, object>(Constantes.Parametros.Processo.Cabeca, processo.Cabeca.Id),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.DataAjuizamentoAcao, processo.DataAjuizamentoAcao),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.Observacao, processo.Observacao),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.Reu, processo.Reu),
@@ -91,7 +91,8 @@ namespace Dados
                     AcessoTipoAcao.ObterTipoAcao(processo.TipoAcao);
                     processo.Objetivo = @dados.objetivo;
                     processo.Vara = @dados.vara;
-                    processo.Cabeca = @dados.cabeca;
+                    processo.Cabeca.Id = @dados.cabeca;
+                    AcessoCliente.ObterCliente(processo.Cabeca);
                     processo.DataAjuizamentoAcao = @dados.dataAjuizamentoAcao;
                     processo.Observacao = @dados.observacao;
                     processo.Reu = @dados.reu;
@@ -136,7 +137,7 @@ namespace Dados
                 objeto = ExecucaoProcedure.ExecutarQuery(Constantes.Procedures.Processo.ListarProcesso,
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.IdProcesso, processoBase.Id),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.NumeroProcesso, processoBase.NumeroProcesso),
-                    new KeyValuePair<string, object>(Constantes.Parametros.Processo.Cabeca, processoBase.Cabeca)
+                    new KeyValuePair<string, object>(Constantes.Parametros.Processo.Cabeca, processoBase.Cabeca.Id)
                     );
 
                 dynamic dados = objeto as dynamic;
@@ -148,7 +149,8 @@ namespace Dados
                     AcessoTipoAcao.ObterTipoAcao(processo.TipoAcao);
                     processo.Objetivo = @dados.objetivo;
                     processo.Vara = @dados.vara;
-                    processo.Cabeca = @dados.cabeca;
+                    processo.Cabeca.Id = @dados.cabeca;
+                    AcessoCliente.ObterCliente(processo.Cabeca);
                     processo.DataAjuizamentoAcao = @dados.dataAjuizamentoAcao;
                     processo.Observacao = @dados.observacao;
                     processo.Reu = @dados.reu;
