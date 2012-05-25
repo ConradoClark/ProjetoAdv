@@ -40,7 +40,6 @@
             this.Consulta = new System.Windows.Forms.ToolStripMenuItem();
             this.cONSULTASIMPLESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pROCESSOSPARADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Documentos = new System.Windows.Forms.ToolStripMenuItem();
             this.hONORÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pROCURAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -137,8 +136,7 @@
             // 
             this.Consulta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cONSULTASIMPLESToolStripMenuItem,
-            this.pROCESSOSPARADOSToolStripMenuItem,
-            this.cONSULTAToolStripMenuItem});
+            this.pROCESSOSPARADOSToolStripMenuItem});
             this.Consulta.Image = global::Visao.Properties.Resources.search_32x32;
             this.Consulta.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.Consulta.Name = "Consulta";
@@ -162,14 +160,6 @@
             this.pROCESSOSPARADOSToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.pROCESSOSPARADOSToolStripMenuItem.Text = "PROCESSOS POR CLIENTE";
             this.pROCESSOSPARADOSToolStripMenuItem.Click += new System.EventHandler(this.pROCESSOSPARADOSToolStripMenuItem_Click);
-            // 
-            // cONSULTAToolStripMenuItem
-            // 
-            this.cONSULTAToolStripMenuItem.Image = global::Visao.Properties.Resources.ConsAvancada24x24;
-            this.cONSULTAToolStripMenuItem.Name = "cONSULTAToolStripMenuItem";
-            this.cONSULTAToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
-            this.cONSULTAToolStripMenuItem.Text = "CONSULTA AVANÇADAS";
-            this.cONSULTAToolStripMenuItem.Click += new System.EventHandler(this.cONSULTAToolStripMenuItem_Click);
             // 
             // Documentos
             // 
@@ -298,8 +288,8 @@
             this.Sair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Sair.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.Sair.Name = "Sair";
-            this.Sair.Size = new System.Drawing.Size(81, 46);
-            this.Sair.Text = "  SAIR";
+            this.Sair.Size = new System.Drawing.Size(127, 46);
+            this.Sair.Text = "  JANELA/SAIR";
             // 
             // EfetuarLogoff
             // 
@@ -395,7 +385,6 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem cONSULTASIMPLESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pROCESSOSPARADOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cONSULTAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Pendencias;
         private System.Windows.Forms.ToolStripMenuItem TipoAcao;
         private System.Windows.Forms.ToolStripMenuItem Advogados;

@@ -8,6 +8,7 @@ namespace Modelo.Comum{
 	public partial class ModeloGrauParentesco : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloGrauParentesco(){
 								}

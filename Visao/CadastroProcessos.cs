@@ -12,10 +12,11 @@ namespace Visao
 {
     public partial class CadastroProcessos : Form
     {
+        public ProcessoCadastro Link { get; set; }
         public CadastroProcessos()
         {
             InitializeComponent();
-            ProcessoCadastro pc = new ProcessoCadastro(
+            Link = new ProcessoCadastro(
                 this,                
                 codigoBusca,
                 btnPesquisar,
@@ -27,7 +28,7 @@ namespace Visao
                 btnCancelar,
                 btnLimpar);
 
-            pc.PopularAbaPrincipal(
+            Link.PopularAbaPrincipal(
                 codigo,
                 txtCabecaProc,
                 txtNroProc,
@@ -40,13 +41,13 @@ namespace Visao
                 txtObjetivo
                 );
 
-            pc.PopularAbaResponsavel(responsavelGridView,gridColumnAdvogado);
+            Link.PopularAbaResponsavel(responsavelGridView, gridColumnAdvogado);
 
-            pc.PopularAbaObservacao(txtObservacao);
+            Link.PopularAbaObservacao(txtObservacao);
 
-            pc.PopularAbaAutores(txtPesquisaClienAut, btnPesquisaAutores,btnAdicionaAutor,btnExcluiAutor,btnDefineCabeca,gridPesquisaClientes,gridAutoresProcesso);
+            Link.PopularAbaAutores(txtPesquisaClienAut, btnPesquisaAutores, btnAdicionaAutor, btnExcluiAutor, btnDefineCabeca, gridPesquisaClientes, gridAutoresProcesso);
 
-            pc.PopularAbaAndamento(txtAndamento, txtAndamentoRealizado);
+            Link.PopularAbaAndamento(txtAndamento, txtAndamentoRealizado);
 
             colorComboBox.SelectedIndexChanged += (sender, args) =>
             {

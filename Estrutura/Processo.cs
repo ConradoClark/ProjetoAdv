@@ -186,11 +186,6 @@ namespace Estrutura
                     .Cast<ProcessoCliente>().ToList()
                     .ForEach((cli) => this.Clientes.Add((Cliente)cli.Cliente));
 
-            Dados.AcessoProcessoRecorte.ListarRecorteProcesso(this,
-                    () => (Modelo.Processo.ModeloRecorteProcesso)new Recorte(this, new Usuario()))
-                    .Cast<Recorte>().ToList()
-                    .ForEach((rec) => this.Recortes.Add((Recorte)rec));
-
             Dados.AcessoProcessoAdvogado.ListarProcessoAdvogado(new ProcessoAdvogado(new Advogado(), this),
                 () => (Modelo.Advogado.ModeloAdvogadoProcesso)new ProcessoAdvogado(new Advogado(), this))
                 .Cast<ProcessoAdvogado>().ToList()
@@ -418,6 +413,11 @@ namespace Estrutura
         public static IEnumerable<Modelo.Processo.ModeloProcesso> Listar()
         {
             return AcessoProcesso.PesquisarProcesso(new Processo(), () => new Processo());
+        }
+
+        public static IEnumerable<Modelo.Processo.ModeloProcesso> Pesquisar(Modelo.Processo.ModeloProcesso processoBase)
+        {
+            return AcessoProcesso.PesquisarProcesso(processoBase, () => new Processo());
         }
     }
 }

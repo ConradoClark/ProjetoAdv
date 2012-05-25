@@ -11,6 +11,7 @@ namespace Modelo.Acao{
 	public abstract partial class ModeloTipoAcao : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloTipoAcao(){
 																		IdAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -26,7 +27,9 @@ namespace Modelo.Acao{
 				public delegate void _descricaoAlterado(string valorAntigo, string valorNovo);
 				public event _descricaoAlterado DescricaoAlterado;				
 			#endregion			
-									public int? Id{
+									
+			
+			public int? Id{
 				get{
 					return _id;
 				}
@@ -40,7 +43,9 @@ namespace Modelo.Acao{
 					}
 				}
 			}
-					public string Descricao{
+					
+			
+			public string Descricao{
 				get{
 					return _descricao;
 				}

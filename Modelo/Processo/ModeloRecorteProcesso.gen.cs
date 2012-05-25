@@ -8,6 +8,7 @@ namespace Modelo.Processo{
 	public abstract partial class ModeloRecorteProcesso : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloRecorteProcesso(){
 																		ProcessoAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -35,7 +36,9 @@ namespace Modelo.Processo{
 				public delegate void _textoRecorteAlterado(string valorAntigo, string valorNovo);
 				public event _textoRecorteAlterado TextoRecorteAlterado;				
 			#endregion			
-									public ModeloProcesso Processo{
+									
+			
+			public ModeloProcesso Processo{
 				get{
 					return _processo;
 				}
@@ -49,7 +52,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public DateTime? DataInclusao{
+					
+			
+			public DateTime? DataInclusao{
 				get{
 					return _dataInclusao;
 				}
@@ -63,7 +68,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public Modelo.Usuario.ModeloUsuario UsuarioInclusao{
+					
+			
+			public Modelo.Usuario.ModeloUsuario UsuarioInclusao{
 				get{
 					return _usuarioInclusao;
 				}
@@ -77,7 +84,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public string TextoRecorte{
+					
+			
+			public string TextoRecorte{
 				get{
 					return _textoRecorte;
 				}

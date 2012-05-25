@@ -9,6 +9,7 @@ namespace Modelo.Advogado{
 	public abstract partial class ModeloAdvogadoProcesso : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloAdvogadoProcesso(){
 																		AdvogadoAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -24,7 +25,9 @@ namespace Modelo.Advogado{
 				public delegate void _processoAlterado(ModeloProcesso valorAntigo, ModeloProcesso valorNovo);
 				public event _processoAlterado ProcessoAlterado;				
 			#endregion			
-									public ModeloAdvogado Advogado{
+									
+			
+			public ModeloAdvogado Advogado{
 				get{
 					return _advogado;
 				}
@@ -38,7 +41,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public ModeloProcesso Processo{
+					
+			
+			public ModeloProcesso Processo{
 				get{
 					return _processo;
 				}

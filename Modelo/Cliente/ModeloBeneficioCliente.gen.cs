@@ -9,6 +9,7 @@ namespace Modelo.Cliente{
 	public abstract partial class ModeloBeneficioCliente : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloBeneficioCliente(){
 																		ClienteAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -90,7 +91,9 @@ namespace Modelo.Cliente{
 				public delegate void _mediaAlterado(decimal? valorAntigo, decimal? valorNovo);
 				public event _mediaAlterado MediaAlterado;				
 			#endregion			
-									public ModeloCliente Cliente{
+									
+			
+			public ModeloCliente Cliente{
 				get{
 					return _cliente;
 				}
@@ -104,7 +107,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public int? Id{
+					
+			
+			public int? Id{
 				get{
 					return _id;
 				}
@@ -118,7 +123,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public ModeloTipoBeneficio TipoBeneficio{
+					
+			
+			public ModeloTipoBeneficio TipoBeneficio{
 				get{
 					return _tipoBeneficio;
 				}
@@ -132,7 +139,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Numero{
+					
+			
+			public string Numero{
 				get{
 					return _numero;
 				}
@@ -146,7 +155,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string TempoContribuicao{
+					
+			
+			public string TempoContribuicao{
 				get{
 					return _tempoContribuicao;
 				}
@@ -160,7 +171,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public decimal? SomaSalariosContribuicao{
+					
+			
+			public decimal? SomaSalariosContribuicao{
 				get{
 					return _somaSalariosContribuicao;
 				}
@@ -174,7 +187,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public DateTime? InicioBeneficio{
+					
+			
+			public DateTime? InicioBeneficio{
 				get{
 					return _inicioBeneficio;
 				}
@@ -188,7 +203,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public decimal? RendaMensalInicial{
+					
+			
+			public decimal? RendaMensalInicial{
 				get{
 					return _rendaMensalInicial;
 				}
@@ -202,7 +219,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public decimal? Divisor{
+					
+			
+			public decimal? Divisor{
 				get{
 					return _divisor;
 				}
@@ -216,7 +235,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public decimal? FatorPrevidenciario{
+					
+			
+			public decimal? FatorPrevidenciario{
 				get{
 					return _fatorPrevidenciario;
 				}
@@ -230,7 +251,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public decimal? SalarioBeneficio{
+					
+			
+			public decimal? SalarioBeneficio{
 				get{
 					return _salarioBeneficio;
 				}
@@ -244,7 +267,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public decimal? CoeficienteCalculo{
+					
+			
+			public decimal? CoeficienteCalculo{
 				get{
 					return _coeficienteCalculo;
 				}
@@ -258,7 +283,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public decimal? Media{
+					
+			
+			public decimal? Media{
 				get{
 					return _media;
 				}

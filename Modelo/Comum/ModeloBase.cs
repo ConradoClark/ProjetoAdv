@@ -8,6 +8,7 @@ namespace Modelo.Comum
 {
     public abstract partial class ModeloBase: INotifyPropertyChanged
     {
+        [NomeDisplay("Origem Dados")]
         OrigemDados _origemDados;
     }
 }

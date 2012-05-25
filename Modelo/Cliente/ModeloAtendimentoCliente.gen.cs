@@ -9,6 +9,7 @@ namespace Modelo.Cliente{
 	public abstract partial class ModeloAtendimentoCliente : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloAtendimentoCliente(){
 																		ClienteAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -42,7 +43,9 @@ namespace Modelo.Cliente{
 				public delegate void _atendimentoExternoAlterado(string valorAntigo, string valorNovo);
 				public event _atendimentoExternoAlterado AtendimentoExternoAlterado;				
 			#endregion			
-									public ModeloCliente Cliente{
+									
+			
+			public ModeloCliente Cliente{
 				get{
 					return _cliente;
 				}
@@ -56,7 +59,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public DateTime? DataHoraAtendimento{
+					
+			
+			public DateTime? DataHoraAtendimento{
 				get{
 					return _dataHoraAtendimento;
 				}
@@ -70,7 +75,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public ModeloUsuario UsuarioAtendimento{
+					
+			
+			public ModeloUsuario UsuarioAtendimento{
 				get{
 					return _usuarioAtendimento;
 				}
@@ -84,7 +91,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string AtendimentoInterno{
+					
+			
+			public string AtendimentoInterno{
 				get{
 					return _atendimentoInterno;
 				}
@@ -98,7 +107,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string AtendimentoExterno{
+					
+			
+			public string AtendimentoExterno{
 				get{
 					return _atendimentoExterno;
 				}

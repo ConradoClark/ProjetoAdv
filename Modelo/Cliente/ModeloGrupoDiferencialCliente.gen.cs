@@ -9,6 +9,7 @@ namespace Modelo.Cliente{
 	public abstract partial class ModeloGrupoDiferencialCliente : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloGrupoDiferencialCliente(){
 																		ClienteAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -24,7 +25,9 @@ namespace Modelo.Cliente{
 				public delegate void _grupoDiferencialAlterado(ModeloGrupoDiferencial valorAntigo, ModeloGrupoDiferencial valorNovo);
 				public event _grupoDiferencialAlterado GrupoDiferencialAlterado;				
 			#endregion			
-									public ModeloCliente Cliente{
+									
+			
+			public ModeloCliente Cliente{
 				get{
 					return _cliente;
 				}
@@ -38,7 +41,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public ModeloGrupoDiferencial GrupoDiferencial{
+					
+			
+			public ModeloGrupoDiferencial GrupoDiferencial{
 				get{
 					return _grupoDiferencial;
 				}

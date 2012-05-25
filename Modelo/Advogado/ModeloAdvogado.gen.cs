@@ -9,6 +9,7 @@ namespace Modelo.Advogado{
 	public abstract partial class ModeloAdvogado : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloAdvogado(){
 																		IdAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -72,7 +73,9 @@ namespace Modelo.Advogado{
 				public delegate void _sexoAlterado(char valorAntigo, char valorNovo);
 				public event _sexoAlterado SexoAlterado;				
 			#endregion			
-									public int? Id{
+									
+			
+			public int? Id{
 				get{
 					return _id;
 				}
@@ -86,7 +89,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public string Oab{
+					
+			
+			public string Oab{
 				get{
 					return _oab;
 				}
@@ -100,7 +105,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public string Cpf{
+					
+			
+			public string Cpf{
 				get{
 					return _cpf;
 				}
@@ -114,7 +121,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public string Rg{
+					
+			
+			public string Rg{
 				get{
 					return _rg;
 				}
@@ -128,7 +137,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public string Nome{
+					
+			
+			public string Nome{
 				get{
 					return _nome;
 				}
@@ -142,7 +153,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public bool? IndicadorEstagiario{
+					
+			
+			public bool? IndicadorEstagiario{
 				get{
 					return _indicadorEstagiario;
 				}
@@ -156,7 +169,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public EstadoCivil EstadoCivil{
+					
+			
+			public EstadoCivil EstadoCivil{
 				get{
 					return _estadoCivil;
 				}
@@ -170,7 +185,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public string Naturalidade{
+					
+			
+			public string Naturalidade{
 				get{
 					return _naturalidade;
 				}
@@ -184,7 +201,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public string Nacionalidade{
+					
+			
+			public string Nacionalidade{
 				get{
 					return _nacionalidade;
 				}
@@ -198,7 +217,9 @@ namespace Modelo.Advogado{
 					}
 				}
 			}
-					public char Sexo{
+					
+			
+			public char Sexo{
 				get{
 					return _sexo;
 				}

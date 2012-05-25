@@ -5,6 +5,7 @@ using System.Text;
 using Estrutura;
 using VisaoControles;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace VisaoEstrutura
 {
@@ -13,6 +14,11 @@ namespace VisaoEstrutura
         public static void InicializarConexao()
         {
             Sessao.InicializarConexao();
+            Thread prefetch = new Thread(new ThreadStart(()=>{
+                Clientes.Pesquisar(new Cliente());
+                Processos.Listar();
+            }));
+            prefetch.Start();
         }
 
         public static bool Logar(string usuario, string senha)

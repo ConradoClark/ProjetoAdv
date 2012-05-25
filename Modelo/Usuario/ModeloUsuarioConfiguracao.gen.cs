@@ -8,6 +8,7 @@ namespace Modelo.Usuario{
 	public abstract partial class ModeloUsuarioConfiguracao : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloUsuarioConfiguracao(){
 																		UsuarioAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -65,7 +66,9 @@ namespace Modelo.Usuario{
 				public delegate void _margemInferiorAlterado(double valorAntigo, double valorNovo);
 				public event _margemInferiorAlterado MargemInferiorAlterado;				
 			#endregion			
-									public ModeloUsuario Usuario{
+									
+			
+			public ModeloUsuario Usuario{
 				get{
 					return _usuario;
 				}
@@ -79,7 +82,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public string PastaFicha{
+					
+			
+			public string PastaFicha{
 				get{
 					return _pastaFicha;
 				}
@@ -93,7 +98,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public string PastaProcesso{
+					
+			
+			public string PastaProcesso{
 				get{
 					return _pastaProcesso;
 				}
@@ -107,7 +114,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public string PastaLog{
+					
+			
+			public string PastaLog{
 				get{
 					return _pastaLog;
 				}
@@ -121,7 +130,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public string PastaExtrato{
+					
+			
+			public string PastaExtrato{
 				get{
 					return _pastaExtrato;
 				}
@@ -135,7 +146,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public double MargemEsquerda{
+					
+			
+			public double MargemEsquerda{
 				get{
 					return _margemEsquerda;
 				}
@@ -149,7 +162,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public double MargemDireita{
+					
+			
+			public double MargemDireita{
 				get{
 					return _margemDireita;
 				}
@@ -163,7 +178,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public double MargemSuperior{
+					
+			
+			public double MargemSuperior{
 				get{
 					return _margemSuperior;
 				}
@@ -177,7 +194,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public double MargemInferior{
+					
+			
+			public double MargemInferior{
 				get{
 					return _margemInferior;
 				}

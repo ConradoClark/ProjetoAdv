@@ -9,6 +9,7 @@ namespace Modelo.Cliente{
 	public abstract partial class ModeloContatoCliente : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloContatoCliente(){
 																		ClienteAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -42,7 +43,9 @@ namespace Modelo.Cliente{
 				public delegate void _observacaoAlterado(string valorAntigo, string valorNovo);
 				public event _observacaoAlterado ObservacaoAlterado;				
 			#endregion			
-									public ModeloCliente Cliente{
+									
+			
+			public ModeloCliente Cliente{
 				get{
 					return _cliente;
 				}
@@ -56,7 +59,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public int? Id{
+					
+			
+			public int? Id{
 				get{
 					return _id;
 				}
@@ -70,7 +75,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string TipoContato{
+					
+			
+			public string TipoContato{
 				get{
 					return _tipoContato;
 				}
@@ -84,7 +91,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Contato{
+					
+			
+			public string Contato{
 				get{
 					return _contato;
 				}
@@ -98,7 +107,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Observacao{
+					
+			
+			public string Observacao{
 				get{
 					return _observacao;
 				}

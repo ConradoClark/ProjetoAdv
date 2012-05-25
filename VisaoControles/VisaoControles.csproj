@@ -74,6 +74,12 @@
     <Compile Include="LightBox.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="NumberTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NumberTextBox.Designer.cs">
+      <DependentUpon>NumberTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

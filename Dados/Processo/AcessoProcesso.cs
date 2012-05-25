@@ -137,13 +137,14 @@ namespace Dados
                 objeto = ExecucaoProcedure.ExecutarQuery(Constantes.Procedures.Processo.ListarProcesso,
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.IdProcesso, processoBase.Id),
                     new KeyValuePair<string, object>(Constantes.Parametros.Processo.NumeroProcesso, processoBase.NumeroProcesso),
-                    new KeyValuePair<string, object>(Constantes.Parametros.Processo.Cabeca, processoBase.Cabeca.Id)
+                    new KeyValuePair<string, object>(Constantes.Parametros.Processo.Cabeca, processoBase.Cabeca.Nome)
                     );
 
                 dynamic dados = objeto as dynamic;
                 while (objeto.Reader.Read())
                 {
                     Modelo.Processo.ModeloProcesso processo = criacaoProcesso();
+                    processo.Id = @dados.idProcesso;
                     processo.NumeroProcesso = @dados.numeroProcesso;
                     processo.TipoAcao.Id = @dados.idTipoAcao;
                     AcessoTipoAcao.ObterTipoAcao(processo.TipoAcao);

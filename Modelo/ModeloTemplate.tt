@@ -40,45 +40,48 @@
 namespace <#= getNamespace(origin)#>{
 	<#=getClassSyntax(origin)#>{	
 	        public  <#= getMethodNew(getClassName(origin))#> event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public <#= getMethodVirtual(getClassName(origin))#> bool Sujo{get;set;}
 			public <#=getClassName(origin)#>(){
-					<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
-						<#+ if (kvp.Value == "_origemDados"){#>								
-							<#=PascalWordify(kvp.Value.Substring(1))#>Alterado+= (_old,_new) =>Sujo=false;
+					<#+foreach (Tuple<string,string,string,bool> tuple in getFields(origin)){#>
+						<#+ if (tuple.Item2 == "_origemDados"){#>								
+							<#=PascalWordify(tuple.Item2.Substring(1))#>Alterado+= (_old,_new) =>Sujo=false;
 						<#+}else{#>
-							<#=PascalWordify(kvp.Value.Substring(1))#>Alterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
+							<#=PascalWordify(tuple.Item2.Substring(1))#>Alterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
 						<#+}#>	
 					<#+}#>
 			}
-     		<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
-#region Eventos do <#=PascalWordify(kvp.Value.Substring(1))#>
-				public delegate void <#=kvp.Value#>Alterado(<#=kvp.Key#> valorAntigo, <#=kvp.Key#> valorNovo);
-				public event <#=kvp.Value#>Alterado <#=PascalWordify(kvp.Value.Substring(1))#>Alterado;				
+     		<#+foreach (Tuple<string,string,string,bool> tuple in getFields(origin)){#>
+#region Eventos do <#=PascalWordify(tuple.Item2.Substring(1))#>
+				public delegate void <#=tuple.Item2#>Alterado(<#=tuple.Item1#> valorAntigo, <#=tuple.Item1#> valorNovo);
+				public event <#=tuple.Item2#>Alterado <#=PascalWordify(tuple.Item2.Substring(1))#>Alterado;				
 			#endregion			
 			<#+}#>
-			<#+foreach (KeyValuePair<string,string> kvp2 in getFields(origin)){#>
-			public <#=kvp2.Key#> <#=PascalWordify(kvp2.Value.Substring(1))#>{
+			<#+foreach (Tuple<string,string,string,bool> tuple2 in getFields(origin)){#>
+			<#=GetDisplayProp(tuple2.Item3)#>
+			<#=GetBrowsableProp(tuple2.Item4)#>
+			public <#=tuple2.Item1#> <#=PascalWordify(tuple2.Item2.Substring(1))#>{
 				get{
-					return <#=kvp2.Value#>;
+					return <#=tuple2.Item2#>;
 				}
 				set{
-					if (<#=kvp2.Value#> != value){
-						if (<#=PascalWordify(kvp2.Value.Substring(1))#>Alterado != null){
-							<#=PascalWordify(kvp2.Value.Substring(1))#>Alterado(<#=kvp2.Value#>,value);
-							this.NotifyPropertyChanged("<#=PascalWordify(kvp2.Value.Substring(1))#>");
+					if (<#=tuple2.Item2#> != value){
+						if (<#=PascalWordify(tuple2.Item2.Substring(1))#>Alterado != null){
+							<#=PascalWordify(tuple2.Item2.Substring(1))#>Alterado(<#=tuple2.Item2#>,value);
+							this.NotifyPropertyChanged("<#=PascalWordify(tuple2.Item2.Substring(1))#>");
 						}
-						<#=kvp2.Value#> = value;
+						<#=tuple2.Item2#> = value;
 					}
 				}
 			}
 		<#+}#>
 			public <#= getMethodVirtual(getClassName(origin))#> void Limpar(){
 			    this.OrigemDados = Modelo.Comum.OrigemDados.Local;
-				<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
-					<#+if (kvp.Key.StartsWith("Modelo")){#>			
-						<#=PascalWordify(kvp.Value.Substring(1))#>.Limpar();
+				<#+foreach (Tuple<string,string,string,bool> tuple in getFields(origin)){#>
+					<#+if (tuple.Item1.StartsWith("Modelo")){#>			
+						<#=PascalWordify(tuple.Item2.Substring(1))#>.Limpar();
 					<#+}else{#>
-						<#=PascalWordify(kvp.Value.Substring(1))#> = default(<#=kvp.Key#>);
+						<#=PascalWordify(tuple.Item2.Substring(1))#> = default(<#=tuple.Item1#>);
 					<#+}#>					
 				<#+}#>
 			}
@@ -89,14 +92,14 @@ namespace <#= getNamespace(origin)#>{
   			}
 			public <#=getClassName(origin)#> Clone(Func< <#=getClassName(origin)#> > criarObjeto){
 				<#=getClassName(origin)#> clone = criarObjeto();
-				<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
-					clone.<#=PascalWordify(kvp.Value.Substring(1))#> = this.<#=PascalWordify(kvp.Value.Substring(1))#>;
+				<#+foreach (Tuple<string,string,string,bool> tuple in getFields(origin)){#>
+					clone.<#=PascalWordify(tuple.Item2.Substring(1))#> = this.<#=PascalWordify(tuple.Item2.Substring(1))#>;
 				<#+}#>
 				clone.OrigemDados = this.OrigemDados;
 				return clone;
 			}
-			<#+foreach (KeyValuePair<string,string> kvp in getFields(origin)){#>
-				<#+if (kvp.Value == "_id"){#>
+			<#+foreach (Tuple<string,string,string,bool> tuple in getFields(origin)){#>
+				<#+if (tuple.Item2 == "_id"){#>
 					public override bool Equals(object obj){
 						if (obj is <#=getClassName(origin)#>){
 							return this.Id == ((<#=getClassName(origin)#>)obj).Id;
@@ -160,14 +163,14 @@ namespace <#= getNamespace(origin)#>{
 		
 	}
 	
-	IEnumerable<KeyValuePair<string,string>> getFields(SyntaxTree syntaxTree)
+	IEnumerable<Tuple<string, string,string,bool>> getFields(SyntaxTree syntaxTree)
 	    {
             foreach (SyntaxNode node in syntaxTree.Root.DescendentNodes())
             {
                 if (node is FieldDeclarationSyntax)
                 {
                     FieldDeclarationSyntax fds = (FieldDeclarationSyntax) node;
-                    yield return new KeyValuePair<string, string>(fds.Declaration.Type.GetText(), fds.Declaration.Variables[0].Identifier.ValueText);
+                    yield return new Tuple<string, string,string,bool>(fds.Declaration.Type.GetText(), fds.Declaration.Variables[0].Identifier.ValueText,GetDisplayName(fds),GetBrowsable(fds));
                 }
             }
 	    }
@@ -206,6 +209,58 @@ namespace <#= getNamespace(origin)#>{
 	{            
     	Regex r = new Regex("(?<=[a-z])(?<x>[A-Z])|(?<=.)(?<x>[A-Z])(?=[a-z])");
     	return pascalCaseString[0].ToString().ToUpper() + r.Replace(pascalCaseString, "${x}").Substring(1);
+	}
+	
+	public string GetDisplayName(FieldDeclarationSyntax fds)
+    {
+        var ads = fds.Attributes.FirstOrDefault(
+            (att) => att is AttributeDeclarationSyntax);
+        if (ads!=null){
+            AttributeSyntax ats = ads.Attributes.FirstOrDefault((att)=>att is AttributeSyntax && att.Name.PlainName == "NomeDisplay");
+            if (ats!=null){
+                AttributeArgumentSyntax aas = ats.ArgumentListOpt.Arguments.FirstOrDefault();
+                if (aas != null)
+                {
+                    return aas.ToString().Replace("\"", "");
+                }
+            }
+        }            
+        return "";
+    }
+	
+	public bool GetBrowsable(FieldDeclarationSyntax fds)
+    {
+        var ads = fds.Attributes.FirstOrDefault(
+            (att) => att is AttributeDeclarationSyntax);
+        if (ads!=null){
+            AttributeSyntax ats = ads.Attributes.FirstOrDefault((att)=>att is AttributeSyntax && att.Name.PlainName == "Browsable");
+            if (ats!=null){
+                AttributeArgumentSyntax aas = ats.ArgumentListOpt.Arguments.FirstOrDefault();
+                if (aas != null)
+                {
+                    return Convert.ToBoolean(aas.ToString().Replace("\"", ""));
+                }
+            }
+        }            
+        return true;
+    }
+	
+	public string GetDisplayProp(string displayName)
+	{
+		if (!String.IsNullOrWhiteSpace(displayName))
+		{
+			return String.Format("[DisplayName(\"{0}\")]",displayName);
+		}
+		return "";
+	}
+	
+	public string GetBrowsableProp(bool browsable)
+	{
+		if (!browsable)
+		{
+			return String.Format("[Browsable({0})]",browsable.ToString().ToLowerInvariant());
+		}
+		return "";
 	}
 	
 #>

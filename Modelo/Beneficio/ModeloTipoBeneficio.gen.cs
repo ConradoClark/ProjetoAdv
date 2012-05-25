@@ -8,6 +8,7 @@ namespace Modelo.Beneficio{
 	public abstract partial class ModeloTipoBeneficio : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloTipoBeneficio(){
 																		IdAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -23,7 +24,9 @@ namespace Modelo.Beneficio{
 				public delegate void _descricaoAlterado(string valorAntigo, string valorNovo);
 				public event _descricaoAlterado DescricaoAlterado;				
 			#endregion			
-									public int? Id{
+									
+			
+			public int? Id{
 				get{
 					return _id;
 				}
@@ -37,7 +40,9 @@ namespace Modelo.Beneficio{
 					}
 				}
 			}
-					public string Descricao{
+					
+			
+			public string Descricao{
 				get{
 					return _descricao;
 				}

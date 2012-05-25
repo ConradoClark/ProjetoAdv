@@ -14,13 +14,14 @@ namespace Visao
 {
     public partial class TelaPrincipal : Form
     {
-        CadastroPendencia cp;
-        CadastroGrupoDiferencial cgd;
-        CadastroCliente cli;
-        CadastroBeneficios ben;
-        CadastroGrupoAcao cga;
-        CadastroAdvogados ca;
-        CadastroProcessos cpro;
+       public CadastroPendencia cp { get; set; }
+       public CadastroGrupoDiferencial cgd { get; set; }
+       public CadastroCliente formCliente { get; set; }
+       public CadastroBeneficios ben { get; set; }
+       public CadastroGrupoAcao cga { get; set; }
+       public CadastroAdvogados ca { get; set; }
+       public CadastroProcessos formProcesso { get; set; }
+       public ConsultaSimples cs { get; set; }
         Login login;
 
         public TelaPrincipal()
@@ -44,19 +45,19 @@ namespace Visao
 
         private void Cliente_Click(object sender, EventArgs e)
         {
-            if (cli == null || cli.IsDisposed)
+            if (formCliente == null || formCliente.IsDisposed)
             {
-                cli = new CadastroCliente();
-                cli.MdiParent = this;
+                formCliente = new CadastroCliente();
+                formCliente.MdiParent = this;
             }
-            if (cli.Visible)
+            if (formCliente.Visible)
             {
-                cli.BringToFront();
+                formCliente.BringToFront();
             }
             else
             {
-                cli.Show();
-                cli.Update();
+                formCliente.Show();
+                formCliente.Update();
             }
         }
 
@@ -99,9 +100,20 @@ namespace Visao
 
         private void cONSULTASIMPLESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //CadastroSimples cs = new CadastroSimples();
-            //cs.MdiParent = this;
-            //cs.Show();
+            if (cs == null || cs.IsDisposed)
+            {
+                cs = new ConsultaSimples();
+                cs.MdiParent = this;
+            }
+            if (cs.Visible)
+            {
+                cs.BringToFront();
+            }
+            else
+            {
+                cs.Show();
+                cs.Update();
+            }
         }
 
         private void pROCESSOSPARADOSToolStripMenuItem_Click(object sender, EventArgs e)
@@ -267,19 +279,19 @@ namespace Visao
 
         private void Processos_Click(object sender, EventArgs e)
         {
-            if (cpro == null || cpro.IsDisposed)
+            if (formProcesso == null || formProcesso.IsDisposed)
             {
-                cpro = new CadastroProcessos();
-                cpro.MdiParent = this;
+                formProcesso = new CadastroProcessos();
+                formProcesso.MdiParent = this;
             }
-            if (cpro.Visible)
+            if (formProcesso.Visible)
             {
-                cpro.BringToFront();
+                formProcesso.BringToFront();
             }
             else
             {
-                cpro.Show();
-                cpro.Update();
+                formProcesso.Show();
+                formProcesso.Update();
             }
         }
     }

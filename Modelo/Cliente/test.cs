@@ -9,7 +9,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 namespace Modelo.Cliente
 {
-    class test
+    public class test
     {
         public static string loadblabla(string content)
         {
@@ -19,6 +19,28 @@ namespace Modelo.Cliente
             DescendentNodes().
             First(n => n.Kind == SyntaxKind.UsingStatement);
             return namespaceName.GetText();
+        }
+
+        public string getProperty(string content)
+        {
+            var syntaxTree = SyntaxTree.ParseCompilationUnit(content);
+            var fds = (FieldDeclarationSyntax)syntaxTree.
+            Root.
+            DescendentNodes().
+            First(n => n.Kind == SyntaxKind.FieldDeclaration);
+            var ads = fds.Attributes.FirstOrDefault(
+                (att) => att is AttributeDeclarationSyntax && att.TargetOpt.Identifier.ValueText == "NomeDisplay");
+            if (ads!=null){
+                AttributeSyntax ats = ads.Attributes.FirstOrDefault((att)=>att is AttributeSyntax);
+                if (ats!=null){
+                    AttributeArgumentSyntax aas = ats.ArgumentListOpt.Arguments.FirstOrDefault();
+                    if (aas != null)
+                    {
+                        return aas.ToString().Replace("\"", "");
+                    }
+                }
+            }            
+            return "";
         }
 
         string getClassName(SyntaxTree syntaxTree)

@@ -80,6 +80,14 @@ namespace VisaoEstrutura
         #endregion
 
         #region Link
+
+        public void CarregarProcesso(Modelo.Processo.ModeloProcesso processo)
+        {
+            ProcessoAtivo.Id = processo.Id;
+            ProcessoAtivo.Obter();
+            AoBuscar();
+        }
+
         public void AdicionarLink()
         {
             Botao_Busca.Click += new EventHandler(Botao_Busca_Click);

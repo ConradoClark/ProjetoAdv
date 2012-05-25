@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using VisaoEstrutura;
 
 namespace Visao
 {
@@ -13,7 +14,7 @@ namespace Visao
     {
         public TelaCarregamento()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void progressBar1_Click(object sender, EventArgs e)
@@ -25,7 +26,7 @@ namespace Visao
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressBar1.Refresh();
-            progressBar1.Increment(15);
+            progressBar1.Increment(10);
             if (progressBar1.Value >= progressBar1.Maximum)
             {
                 this.Close();

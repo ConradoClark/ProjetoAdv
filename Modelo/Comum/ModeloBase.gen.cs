@@ -8,6 +8,7 @@ namespace Modelo.Comum{
 	public abstract partial class ModeloBase: INotifyPropertyChanged
     {	
 	        public   event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public virtual bool Sujo{get;set;}
 			public ModeloBase(){
 																			
@@ -18,7 +19,9 @@ namespace Modelo.Comum{
 				public delegate void _origemDadosAlterado(OrigemDados valorAntigo, OrigemDados valorNovo);
 				public event _origemDadosAlterado OrigemDadosAlterado;				
 			#endregion			
-									public OrigemDados OrigemDados{
+									[DisplayName("Origem Dados")]
+			
+			public OrigemDados OrigemDados{
 				get{
 					return _origemDados;
 				}

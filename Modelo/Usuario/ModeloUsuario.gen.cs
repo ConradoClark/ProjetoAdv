@@ -8,6 +8,7 @@ namespace Modelo.Usuario{
 	public abstract partial class ModeloUsuario : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloUsuario(){
 																		IdAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -47,7 +48,9 @@ namespace Modelo.Usuario{
 				public delegate void _statusAlterado(StatusUsuario valorAntigo, StatusUsuario valorNovo);
 				public event _statusAlterado StatusAlterado;				
 			#endregion			
-									public int? Id{
+									
+			
+			public int? Id{
 				get{
 					return _id;
 				}
@@ -61,7 +64,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public string Nome{
+					
+			
+			public string Nome{
 				get{
 					return _nome;
 				}
@@ -75,7 +80,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public string Login{
+					
+			
+			public string Login{
 				get{
 					return _login;
 				}
@@ -89,7 +96,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public string Senha{
+					
+			
+			public string Senha{
 				get{
 					return _senha;
 				}
@@ -103,7 +112,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public PermissaoUsuario Permissao{
+					
+			
+			public PermissaoUsuario Permissao{
 				get{
 					return _permissao;
 				}
@@ -117,7 +128,9 @@ namespace Modelo.Usuario{
 					}
 				}
 			}
-					public StatusUsuario Status{
+					
+			
+			public StatusUsuario Status{
 				get{
 					return _status;
 				}

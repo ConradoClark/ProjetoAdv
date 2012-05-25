@@ -10,6 +10,7 @@ namespace Modelo.Processo{
 	public abstract partial class ModeloProcesso : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloProcesso(){
 																		IdAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -79,7 +80,9 @@ namespace Modelo.Processo{
 				public delegate void _quantidadeDiasAlertaAlterado(int? valorAntigo, int? valorNovo);
 				public event _quantidadeDiasAlertaAlterado QuantidadeDiasAlertaAlterado;				
 			#endregion			
-									public int? Id{
+									
+			
+			public int? Id{
 				get{
 					return _id;
 				}
@@ -93,7 +96,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public string NumeroProcesso{
+					
+			
+			public string NumeroProcesso{
 				get{
 					return _numeroProcesso;
 				}
@@ -107,7 +112,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public ModeloTipoAcao TipoAcao{
+					
+			
+			public ModeloTipoAcao TipoAcao{
 				get{
 					return _tipoAcao;
 				}
@@ -121,7 +128,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public string Objetivo{
+					
+			
+			public string Objetivo{
 				get{
 					return _objetivo;
 				}
@@ -135,7 +144,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public string Vara{
+					
+			
+			public string Vara{
 				get{
 					return _vara;
 				}
@@ -149,7 +160,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public Modelo.Cliente.ModeloCliente Cabeca{
+					
+			
+			public Modelo.Cliente.ModeloCliente Cabeca{
 				get{
 					return _cabeca;
 				}
@@ -163,7 +176,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public DateTime? DataAjuizamentoAcao{
+					
+			
+			public DateTime? DataAjuizamentoAcao{
 				get{
 					return _dataAjuizamentoAcao;
 				}
@@ -177,7 +192,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public string Observacao{
+					
+			
+			public string Observacao{
 				get{
 					return _observacao;
 				}
@@ -191,7 +208,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public string Reu{
+					
+			
+			public string Reu{
 				get{
 					return _reu;
 				}
@@ -205,7 +224,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public string NumeroOrdem{
+					
+			
+			public string NumeroOrdem{
 				get{
 					return _numeroOrdem;
 				}
@@ -219,7 +240,9 @@ namespace Modelo.Processo{
 					}
 				}
 			}
-					public int? QuantidadeDiasAlerta{
+					
+			
+			public int? QuantidadeDiasAlerta{
 				get{
 					return _quantidadeDiasAlerta;
 				}

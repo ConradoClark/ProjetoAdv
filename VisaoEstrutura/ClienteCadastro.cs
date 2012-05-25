@@ -35,6 +35,13 @@ namespace VisaoEstrutura
         public event single AoLimpar;
         public event single AoCancelar;
 
+        public void CarregarCliente(Modelo.Cliente.ModeloCliente cliente)
+        {
+            ClienteAtivo.Id = cliente.Id;
+            ClienteAtivo.Obter();
+            AoBuscar();
+        }
+
         #region Construtores
         public ClienteCadastro(Form tela, TextBoxBase buscaNumeroReferenciaInterna,
             ButtonBase botaoBusca, ButtonBase botaoAdicionar,

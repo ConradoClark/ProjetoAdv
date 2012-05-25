@@ -9,6 +9,7 @@ namespace Modelo.Cliente{
 	public abstract partial class ModeloCliente : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloCliente(){
 																		IdAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -270,7 +271,9 @@ namespace Modelo.Cliente{
 				public delegate void _nomeClienteIndicacaoAlterado(string valorAntigo, string valorNovo);
 				public event _nomeClienteIndicacaoAlterado NomeClienteIndicacaoAlterado;				
 			#endregion			
-									public int? Id{
+									
+			
+			public int? Id{
 				get{
 					return _id;
 				}
@@ -284,7 +287,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Nome{
+					
+			
+			public string Nome{
 				get{
 					return _nome;
 				}
@@ -298,7 +303,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string NomePai{
+					[DisplayName("Nome do Pai")]
+			
+			public string NomePai{
 				get{
 					return _nomePai;
 				}
@@ -312,7 +319,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string NomeMae{
+					[DisplayName("Nome da Mãe")]
+			
+			public string NomeMae{
 				get{
 					return _nomeMae;
 				}
@@ -326,7 +335,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public DateTime? DataNascimento{
+					[DisplayName("Data de Nascimento")]
+			
+			public DateTime? DataNascimento{
 				get{
 					return _dataNascimento;
 				}
@@ -340,7 +351,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Profissao{
+					[DisplayName("Profissão")]
+			
+			public string Profissao{
 				get{
 					return _profissao;
 				}
@@ -354,7 +367,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Cpf{
+					[DisplayName("CPF")]
+			
+			public string Cpf{
 				get{
 					return _cpf;
 				}
@@ -368,7 +383,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Rg{
+					[DisplayName("RG")]
+			
+			public string Rg{
 				get{
 					return _rg;
 				}
@@ -382,7 +399,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public DateTime? DataEmissaoRG{
+					[DisplayName("Data de Emissão do RG")]
+			
+			public DateTime? DataEmissaoRG{
 				get{
 					return _dataEmissaoRG;
 				}
@@ -396,7 +415,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string OrgaoExpedidorRG{
+					[DisplayName("Órgão Expedidor do RG")]
+			
+			public string OrgaoExpedidorRG{
 				get{
 					return _orgaoExpedidorRG;
 				}
@@ -410,7 +431,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public EstadoCivil EstadoCivil{
+					[DisplayName("Estado Civil")]
+			
+			public EstadoCivil EstadoCivil{
 				get{
 					return _estadoCivil;
 				}
@@ -424,7 +447,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Nacionalidade{
+					
+			
+			public string Nacionalidade{
 				get{
 					return _nacionalidade;
 				}
@@ -438,7 +463,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public ModeloEndereco Endereco{
+					
+			
+			public ModeloEndereco Endereco{
 				get{
 					return _endereco;
 				}
@@ -452,7 +479,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string TituloEleitor{
+					[DisplayName("Título de Eleitor")]
+			
+			public string TituloEleitor{
 				get{
 					return _tituloEleitor;
 				}
@@ -466,7 +495,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string ZonaEleitoral{
+					[DisplayName("Zona Eleitoral")]
+			
+			public string ZonaEleitoral{
 				get{
 					return _zonaEleitoral;
 				}
@@ -480,7 +511,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string SecaoEleitoral{
+					[DisplayName("Seção Eleitoral")]
+			
+			public string SecaoEleitoral{
 				get{
 					return _secaoEleitoral;
 				}
@@ -494,7 +527,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Ctps1{
+					
+			
+			public string Ctps1{
 				get{
 					return _ctps1;
 				}
@@ -508,7 +543,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Ctps2{
+					
+			
+			public string Ctps2{
 				get{
 					return _ctps2;
 				}
@@ -522,7 +559,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Ctps3{
+					
+			
+			public string Ctps3{
 				get{
 					return _ctps3;
 				}
@@ -536,7 +575,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Ctps4{
+					
+			
+			public string Ctps4{
 				get{
 					return _ctps4;
 				}
@@ -550,7 +591,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Ctps5{
+					
+			
+			public string Ctps5{
 				get{
 					return _ctps5;
 				}
@@ -564,7 +607,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public bool IndGrupo{
+					
+			[Browsable(false)]
+			public bool IndGrupo{
 				get{
 					return _indGrupo;
 				}
@@ -578,7 +623,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public bool IndCliente{
+					
+			[Browsable(false)]
+			public bool IndCliente{
 				get{
 					return _indCliente;
 				}
@@ -592,7 +639,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public bool IndContato{
+					
+			[Browsable(false)]
+			public bool IndContato{
 				get{
 					return _indContato;
 				}
@@ -606,7 +655,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public bool IndDependente{
+					
+			[Browsable(false)]
+			public bool IndDependente{
 				get{
 					return _indDependente;
 				}
@@ -620,7 +671,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public bool IndPendencia{
+					
+			[Browsable(false)]
+			public bool IndPendencia{
 				get{
 					return _indPendencia;
 				}
@@ -634,7 +687,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public bool IndFalecido{
+					
+			[Browsable(false)]
+			public bool IndFalecido{
 				get{
 					return _indFalecido;
 				}
@@ -648,7 +703,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public DateTime? DataFalecimento{
+					[DisplayName("Data do Falecimento")]
+			
+			public DateTime? DataFalecimento{
 				get{
 					return _dataFalecimento;
 				}
@@ -662,7 +719,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Naturalidade{
+					
+			
+			public string Naturalidade{
 				get{
 					return _naturalidade;
 				}
@@ -676,7 +735,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string PisPasep1{
+					
+			
+			public string PisPasep1{
 				get{
 					return _pisPasep1;
 				}
@@ -690,7 +751,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string PisPasep2{
+					
+			
+			public string PisPasep2{
 				get{
 					return _pisPasep2;
 				}
@@ -704,7 +767,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string PisPasep3{
+					
+			
+			public string PisPasep3{
 				get{
 					return _pisPasep3;
 				}
@@ -718,7 +783,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string PisPasep4{
+					
+			
+			public string PisPasep4{
 				get{
 					return _pisPasep4;
 				}
@@ -732,7 +799,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Nit1{
+					
+			
+			public string Nit1{
 				get{
 					return _nit1;
 				}
@@ -746,7 +815,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Nit2{
+					
+			
+			public string Nit2{
 				get{
 					return _nit2;
 				}
@@ -760,7 +831,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Nit3{
+					
+			
+			public string Nit3{
 				get{
 					return _nit3;
 				}
@@ -774,7 +847,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string Nit4{
+					
+			
+			public string Nit4{
 				get{
 					return _nit4;
 				}
@@ -788,7 +863,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string CtpsSerie1{
+					
+			
+			public string CtpsSerie1{
 				get{
 					return _ctpsSerie1;
 				}
@@ -802,7 +879,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string CtpsSerie2{
+					
+			
+			public string CtpsSerie2{
 				get{
 					return _ctpsSerie2;
 				}
@@ -816,7 +895,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string CtpsSerie3{
+					
+			
+			public string CtpsSerie3{
 				get{
 					return _ctpsSerie3;
 				}
@@ -830,7 +911,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string CtpsSerie4{
+					
+			
+			public string CtpsSerie4{
 				get{
 					return _ctpsSerie4;
 				}
@@ -844,7 +927,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string CtpsSerie5{
+					
+			
+			public string CtpsSerie5{
 				get{
 					return _ctpsSerie5;
 				}
@@ -858,7 +943,9 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
-					public string NomeClienteIndicacao{
+					[DisplayName("Indicado Por?")]
+			
+			public string NomeClienteIndicacao{
 				get{
 					return _nomeClienteIndicacao;
 				}

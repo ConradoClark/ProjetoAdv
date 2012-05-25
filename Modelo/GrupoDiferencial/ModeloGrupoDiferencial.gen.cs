@@ -8,6 +8,7 @@ namespace Modelo.GrupoDiferencial{
 	public abstract partial class ModeloGrupoDiferencial : Modelo.Comum.ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloGrupoDiferencial(){
 																		IdAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -23,7 +24,9 @@ namespace Modelo.GrupoDiferencial{
 				public delegate void _nomeAlterado(string valorAntigo, string valorNovo);
 				public event _nomeAlterado NomeAlterado;				
 			#endregion			
-									public int? Id{
+									
+			
+			public int? Id{
 				get{
 					return _id;
 				}
@@ -37,7 +40,9 @@ namespace Modelo.GrupoDiferencial{
 					}
 				}
 			}
-					public string Nome{
+					
+			
+			public string Nome{
 				get{
 					return _nome;
 				}

@@ -402,7 +402,7 @@ namespace Estrutura.Test
             Assert.AreEqual(tipoAcao.OrigemDados, OrigemDados.Banco);
                        
             Processo processo = new Processo();
-            processo.Cabeca = "Cameron Diaz";
+            processo.Cabeca.Nome = "Cameron Diaz";
             processo.Reu = "Jessica Rabbit";
             processo.TipoAcao = tipoAcao;
 

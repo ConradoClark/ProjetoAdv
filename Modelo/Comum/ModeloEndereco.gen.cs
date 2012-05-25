@@ -8,6 +8,7 @@ namespace Modelo.Comum{
 	public abstract partial class ModeloEndereco : ModeloBase, INotifyPropertyChanged
     {	
 	        public  new event PropertyChangedEventHandler PropertyChanged;
+			[Browsable(false)]
 			public override bool Sujo{get;set;}
 			public ModeloEndereco(){
 																		LogradouroAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
@@ -53,7 +54,9 @@ namespace Modelo.Comum{
 				public delegate void _cepAlterado(string valorAntigo, string valorNovo);
 				public event _cepAlterado CepAlterado;				
 			#endregion			
-									public string Logradouro{
+									
+			
+			public string Logradouro{
 				get{
 					return _logradouro;
 				}
@@ -67,7 +70,9 @@ namespace Modelo.Comum{
 					}
 				}
 			}
-					public string Numero{
+					
+			
+			public string Numero{
 				get{
 					return _numero;
 				}
@@ -81,7 +86,9 @@ namespace Modelo.Comum{
 					}
 				}
 			}
-					public string Complemento{
+					
+			
+			public string Complemento{
 				get{
 					return _complemento;
 				}
@@ -95,7 +102,9 @@ namespace Modelo.Comum{
 					}
 				}
 			}
-					public string Bairro{
+					
+			
+			public string Bairro{
 				get{
 					return _bairro;
 				}
@@ -109,7 +118,9 @@ namespace Modelo.Comum{
 					}
 				}
 			}
-					public string Cidade{
+					
+			
+			public string Cidade{
 				get{
 					return _cidade;
 				}
@@ -123,7 +134,9 @@ namespace Modelo.Comum{
 					}
 				}
 			}
-					public string Uf{
+					
+			
+			public string Uf{
 				get{
 					return _uf;
 				}
@@ -137,7 +150,9 @@ namespace Modelo.Comum{
 					}
 				}
 			}
-					public string Cep{
+					
+			
+			public string Cep{
 				get{
 					return _cep;
 				}

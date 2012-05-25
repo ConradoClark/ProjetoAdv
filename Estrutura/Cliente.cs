@@ -8,7 +8,11 @@ namespace Estrutura
 {
     public class Endereco : Modelo.Comum.ModeloEndereco
     {
-
+        public override string ToString()
+        {
+            return String.Format(
+                "{2} {3}, {0}/{1} (CEP: {4})", Cidade, Uf, Logradouro, Numero, Cep);
+        }
     }
 
     public class Atendimento : Modelo.Cliente.ModeloAtendimentoCliente
@@ -125,6 +129,11 @@ namespace Estrutura
         public ListaAssociada<GrupoDiferencial> GruposDiferenciais { get; private set; }
         public ObservableCollection<Processo> Processos { get; private set; }
         public ListaAssociada<Atendimento> Atendimentos { get; private set; }
+
+        public override string ToString()
+        {
+            return this.Nome;
+        }
 
         public Cliente()
             : base()

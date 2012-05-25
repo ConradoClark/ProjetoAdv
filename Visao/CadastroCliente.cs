@@ -13,7 +13,7 @@ namespace Visao
 {
     public partial class CadastroCliente : Form
     {
-        ClienteCadastro link { get; set; }
+        public ClienteCadastro Link { get; set; }
         public CadastroCliente()
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace Visao
                 });
             };
 
-            link = new ClienteCadastro(
+            Link = new ClienteCadastro(
                 this,
                 codigoBusca,
                 btnPesquisar,
@@ -64,7 +64,7 @@ namespace Visao
                 btnLimpar
                 );
 
-            link.PopularAbaPrincipal(
+            Link.PopularAbaPrincipal(
                 codigo,
                 nome,
                 profissao,
@@ -91,25 +91,25 @@ namespace Visao
                 secaoEleitoral
                 );
 
-            link.PopularAbaDocumentosAdicionais(
+            Link.PopularAbaDocumentosAdicionais(
                     ctps1, ctps2, ctps3, ctps4, ctps5,
                     ctpsSerie1, ctpsSerie2, ctpsSerie3, ctpsSerie4, ctpsSerie5,
                     nit1, nit2, nit3, nit4,
                     pispasep1, pispasep2, pispasep3, pispasep4
                 );
 
-            link.PopularAbaContato(contatoGridView);
+            Link.PopularAbaContato(contatoGridView);
 
-            link.PopularAbaDependente(dependenteGridView,
+            Link.PopularAbaDependente(dependenteGridView,
                 depParentesco);
 
-            link.PopularAbaBeneficio(beneficiosGridView,
+            Link.PopularAbaBeneficio(beneficiosGridView,
                 benTipoBeneficio);
 
-            link.PopularAbaGrupoDiferencial(grupoGridView,
+            Link.PopularAbaGrupoDiferencial(grupoGridView,
                 grpNome);
 
-            link.PopularAbaAtendimento(
+            Link.PopularAbaAtendimento(
                 txtAtendimento,
                 txtAtendimentoRealizado);
 
@@ -126,6 +126,11 @@ namespace Visao
             {
                 colorComboBox1.SelectedColor = txtAtendimento.Selection.ForeColor;                
             };            
+        }
+
+        public CadastroCliente(Modelo.Cliente.ModeloCliente cliente) : this()
+        {
+            Link.CarregarCliente(cliente);
         }
 
         void GridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
