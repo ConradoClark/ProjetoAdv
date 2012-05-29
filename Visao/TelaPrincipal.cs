@@ -22,7 +22,8 @@ namespace Visao
        public CadastroAdvogados ca { get; set; }
        public CadastroProcessos formProcesso { get; set; }
        public ConsultaSimples cs { get; set; }
-        Login login;
+       public ConsultaProcessoCliente cpc { get; set; }
+       Login login;
 
         public TelaPrincipal()
         {
@@ -118,9 +119,20 @@ namespace Visao
 
         private void pROCESSOSPARADOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ConsultaProcessoCliente cpc = new ConsultaProcessoCliente();
-            //cpc.MdiParent = this;
-            //cpc.Show();
+            if (cpc == null || cpc.IsDisposed)
+            {
+                cpc = new ConsultaProcessoCliente();
+                cpc.MdiParent = this;
+            }
+            if (cpc.Visible)
+            {
+                cpc.BringToFront();
+            }
+            else
+            {
+                cpc.Show();
+                cpc.Update();
+            }
         }
 
         private void cONSULTAToolStripMenuItem_Click(object sender, EventArgs e)

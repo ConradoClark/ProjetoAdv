@@ -81,6 +81,13 @@ namespace VisaoControles.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap confirm {
+            get {
+                object obj = ResourceManager.GetObject("confirm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap error {
             get {
                 object obj = ResourceManager.GetObject("error", resourceCulture);

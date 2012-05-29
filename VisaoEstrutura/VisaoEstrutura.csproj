@@ -47,6 +47,7 @@
     <Compile Include="AdvogadoCadastro.cs" />
     <Compile Include="ClienteCadastro.cs" />
     <Compile Include="BeneficioCadastro.cs" />
+    <Compile Include="ConsultaProcessoClienteEstrutura.cs" />
     <Compile Include="ConsultaSimplesEstrutura.cs" />
     <Compile Include="ProcessoCadastro.cs" />
     <Compile Include="TipoAcaoCadastro.cs" />

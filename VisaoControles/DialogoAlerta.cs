@@ -106,7 +106,6 @@ namespace VisaoControles
                 Drag = true;
                 MouseX = System.Windows.Forms.Cursor.Position.X - this.Left;
                 MouseY = System.Windows.Forms.Cursor.Position.Y - this.Top;
-
             }
         }
 

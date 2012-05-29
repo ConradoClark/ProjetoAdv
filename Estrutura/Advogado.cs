@@ -79,6 +79,11 @@ namespace Estrutura
                 return (Modelo.Advogado.ModeloAdvogado) this;
             }
         }
+
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 
     public static class Advogados

@@ -181,6 +181,7 @@ namespace Estrutura
 
         public void ObterColecoes()
         {
+            LimparColecoes();
             Dados.AcessoProcessoCliente.ListarClienteProcesso(this,
                     () => (Modelo.Cliente.ModeloProcessoCliente)new ProcessoCliente(this, new Cliente()))
                     .Cast<ProcessoCliente>().ToList()
@@ -419,5 +420,11 @@ namespace Estrutura
         {
             return AcessoProcesso.PesquisarProcesso(processoBase, () => new Processo());
         }
+
+        public static IEnumerable<Modelo.Processo.ModeloProcesso> PesquisarPorAutor(Modelo.Cliente.ModeloCliente processoCliente)
+        {
+            return AcessoClienteProcesso.ListarProcessoCliente(processoCliente, () => new ProcessoCliente(new Processo(), processoCliente)).Select((p) => p.Processo);
+        }
+        
     }
 }

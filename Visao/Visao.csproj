@@ -90,6 +90,12 @@
     <Compile Include="CadastroProcessos.designer.cs">
       <DependentUpon>CadastroProcessos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultaProcessoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaProcessoCliente.designer.cs">
+      <DependentUpon>ConsultaProcessoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaSimples.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroProcessos.resx">
       <DependentUpon>CadastroProcessos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaProcessoCliente.resx">
+      <DependentUpon>ConsultaProcessoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultaSimples.resx">
       <DependentUpon>ConsultaSimples.cs</DependentUpon>

@@ -65,6 +65,12 @@
     <Compile Include="DialogoAlerta.Designer.cs">
       <DependentUpon>DialogoAlerta.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogoConfirmarBusca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogoConfirmarBusca.Designer.cs">
+      <DependentUpon>DialogoConfirmarBusca.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImageButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -91,6 +97,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DialogoAlerta.resx">
       <DependentUpon>DialogoAlerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogoConfirmarBusca.resx">
+      <DependentUpon>DialogoConfirmarBusca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImageButton.resx">
       <DependentUpon>ImageButton.cs</DependentUpon>
@@ -123,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Question.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
