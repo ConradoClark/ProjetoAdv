@@ -190,11 +190,11 @@
             // Ferramentas
             // 
             this.Ferramentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GrupoDiferencial,
             this.Pendencias,
-            this.TipoAcao,
-            this.Advogados,
             this.Beneficios,
+            this.GrupoDiferencial,
+            this.Advogados,
+            this.TipoAcao,
             this.toolStripSeparator1,
             this.Preferencias});
             this.Ferramentas.Image = global::Visao.Properties.Resources.TOOL_32x32;

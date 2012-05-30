@@ -44,8 +44,12 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TXTextControl, Version=17.0.1000.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638" />
-    <Reference Include="TXTextControl.Windows.Forms, Version=17.0.200.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638" />
+    <Reference Include="TXTextControl, Version=17.0.1000.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TXTextControl.Windows.Forms, Version=17.0.200.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CadastroAdvogados.cs">
@@ -102,6 +106,12 @@
     <Compile Include="ConsultaSimples.designer.cs">
       <DependentUpon>ConsultaSimples.cs</DependentUpon>
     </Compile>
+    <Compile Include="Honorarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Honorarios.designer.cs">
+      <DependentUpon>Honorarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +159,9 @@
     <EmbeddedResource Include="ConsultaSimples.resx">
       <DependentUpon>ConsultaSimples.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Honorarios.resx">
+      <DependentUpon>Honorarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +192,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Referencias\tx17_bmp.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Referencias\tx17_gif.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Referencias\tx17_ic.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Referencias\tx17_jpg.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Referencias\tx17_png.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Referencias\tx17_tif.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Referencias\tx17_wmf.flt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\logo01.psd" />
     <None Include="Resources\logo_Jardim Advocacia.psd" />
   </ItemGroup>
@@ -754,7 +788,49 @@
   <ItemGroup>
     <None Include="Resources\cabeca32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Referencias\de\TXTextControl.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\MySql.Data.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\tx17_css.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\tx17_htm.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\tx17_rtf.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\txic.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\txkernel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\TXTextControl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\TXTextControl.Windows.Forms.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\TXTextControl.Windows.Forms.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\TXTextControl.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Referencias\txtools.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y $(TargetDir)Referencias $(TargetDir)
+rmdir /s /q $(TargetDir)Referencias</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

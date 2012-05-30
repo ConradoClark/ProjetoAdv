@@ -287,8 +287,11 @@ namespace VisaoEstrutura
                         TextBoxBase cidade,
                         ComboBox UF,
                         TextBoxBase CEP,
+                        RadioButton rbtPessoaFisica,
+                        RadioButton rbtPessoaJuridica,
+                        MaskedTextBox CNPJ,
                         MaskedTextBox CPF,
-                        MaskedTextBox RG,
+                        TextBoxBase RG,
                         TextBoxBase orgaoExpedidorRG,
                         TextBoxBase dataEmissaoRG,
                         TextBoxBase tituloEleitor,
@@ -367,11 +370,21 @@ namespace VisaoEstrutura
             CEP.TextChanged += (sender, args) => { ClienteAtivo.Endereco.Cep = CEP.Text; };
             ClienteAtivo.Endereco.CepAlterado += (antigo, novo) => CEP.Text = novo;
 
+            rbtPessoaFisica.CheckedChanged += (sender, args) => ClienteAtivo.TipoPessoa = rbtPessoaFisica.Checked ? 'F' : 'J';
+            rbtPessoaJuridica.CheckedChanged += (sender, args) => ClienteAtivo.TipoPessoa = rbtPessoaJuridica.Checked ? 'J' : 'F';
+            ClienteAtivo.TipoPessoaAlterado += (antigo,novo) => rbtPessoaFisica.Checked = novo == 'F' ? true : false;
+
             CPF.TextChanged += (sender, args) =>
             {
                 ClienteAtivo.Cpf = CPF.Text;
             };
             ClienteAtivo.CpfAlterado += (antigo, novo) => CPF.Text = novo;
+
+            CNPJ.TextChanged += (sender, args) =>
+            {
+                ClienteAtivo.Cnpj = CNPJ.Text;
+            };
+            ClienteAtivo.CnpjAlterado += (antigo, novo) => CNPJ.Text = novo;
 
             RG.TextChanged += (sender, args) =>
             {

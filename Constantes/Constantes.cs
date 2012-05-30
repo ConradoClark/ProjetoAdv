@@ -189,7 +189,9 @@ namespace Constantes
             public const string NomeMae = "_nomeMae";
             public const string DataNascimento = "_dataNascimento";
             public const string Profissao = "_profissao";
+            public const string TipoPessoa = "_tipoPessoa";
             public const string CPF = "_cpf";
+            public const string CNPJ = "_cnpj";
             public const string RG = "_rg";
             public const string OrgaoExpedidorRG = "_orgaoExpedidorRG";
             public const string DataEmissaoRG = "_dataEmissaoRg";

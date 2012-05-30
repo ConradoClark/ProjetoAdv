@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{97753A4A-DD02-4112-9B35-0EFFFAB1B7C9}"
@@ -25,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisaoControles", "VisaoControles\VisaoControles.csproj", "{7AF4977A-FDB0-406C-B4F6-0460AE406CCC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visao", "Visao\Visao.csproj", "{6C1F2C88-8FFC-4686-8E53-131B1B7A507F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFEstrutura", "PDFEstrutura\PDFEstrutura.csproj", "{84AD0F5A-CAE6-4CB2-A38E-78A405372932}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -129,6 +130,16 @@ Global
 		{6C1F2C88-8FFC-4686-8E53-131B1B7A507F}.Release|Mixed Platforms.Build.0 = Release|x86
 		{6C1F2C88-8FFC-4686-8E53-131B1B7A507F}.Release|x86.ActiveCfg = Release|x86
 		{6C1F2C88-8FFC-4686-8E53-131B1B7A507F}.Release|x86.Build.0 = Release|x86
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

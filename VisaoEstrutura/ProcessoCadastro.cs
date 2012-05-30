@@ -327,7 +327,7 @@ namespace VisaoEstrutura
 
             btnRemoverAutor.Click += (sender, args) =>
             {
-                foreach (DataGridViewRow row in gridPesquisaClientes.SelectedRows)
+                foreach (DataGridViewRow row in gridAutoresProcesso.SelectedRows)
                 {
                     if (row.DataBoundItem != null)
                     {
@@ -339,7 +339,7 @@ namespace VisaoEstrutura
 
             btnDefineCabeca.Click += (sender, args) =>
             {
-                if (gridPesquisaClientes.SelectedRows.Count != 1)
+                if (gridAutoresProcesso.SelectedRows.Count != 1)
                 {
                     DialogoAlerta.Mostrar("Erro", "Selecione um e apenas um autor na lista para ser definido como cabeça do processo",
                            MessageBoxIcon.Error,

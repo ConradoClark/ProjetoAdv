@@ -61,7 +61,15 @@ namespace Estrutura
 
         public bool Obter()
         {
-            return Dados.AcessoAdvogado.ObterAdvogado(this);
+            bool result =  Dados.AcessoAdvogado.ObterAdvogado(this);
+            if (result)
+            {
+                Dados.AcessoProcessoAdvogado.ListarProcessoAdvogado(new ProcessoAdvogado(this, new Processo()),
+                    () => (Modelo.Advogado.ModeloAdvogadoProcesso)new ProcessoAdvogado(this,new Processo()))
+                    .Cast<ProcessoAdvogado>().ToList()
+                    .ForEach((pro) => this.Processos.Add(pro));
+            }
+            return result;
         }
 
         public int QuantidadeProcessos

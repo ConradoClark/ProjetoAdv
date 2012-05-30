@@ -20,8 +20,13 @@ namespace Modelo.Cliente
         private DateTime? _dataNascimento;
         [NomeDisplay("Profissão")]
         private string _profissao;
+        [Browsable(false)]
+        [NomeDisplay("Tipo de Pessoa")]        
+        private char? _tipoPessoa;
         [NomeDisplay("CPF")]
         private string _cpf;
+        [NomeDisplay("CNPJ")]
+        private string _cnpj;
         [NomeDisplay("RG")]
         private string _rg;
         [NomeDisplay("Data de Emissão do RG")]

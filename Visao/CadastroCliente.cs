@@ -82,6 +82,9 @@ namespace Visao
                 enderecoCidade,
                 enderecoUF,
                 enderecoCEP,
+                rbPessoaFisica,
+                rbPessoaJuridica,
+                cnpj,
                 cpf,
                 rg,
                 orgaoExpedidorRG,
@@ -125,7 +128,9 @@ namespace Visao
             txtAtendimento.Changed += (sender, args) =>
             {
                 colorComboBox1.SelectedColor = txtAtendimento.Selection.ForeColor;                
-            };            
+            };
+
+            AjustarTipoPessoa();
         }
 
         public CadastroCliente(Modelo.Cliente.ModeloCliente cliente) : this()
@@ -171,6 +176,42 @@ namespace Visao
         private void button9_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void rbPessoaFisica_CheckedChanged(object sender, EventArgs e)
+        {
+            AjustarTipoPessoa();
+        }
+
+        private void rbPessoaJuridica_CheckedChanged(object sender, EventArgs e)
+        {
+            AjustarTipoPessoa();
+        }
+
+        private void AjustarTipoPessoa()
+        {
+            if (rbPessoaFisica.Checked)
+            {
+                pnlCNPJ.Visible = false;
+                pnlCPF.Visible = true;
+                pnlRG.Visible = true;
+                pnlDataEmissao.Visible = true;
+                pnlOrgaoExpedidor.Visible = true;
+                pnlTituloEleitor.Visible = true;
+                pnlSecao.Visible = true;
+                pnlZona.Visible = true;                
+            }
+            else if (rbPessoaJuridica.Checked)
+            {
+                pnlCNPJ.Visible = true;
+                pnlCPF.Visible = false;
+                pnlRG.Visible = false;
+                pnlDataEmissao.Visible = false;
+                pnlOrgaoExpedidor.Visible = false;
+                pnlTituloEleitor.Visible = false;
+                pnlSecao.Visible = false;
+                pnlZona.Visible = false;                  
+            }
         }
 
     }

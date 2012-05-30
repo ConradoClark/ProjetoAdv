@@ -24,7 +24,11 @@ namespace Modelo.Cliente{
 							
 																		ProfissaoAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
 							
+																		TipoPessoaAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
+							
 																		CpfAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
+							
+																		CnpjAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
 							
 																		RgAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
 							
@@ -123,9 +127,17 @@ namespace Modelo.Cliente{
 				public delegate void _profissaoAlterado(string valorAntigo, string valorNovo);
 				public event _profissaoAlterado ProfissaoAlterado;				
 			#endregion			
+			#region Eventos do TipoPessoa
+				public delegate void _tipoPessoaAlterado(char? valorAntigo, char? valorNovo);
+				public event _tipoPessoaAlterado TipoPessoaAlterado;				
+			#endregion			
 			#region Eventos do Cpf
 				public delegate void _cpfAlterado(string valorAntigo, string valorNovo);
 				public event _cpfAlterado CpfAlterado;				
+			#endregion			
+			#region Eventos do Cnpj
+				public delegate void _cnpjAlterado(string valorAntigo, string valorNovo);
+				public event _cnpjAlterado CnpjAlterado;				
 			#endregion			
 			#region Eventos do Rg
 				public delegate void _rgAlterado(string valorAntigo, string valorNovo);
@@ -367,6 +379,22 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
+					
+			[Browsable(false)]
+			public char? TipoPessoa{
+				get{
+					return _tipoPessoa;
+				}
+				set{
+					if (_tipoPessoa != value){
+						if (TipoPessoaAlterado != null){
+							TipoPessoaAlterado(_tipoPessoa,value);
+							this.NotifyPropertyChanged("TipoPessoa");
+						}
+						_tipoPessoa = value;
+					}
+				}
+			}
 					[DisplayName("CPF")]
 			
 			public string Cpf{
@@ -380,6 +408,22 @@ namespace Modelo.Cliente{
 							this.NotifyPropertyChanged("Cpf");
 						}
 						_cpf = value;
+					}
+				}
+			}
+					[DisplayName("CNPJ")]
+			
+			public string Cnpj{
+				get{
+					return _cnpj;
+				}
+				set{
+					if (_cnpj != value){
+						if (CnpjAlterado != null){
+							CnpjAlterado(_cnpj,value);
+							this.NotifyPropertyChanged("Cnpj");
+						}
+						_cnpj = value;
 					}
 				}
 			}
@@ -973,7 +1017,11 @@ namespace Modelo.Cliente{
 										
 															Profissao = default(string);
 										
+															TipoPessoa = default(char?);
+										
 															Cpf = default(string);
+										
+															Cnpj = default(string);
 										
 															Rg = default(string);
 										
@@ -1062,7 +1110,9 @@ namespace Modelo.Cliente{
 									clone.NomeMae = this.NomeMae;
 									clone.DataNascimento = this.DataNascimento;
 									clone.Profissao = this.Profissao;
+									clone.TipoPessoa = this.TipoPessoa;
 									clone.Cpf = this.Cpf;
+									clone.Cnpj = this.Cnpj;
 									clone.Rg = this.Rg;
 									clone.DataEmissaoRG = this.DataEmissaoRG;
 									clone.OrgaoExpedidorRG = this.OrgaoExpedidorRG;
@@ -1108,5 +1158,5 @@ namespace Modelo.Cliente{
 						}
 						return false;
 					}
-																																																																																																																																																																																																																																																																																																													 	}
+																																																																																																																																																																																																																																																																																																																											 	}
 }

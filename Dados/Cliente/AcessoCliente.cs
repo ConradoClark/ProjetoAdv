@@ -19,7 +19,9 @@ namespace Dados
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.NomeMae, cliente.NomeMae),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.DataNascimento, cliente.DataNascimento),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.Profissao, cliente.Profissao),
+                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.TipoPessoa, cliente.TipoPessoa),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.CPF, cliente.Cpf),
+                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.CNPJ, cliente.Cnpj),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.RG, cliente.Rg),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.OrgaoExpedidorRG, cliente.OrgaoExpedidorRG),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.DataEmissaoRG, cliente.DataEmissaoRG),
@@ -94,7 +96,9 @@ namespace Dados
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.NomeMae, cliente.NomeMae),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.DataNascimento, cliente.DataNascimento),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.Profissao, cliente.Profissao),
+                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.TipoPessoa, cliente.TipoPessoa),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.CPF, cliente.Cpf),
+                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.CNPJ, cliente.Cnpj),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.RG, cliente.Rg),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.OrgaoExpedidorRG, cliente.OrgaoExpedidorRG),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.DataEmissaoRG, cliente.DataEmissaoRG),
@@ -167,7 +171,9 @@ namespace Dados
                     cliente.NomeMae = @dados.nomeMae;
                     cliente.DataNascimento = @dados.dataNascimento;
                     cliente.Profissao = @dados.profissao;
+                    cliente.TipoPessoa = Convert.ToChar(@dados.tipoPessoa);
                     cliente.Cpf = @dados.cpf;
+                    cliente.Cnpj = @dados.cnpj;
                     cliente.Rg = @dados.rg;
                     cliente.OrgaoExpedidorRG = @dados.orgaoExpedidorRG;
                     cliente.DataEmissaoRG = @dados.dataEmissaoRg;
@@ -268,7 +274,9 @@ namespace Dados
                     cliente.NomeMae = @dados.nomeMae;
                     cliente.DataNascimento = @dados.dataNascimento;
                     cliente.Profissao = @dados.profissao;
+                    cliente.TipoPessoa = @dados.tipoPessoa;
                     cliente.Cpf = @dados.cpf;
+                    cliente.Cnpj = @dados.cnpj;
                     cliente.Rg = @dados.rg;
                     cliente.OrgaoExpedidorRG = @dados.orgaoExpedidorRG;
                     cliente.DataEmissaoRG = @dados.dataEmissaoRg;
@@ -348,7 +356,9 @@ namespace Dados
                     cliente.NomeMae = @dados.nomeMae;
                     cliente.DataNascimento = @dados.dataNascimento;
                     cliente.Profissao = @dados.profissao;
+                    cliente.TipoPessoa = @dados.tipoPessoa;
                     cliente.Cpf = @dados.cpf;
+                    cliente.Cnpj = @dados.cnpj;
                     cliente.Rg = @dados.rg;
                     cliente.OrgaoExpedidorRG = @dados.orgaoExpedidorRG;
                     cliente.DataEmissaoRG = @dados.dataEmissaoRg;
