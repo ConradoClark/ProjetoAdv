@@ -64,6 +64,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtCodigoCliente = new VisaoControles.NumberTextBox();
+            this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -167,7 +168,6 @@
             this.txtAndamento.Name = "txtAndamento";
             this.txtAndamento.Size = new System.Drawing.Size(666, 139);
             this.txtAndamento.TabIndex = 1;
-            this.txtAndamento.TextBackColor = System.Drawing.SystemColors.Control;
             // 
             // groupBox3
             // 
@@ -188,7 +188,6 @@
             this.txtObjetivo.Name = "txtObjetivo";
             this.txtObjetivo.Size = new System.Drawing.Size(323, 69);
             this.txtObjetivo.TabIndex = 0;
-            this.txtObjetivo.TextBackColor = System.Drawing.SystemColors.Control;
             // 
             // btnProximo
             // 
@@ -406,6 +405,7 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.AliceBlue;
+            this.groupBox5.Controls.Add(this.btnSair);
             this.groupBox5.Controls.Add(this.txtCodigoCliente);
             this.groupBox5.Controls.Add(this.btnPesquisar);
             this.groupBox5.Controls.Add(this.label1);
@@ -428,6 +428,16 @@
             this.txtCodigoCliente.Size = new System.Drawing.Size(100, 20);
             this.txtCodigoCliente.TabIndex = 25;
             // 
+            // btnSair
+            // 
+            this.btnSair.Image = global::Visao.Properties.Resources.sair24;
+            this.btnSair.Location = new System.Drawing.Point(678, 16);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(35, 28);
+            this.btnSair.TabIndex = 44;
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // ConsultaProcessoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +447,7 @@
             this.Name = "ConsultaProcessoCliente";
             this.Text = "Consulta de Processo por Cliente";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ConsultaProcessoCliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -485,5 +496,6 @@
         private TXTextControl.TextControl txtObjetivo;
         private System.Windows.Forms.Button btnFichaCadastral;
         private VisaoControles.NumberTextBox txtCodigoCliente;
+        private System.Windows.Forms.Button btnSair;
     }
 }

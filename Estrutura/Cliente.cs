@@ -138,6 +138,7 @@ namespace Estrutura
         public Cliente()
             : base()
         {
+            this.TipoPessoa = 'F';
             this.Endereco = new Endereco();
             this.Beneficios = new ListaAssociada<Beneficio>(()=>new Beneficio(this));
             this.Contatos = new ListaAssociada<Contato>(()=>new Contato(this));

@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visao", "Visao\Visao.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFEstrutura", "PDFEstrutura\PDFEstrutura.csproj", "{84AD0F5A-CAE6-4CB2-A38E-78A405372932}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Launcher", "Launcher\Launcher.csproj", "{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ProjetoAdv.vsmdi
@@ -140,6 +142,16 @@ Global
 		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{84AD0F5A-CAE6-4CB2-A38E-78A405372932}.Release|x86.ActiveCfg = Release|Any CPU
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Debug|x86.ActiveCfg = Debug|x86
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Debug|x86.Build.0 = Debug|x86
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Release|Any CPU.ActiveCfg = Release|x86
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Release|Mixed Platforms.Build.0 = Release|x86
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Release|x86.ActiveCfg = Release|x86
+		{4926A9E8-A59F-48C0-9E8F-BC2A0944F7C2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

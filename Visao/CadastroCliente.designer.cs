@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.codigoBusca = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -125,11 +125,15 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.rbPessoaJuridica = new System.Windows.Forms.RadioButton();
+            this.rbPessoaFisica = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlCPF = new System.Windows.Forms.Panel();
             this.cpf = new System.Windows.Forms.MaskedTextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.pnlRG = new System.Windows.Forms.Panel();
+            this.rg = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.pnlOrgaoExpedidor = new System.Windows.Forms.Panel();
             this.orgaoExpedidorRG = new System.Windows.Forms.TextBox();
@@ -138,17 +142,19 @@
             this.dataEmissaoRG = new System.Windows.Forms.MaskedTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.pnlTituloEleitor = new System.Windows.Forms.Panel();
+            this.tituloEleitor = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.pnlZona = new System.Windows.Forms.Panel();
+            this.zonaEleitoral = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.pnlSecao = new System.Windows.Forms.Panel();
+            this.secaoEleitoral = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.pnlCNPJ = new System.Windows.Forms.Panel();
+            this.cnpj = new System.Windows.Forms.MaskedTextBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.codigo = new System.Windows.Forms.TextBox();
             this.label67 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.secaoEleitoral = new System.Windows.Forms.TextBox();
-            this.tituloEleitor = new System.Windows.Forms.TextBox();
-            this.zonaEleitoral = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -187,12 +193,6 @@
             this.btnPDF = new System.Windows.Forms.Button();
             this.menuGridView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removerLinhaContextButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.cnpj = new System.Windows.Forms.MaskedTextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.rg = new System.Windows.Forms.TextBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.rbPessoaFisica = new System.Windows.Forms.RadioButton();
-            this.rbPessoaJuridica = new System.Windows.Forms.RadioButton();
             this.tabPage4.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dependenteGridView)).BeginInit();
@@ -205,6 +205,7 @@
             this.groupBox2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlCPF.SuspendLayout();
             this.pnlRG.SuspendLayout();
@@ -224,7 +225,6 @@
             this.groupBox1.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.menuGridView.SuspendLayout();
-            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // codigoBusca
@@ -266,8 +266,8 @@
             // 
             // dependenteGridView
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dependenteGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dependenteGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dependenteGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dependenteGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.depParentesco,
@@ -330,8 +330,8 @@
             // 
             // contatoGridView
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.contatoGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.contatoGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.contatoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contatoGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.conTipoContato,
@@ -847,7 +847,7 @@
             this.enderecoCEP.Mask = "00000-999";
             this.enderecoCEP.Name = "enderecoCEP";
             this.enderecoCEP.Size = new System.Drawing.Size(67, 20);
-            this.enderecoCEP.TabIndex = 218;
+            this.enderecoCEP.TabIndex = 199;
             this.enderecoCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // label17
@@ -894,7 +894,7 @@
             this.enderecoUF.Location = new System.Drawing.Point(956, 229);
             this.enderecoUF.Name = "enderecoUF";
             this.enderecoUF.Size = new System.Drawing.Size(46, 21);
-            this.enderecoUF.TabIndex = 216;
+            this.enderecoUF.TabIndex = 200;
             // 
             // label16
             // 
@@ -1161,6 +1161,43 @@
             this.groupBox5.TabIndex = 221;
             this.groupBox5.TabStop = false;
             // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.rbPessoaJuridica);
+            this.groupBox12.Controls.Add(this.rbPessoaFisica);
+            this.groupBox12.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox12.Location = new System.Drawing.Point(7, 244);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(988, 130);
+            this.groupBox12.TabIndex = 214;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Tipo de Cliente";
+            // 
+            // rbPessoaJuridica
+            // 
+            this.rbPessoaJuridica.AutoSize = true;
+            this.rbPessoaJuridica.Location = new System.Drawing.Point(130, 31);
+            this.rbPessoaJuridica.Name = "rbPessoaJuridica";
+            this.rbPessoaJuridica.Size = new System.Drawing.Size(101, 17);
+            this.rbPessoaJuridica.TabIndex = 215;
+            this.rbPessoaJuridica.TabStop = true;
+            this.rbPessoaJuridica.Text = "Pessoa Jurídica";
+            this.rbPessoaJuridica.UseVisualStyleBackColor = true;
+            this.rbPessoaJuridica.CheckedChanged += new System.EventHandler(this.rbPessoaJuridica_CheckedChanged);
+            // 
+            // rbPessoaFisica
+            // 
+            this.rbPessoaFisica.AutoSize = true;
+            this.rbPessoaFisica.Checked = true;
+            this.rbPessoaFisica.Location = new System.Drawing.Point(12, 31);
+            this.rbPessoaFisica.Name = "rbPessoaFisica";
+            this.rbPessoaFisica.Size = new System.Drawing.Size(92, 17);
+            this.rbPessoaFisica.TabIndex = 214;
+            this.rbPessoaFisica.TabStop = true;
+            this.rbPessoaFisica.Text = "Pessoa Física";
+            this.rbPessoaFisica.UseVisualStyleBackColor = true;
+            this.rbPessoaFisica.CheckedChanged += new System.EventHandler(this.rbPessoaFisica_CheckedChanged);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.pnlCPF);
@@ -1191,7 +1228,7 @@
             this.cpf.Mask = "999\\.999\\.999-99";
             this.cpf.Name = "cpf";
             this.cpf.Size = new System.Drawing.Size(94, 20);
-            this.cpf.TabIndex = 200;
+            this.cpf.TabIndex = 201;
             this.cpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // label18
@@ -1211,6 +1248,13 @@
             this.pnlRG.Name = "pnlRG";
             this.pnlRG.Size = new System.Drawing.Size(117, 49);
             this.pnlRG.TabIndex = 1;
+            // 
+            // rg
+            // 
+            this.rg.Location = new System.Drawing.Point(12, 26);
+            this.rg.Name = "rg";
+            this.rg.Size = new System.Drawing.Size(100, 20);
+            this.rg.TabIndex = 202;
             // 
             // label19
             // 
@@ -1284,6 +1328,23 @@
             this.pnlTituloEleitor.Size = new System.Drawing.Size(133, 49);
             this.pnlTituloEleitor.TabIndex = 4;
             // 
+            // tituloEleitor
+            // 
+            this.tituloEleitor.Location = new System.Drawing.Point(4, 26);
+            this.tituloEleitor.MaxLength = 15;
+            this.tituloEleitor.Name = "tituloEleitor";
+            this.tituloEleitor.Size = new System.Drawing.Size(113, 20);
+            this.tituloEleitor.TabIndex = 208;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(1, 10);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(67, 13);
+            this.label22.TabIndex = 207;
+            this.label22.Text = "Título Eleitor";
+            // 
             // pnlZona
             // 
             this.pnlZona.Controls.Add(this.zonaEleitoral);
@@ -1292,6 +1353,23 @@
             this.pnlZona.Name = "pnlZona";
             this.pnlZona.Size = new System.Drawing.Size(80, 49);
             this.pnlZona.TabIndex = 5;
+            // 
+            // zonaEleitoral
+            // 
+            this.zonaEleitoral.Location = new System.Drawing.Point(3, 26);
+            this.zonaEleitoral.MaxLength = 5;
+            this.zonaEleitoral.Name = "zonaEleitoral";
+            this.zonaEleitoral.Size = new System.Drawing.Size(66, 20);
+            this.zonaEleitoral.TabIndex = 210;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(1, 10);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(32, 13);
+            this.label23.TabIndex = 209;
+            this.label23.Text = "Zona";
             // 
             // pnlSecao
             // 
@@ -1302,6 +1380,23 @@
             this.pnlSecao.Size = new System.Drawing.Size(83, 49);
             this.pnlSecao.TabIndex = 6;
             // 
+            // secaoEleitoral
+            // 
+            this.secaoEleitoral.Location = new System.Drawing.Point(5, 26);
+            this.secaoEleitoral.MaxLength = 7;
+            this.secaoEleitoral.Name = "secaoEleitoral";
+            this.secaoEleitoral.Size = new System.Drawing.Size(68, 20);
+            this.secaoEleitoral.TabIndex = 212;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(2, 10);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(38, 13);
+            this.label24.TabIndex = 211;
+            this.label24.Text = "Seção";
+            // 
             // pnlCNPJ
             // 
             this.pnlCNPJ.Controls.Add(this.cnpj);
@@ -1310,6 +1405,24 @@
             this.pnlCNPJ.Name = "pnlCNPJ";
             this.pnlCNPJ.Size = new System.Drawing.Size(139, 49);
             this.pnlCNPJ.TabIndex = 7;
+            // 
+            // cnpj
+            // 
+            this.cnpj.Location = new System.Drawing.Point(13, 22);
+            this.cnpj.Mask = "99\\.999\\.999/9999-99";
+            this.cnpj.Name = "cnpj";
+            this.cnpj.Size = new System.Drawing.Size(108, 20);
+            this.cnpj.TabIndex = 201;
+            this.cnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(10, 6);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(34, 13);
+            this.label37.TabIndex = 201;
+            this.label37.Text = "CNPJ";
             // 
             // codigo
             // 
@@ -1329,57 +1442,6 @@
             this.label67.Size = new System.Drawing.Size(40, 13);
             this.label67.TabIndex = 175;
             this.label67.Text = "Codigo";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(2, 10);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(38, 13);
-            this.label24.TabIndex = 211;
-            this.label24.Text = "Seção";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(1, 10);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(32, 13);
-            this.label23.TabIndex = 209;
-            this.label23.Text = "Zona";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(1, 10);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(67, 13);
-            this.label22.TabIndex = 207;
-            this.label22.Text = "Título Eleitor";
-            // 
-            // secaoEleitoral
-            // 
-            this.secaoEleitoral.Location = new System.Drawing.Point(5, 26);
-            this.secaoEleitoral.MaxLength = 7;
-            this.secaoEleitoral.Name = "secaoEleitoral";
-            this.secaoEleitoral.Size = new System.Drawing.Size(68, 20);
-            this.secaoEleitoral.TabIndex = 212;
-            // 
-            // tituloEleitor
-            // 
-            this.tituloEleitor.Location = new System.Drawing.Point(4, 26);
-            this.tituloEleitor.MaxLength = 15;
-            this.tituloEleitor.Name = "tituloEleitor";
-            this.tituloEleitor.Size = new System.Drawing.Size(113, 20);
-            this.tituloEleitor.TabIndex = 208;
-            // 
-            // zonaEleitoral
-            // 
-            this.zonaEleitoral.Location = new System.Drawing.Point(3, 26);
-            this.zonaEleitoral.MaxLength = 5;
-            this.zonaEleitoral.Name = "zonaEleitoral";
-            this.zonaEleitoral.Size = new System.Drawing.Size(66, 20);
-            this.zonaEleitoral.TabIndex = 210;
             // 
             // tabControl1
             // 
@@ -1419,8 +1481,8 @@
             // 
             // beneficiosGridView
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.beneficiosGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.beneficiosGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.beneficiosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.beneficiosGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.benTipoBeneficio,
@@ -3129,6 +3191,147 @@
             "White",
             "WhiteSmoke",
             "Yellow",
+            "YellowGreen",
+            "Transparent",
+            "AliceBlue",
+            "AntiqueWhite",
+            "Aqua",
+            "Aquamarine",
+            "Azure",
+            "Beige",
+            "Bisque",
+            "Black",
+            "BlanchedAlmond",
+            "Blue",
+            "BlueViolet",
+            "Brown",
+            "BurlyWood",
+            "CadetBlue",
+            "Chartreuse",
+            "Chocolate",
+            "Coral",
+            "CornflowerBlue",
+            "Cornsilk",
+            "Crimson",
+            "Cyan",
+            "DarkBlue",
+            "DarkCyan",
+            "DarkGoldenrod",
+            "DarkGray",
+            "DarkGreen",
+            "DarkKhaki",
+            "DarkMagenta",
+            "DarkOliveGreen",
+            "DarkOrange",
+            "DarkOrchid",
+            "DarkRed",
+            "DarkSalmon",
+            "DarkSeaGreen",
+            "DarkSlateBlue",
+            "DarkSlateGray",
+            "DarkTurquoise",
+            "DarkViolet",
+            "DeepPink",
+            "DeepSkyBlue",
+            "DimGray",
+            "DodgerBlue",
+            "Firebrick",
+            "FloralWhite",
+            "ForestGreen",
+            "Fuchsia",
+            "Gainsboro",
+            "GhostWhite",
+            "Gold",
+            "Goldenrod",
+            "Gray",
+            "Green",
+            "GreenYellow",
+            "Honeydew",
+            "HotPink",
+            "IndianRed",
+            "Indigo",
+            "Ivory",
+            "Khaki",
+            "Lavender",
+            "LavenderBlush",
+            "LawnGreen",
+            "LemonChiffon",
+            "LightBlue",
+            "LightCoral",
+            "LightCyan",
+            "LightGoldenrodYellow",
+            "LightGray",
+            "LightGreen",
+            "LightPink",
+            "LightSalmon",
+            "LightSeaGreen",
+            "LightSkyBlue",
+            "LightSlateGray",
+            "LightSteelBlue",
+            "LightYellow",
+            "Lime",
+            "LimeGreen",
+            "Linen",
+            "Magenta",
+            "Maroon",
+            "MediumAquamarine",
+            "MediumBlue",
+            "MediumOrchid",
+            "MediumPurple",
+            "MediumSeaGreen",
+            "MediumSlateBlue",
+            "MediumSpringGreen",
+            "MediumTurquoise",
+            "MediumVioletRed",
+            "MidnightBlue",
+            "MintCream",
+            "MistyRose",
+            "Moccasin",
+            "NavajoWhite",
+            "Navy",
+            "OldLace",
+            "Olive",
+            "OliveDrab",
+            "Orange",
+            "OrangeRed",
+            "Orchid",
+            "PaleGoldenrod",
+            "PaleGreen",
+            "PaleTurquoise",
+            "PaleVioletRed",
+            "PapayaWhip",
+            "PeachPuff",
+            "Peru",
+            "Pink",
+            "Plum",
+            "PowderBlue",
+            "Purple",
+            "Red",
+            "RosyBrown",
+            "RoyalBlue",
+            "SaddleBrown",
+            "Salmon",
+            "SandyBrown",
+            "SeaGreen",
+            "SeaShell",
+            "Sienna",
+            "Silver",
+            "SkyBlue",
+            "SlateBlue",
+            "SlateGray",
+            "Snow",
+            "SpringGreen",
+            "SteelBlue",
+            "Tan",
+            "Teal",
+            "Thistle",
+            "Tomato",
+            "Turquoise",
+            "Violet",
+            "Wheat",
+            "White",
+            "WhiteSmoke",
+            "Yellow",
             "YellowGreen"});
             this.colorComboBox1.Location = new System.Drawing.Point(815, 21);
             this.colorComboBox1.Name = "colorComboBox1";
@@ -3147,7 +3350,6 @@
             this.txtAtendimentoRealizado.Name = "txtAtendimentoRealizado";
             this.txtAtendimentoRealizado.Size = new System.Drawing.Size(1102, 219);
             this.txtAtendimentoRealizado.TabIndex = 6;
-            this.txtAtendimentoRealizado.TextBackColor = System.Drawing.Color.WhiteSmoke;
             this.txtAtendimentoRealizado.ViewMode = TXTextControl.ViewMode.Normal;
             // 
             // buttonBar
@@ -3291,68 +3493,6 @@
             this.removerLinhaContextButton.Size = new System.Drawing.Size(153, 22);
             this.removerLinhaContextButton.Text = "&Remover Linha";
             // 
-            // cnpj
-            // 
-            this.cnpj.Location = new System.Drawing.Point(13, 22);
-            this.cnpj.Mask = "99\\.999\\.999/9999-99";
-            this.cnpj.Name = "cnpj";
-            this.cnpj.Size = new System.Drawing.Size(108, 20);
-            this.cnpj.TabIndex = 202;
-            this.cnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(10, 6);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(34, 13);
-            this.label37.TabIndex = 201;
-            this.label37.Text = "CNPJ";
-            // 
-            // rg
-            // 
-            this.rg.Location = new System.Drawing.Point(12, 26);
-            this.rg.Name = "rg";
-            this.rg.Size = new System.Drawing.Size(100, 20);
-            this.rg.TabIndex = 202;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.rbPessoaJuridica);
-            this.groupBox12.Controls.Add(this.rbPessoaFisica);
-            this.groupBox12.Controls.Add(this.flowLayoutPanel1);
-            this.groupBox12.Location = new System.Drawing.Point(7, 244);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(988, 130);
-            this.groupBox12.TabIndex = 214;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Tipo de Cliente";
-            // 
-            // rbPessoaFisica
-            // 
-            this.rbPessoaFisica.AutoSize = true;
-            this.rbPessoaFisica.Checked = true;
-            this.rbPessoaFisica.Location = new System.Drawing.Point(12, 31);
-            this.rbPessoaFisica.Name = "rbPessoaFisica";
-            this.rbPessoaFisica.Size = new System.Drawing.Size(92, 17);
-            this.rbPessoaFisica.TabIndex = 214;
-            this.rbPessoaFisica.TabStop = true;
-            this.rbPessoaFisica.Text = "Pessoa Física";
-            this.rbPessoaFisica.UseVisualStyleBackColor = true;
-            this.rbPessoaFisica.CheckedChanged += new System.EventHandler(this.rbPessoaFisica_CheckedChanged);
-            // 
-            // rbPessoaJuridica
-            // 
-            this.rbPessoaJuridica.AutoSize = true;
-            this.rbPessoaJuridica.Location = new System.Drawing.Point(130, 31);
-            this.rbPessoaJuridica.Name = "rbPessoaJuridica";
-            this.rbPessoaJuridica.Size = new System.Drawing.Size(101, 17);
-            this.rbPessoaJuridica.TabIndex = 215;
-            this.rbPessoaJuridica.TabStop = true;
-            this.rbPessoaJuridica.Text = "Pessoa Jurídica";
-            this.rbPessoaJuridica.UseVisualStyleBackColor = true;
-            this.rbPessoaJuridica.CheckedChanged += new System.EventHandler(this.rbPessoaJuridica_CheckedChanged);
-            // 
             // CadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3384,6 +3524,8 @@
             this.tabPage1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlCPF.ResumeLayout(false);
             this.pnlCPF.PerformLayout();
@@ -3413,8 +3555,6 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.menuGridView.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
             this.ResumeLayout(false);
 
         }

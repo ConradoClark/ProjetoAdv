@@ -30,13 +30,13 @@
         {
             this.painelJanela = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnFechar = new VisaoControles.ImageButton();
             this.grupoBotoes = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnOk = new VisaoControles.ImageButton();
+            this.btnCancelar = new VisaoControles.ImageButton();
             this.lblMensagem = new System.Windows.Forms.Label();
             this.messageIcon = new System.Windows.Forms.PictureBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.btnOk = new VisaoControles.ImageButton();
-            this.btnCancelar = new VisaoControles.ImageButton();
-            this.btnFechar = new VisaoControles.ImageButton();
             this.painelJanela.SuspendLayout();
             this.grupoBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.messageIcon)).BeginInit();
@@ -50,10 +50,10 @@
             this.painelJanela.Controls.Add(this.lblTitulo);
             this.painelJanela.Controls.Add(this.btnFechar);
             this.painelJanela.Dock = System.Windows.Forms.DockStyle.Top;
-            this.painelJanela.Location = new System.Drawing.Point(0, 0);
+            this.painelJanela.Location = new System.Drawing.Point(2, 2);
             this.painelJanela.Name = "painelJanela";
             this.painelJanela.Padding = new System.Windows.Forms.Padding(2);
-            this.painelJanela.Size = new System.Drawing.Size(541, 33);
+            this.painelJanela.Size = new System.Drawing.Size(545, 33);
             this.painelJanela.TabIndex = 7;
             // 
             // lblTitulo
@@ -66,6 +66,17 @@
             this.lblTitulo.TabIndex = 4;
             this.lblTitulo.Text = "titulo";
             // 
+            // btnFechar
+            // 
+            this.btnFechar.BackColor = System.Drawing.Color.Transparent;
+            this.btnFechar.ButtonSize = new System.Drawing.Size(24, 24);
+            this.btnFechar.Image = global::VisaoControles.Properties.Resources.Windows_Close_Program;
+            this.btnFechar.Location = new System.Drawing.Point(512, 4);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(24, 24);
+            this.btnFechar.TabIndex = 5;
+            this.btnFechar.UseVisualStyleBackColor = true;
+            // 
             // grupoBotoes
             // 
             this.grupoBotoes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -73,44 +84,11 @@
             this.grupoBotoes.BackColor = System.Drawing.Color.Lavender;
             this.grupoBotoes.Controls.Add(this.btnOk);
             this.grupoBotoes.Controls.Add(this.btnCancelar);
-            this.grupoBotoes.Location = new System.Drawing.Point(0, 299);
+            this.grupoBotoes.Location = new System.Drawing.Point(2, 301);
             this.grupoBotoes.Name = "grupoBotoes";
-            this.grupoBotoes.Size = new System.Drawing.Size(541, 36);
+            this.grupoBotoes.Size = new System.Drawing.Size(545, 36);
             this.grupoBotoes.TabIndex = 8;
             this.grupoBotoes.WrapContents = false;
-            // 
-            // lblMensagem
-            // 
-            this.lblMensagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensagem.Location = new System.Drawing.Point(42, 36);
-            this.lblMensagem.Margin = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.lblMensagem.Name = "lblMensagem";
-            this.lblMensagem.Size = new System.Drawing.Size(487, 63);
-            this.lblMensagem.TabIndex = 9;
-            this.lblMensagem.Text = "mensagem";
-            // 
-            // messageIcon
-            // 
-            this.messageIcon.Image = global::VisaoControles.Properties.Resources.confirm;
-            this.messageIcon.Location = new System.Drawing.Point(7, 36);
-            this.messageIcon.Name = "messageIcon";
-            this.messageIcon.Size = new System.Drawing.Size(32, 32);
-            this.messageIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.messageIcon.TabIndex = 10;
-            this.messageIcon.TabStop = false;
-            // 
-            // dataGrid
-            // 
-            this.dataGrid.AllowUserToAddRows = false;
-            this.dataGrid.AllowUserToDeleteRows = false;
-            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Location = new System.Drawing.Point(9, 112);
-            this.dataGrid.MultiSelect = false;
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.ReadOnly = true;
-            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(520, 170);
-            this.dataGrid.TabIndex = 11;
             // 
             // btnOk
             // 
@@ -138,22 +116,44 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // btnFechar
+            // lblMensagem
             // 
-            this.btnFechar.BackColor = System.Drawing.Color.Transparent;
-            this.btnFechar.ButtonSize = new System.Drawing.Size(24, 24);
-            this.btnFechar.Image = global::VisaoControles.Properties.Resources.Windows_Close_Program;
-            this.btnFechar.Location = new System.Drawing.Point(512, 4);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(24, 24);
-            this.btnFechar.TabIndex = 5;
-            this.btnFechar.UseVisualStyleBackColor = true;
+            this.lblMensagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensagem.Location = new System.Drawing.Point(42, 36);
+            this.lblMensagem.Margin = new System.Windows.Forms.Padding(10, 0, 10, 10);
+            this.lblMensagem.Name = "lblMensagem";
+            this.lblMensagem.Size = new System.Drawing.Size(487, 63);
+            this.lblMensagem.TabIndex = 9;
+            this.lblMensagem.Text = "mensagem";
+            // 
+            // messageIcon
+            // 
+            this.messageIcon.Image = global::VisaoControles.Properties.Resources.confirm;
+            this.messageIcon.Location = new System.Drawing.Point(9, 38);
+            this.messageIcon.Name = "messageIcon";
+            this.messageIcon.Size = new System.Drawing.Size(32, 32);
+            this.messageIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.messageIcon.TabIndex = 10;
+            this.messageIcon.TabStop = false;
+            // 
+            // dataGrid
+            // 
+            this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.AllowUserToDeleteRows = false;
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid.Location = new System.Drawing.Point(9, 112);
+            this.dataGrid.MultiSelect = false;
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.ReadOnly = true;
+            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGrid.Size = new System.Drawing.Size(520, 170);
+            this.dataGrid.TabIndex = 11;
             // 
             // DialogoConfirmarBusca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 336);
+            this.ClientSize = new System.Drawing.Size(549, 338);
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.messageIcon);
             this.Controls.Add(this.lblMensagem);
@@ -161,6 +161,8 @@
             this.Controls.Add(this.painelJanela);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DialogoConfirmarBusca";
+            this.Padding = new System.Windows.Forms.Padding(2);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DialogoConfirmarBusca";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.DialogoConfirmaBusca_Paint);
             this.painelJanela.ResumeLayout(false);

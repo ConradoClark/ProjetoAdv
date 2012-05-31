@@ -9,6 +9,7 @@ namespace VisaoControles
 {
     public class LightBox : Form
     {
+        static Rectangle defaultBounds = new Rectangle(0, 0, 0, 0);
         public LightBox()
         {
             FormBorderStyle = FormBorderStyle.None;
@@ -22,14 +23,15 @@ namespace VisaoControles
         }
 
         static LightBox lb = null;
-        public static void Show(Rectangle pos)
+        public static void ShowLightBox(Rectangle pos)
         {
             lb = new LightBox();
+            defaultBounds = pos;
             lb.Bounds = pos;
-            lb.Show();
+            lb.Show();            
         }
 
-        public new static void Hide()
+        public static void HideLightBox()
         {
             if (lb != null)
             {
@@ -44,7 +46,7 @@ namespace VisaoControles
                 (lb as Form).Activate();
             }
         }
-        
+
     }
 
 }

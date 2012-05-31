@@ -29,7 +29,7 @@ namespace Visao
             if (Principal.Logar(txtUsuario.Text, txtSenha.Text))
             {
                 login = true;
-                LightBox.Hide();
+                LightBox.HideLightBox();
                 Close();
             }
         }

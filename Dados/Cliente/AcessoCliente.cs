@@ -171,7 +171,7 @@ namespace Dados
                     cliente.NomeMae = @dados.nomeMae;
                     cliente.DataNascimento = @dados.dataNascimento;
                     cliente.Profissao = @dados.profissao;
-                    cliente.TipoPessoa = Convert.ToChar(@dados.tipoPessoa);
+                    cliente.TipoPessoa = @dados.tipoPessoa == null ? 'F' : Convert.ToChar(@dados.tipoPessoa);
                     cliente.Cpf = @dados.cpf;
                     cliente.Cnpj = @dados.cnpj;
                     cliente.Rg = @dados.rg;
@@ -274,7 +274,7 @@ namespace Dados
                     cliente.NomeMae = @dados.nomeMae;
                     cliente.DataNascimento = @dados.dataNascimento;
                     cliente.Profissao = @dados.profissao;
-                    cliente.TipoPessoa = @dados.tipoPessoa;
+                    cliente.TipoPessoa = @dados.tipoPessoa == null ? 'F' : Convert.ToChar(@dados.tipoPessoa);
                     cliente.Cpf = @dados.cpf;
                     cliente.Cnpj = @dados.cnpj;
                     cliente.Rg = @dados.rg;
@@ -356,7 +356,7 @@ namespace Dados
                     cliente.NomeMae = @dados.nomeMae;
                     cliente.DataNascimento = @dados.dataNascimento;
                     cliente.Profissao = @dados.profissao;
-                    cliente.TipoPessoa = @dados.tipoPessoa;
+                    cliente.TipoPessoa = @dados.tipoPessoa == null ? 'F' : Convert.ToChar(@dados.tipoPessoa);
                     cliente.Cpf = @dados.cpf;
                     cliente.Cnpj = @dados.cnpj;
                     cliente.Rg = @dados.rg;

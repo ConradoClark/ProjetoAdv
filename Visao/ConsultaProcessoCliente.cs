@@ -45,5 +45,15 @@ namespace Visao
                 btnProximo,btnFichaCadastral);           
 
         }
+
+        private void ConsultaProcessoCliente_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

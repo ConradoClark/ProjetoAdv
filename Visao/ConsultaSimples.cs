@@ -91,5 +91,10 @@ namespace Visao
         {
             this.WindowState = FormWindowState.Maximized;
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

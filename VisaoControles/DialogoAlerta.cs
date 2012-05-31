@@ -123,6 +123,5 @@ namespace VisaoControles
                 Drag = false;
             }
         }
-
     }
 }

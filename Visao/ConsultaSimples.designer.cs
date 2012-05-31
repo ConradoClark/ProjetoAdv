@@ -38,6 +38,7 @@
             this.gridPesquisa = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCodigoCliente = new VisaoControles.NumberTextBox();
             this.txtRGCliente = new System.Windows.Forms.MaskedTextBox();
             this.txtCPFCliente = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtCodigoProcesso = new VisaoControles.NumberTextBox();
             this.txtCabecaProcesso = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNumeroProcesso = new System.Windows.Forms.TextBox();
@@ -53,9 +55,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtCodigoCliente = new VisaoControles.NumberTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtCodigoProcesso = new VisaoControles.NumberTextBox();
+            this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPesquisa)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -183,6 +184,15 @@
             this.panel1.Size = new System.Drawing.Size(393, 173);
             this.panel1.TabIndex = 0;
             // 
+            // txtCodigoCliente
+            // 
+            this.txtCodigoCliente.Location = new System.Drawing.Point(6, 27);
+            this.txtCodigoCliente.Mask = "99999";
+            this.txtCodigoCliente.Name = "txtCodigoCliente";
+            this.txtCodigoCliente.PromptChar = ' ';
+            this.txtCodigoCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoCliente.TabIndex = 24;
+            // 
             // txtRGCliente
             // 
             this.txtRGCliente.Location = new System.Drawing.Point(139, 136);
@@ -257,6 +267,15 @@
             this.panel2.Size = new System.Drawing.Size(292, 173);
             this.panel2.TabIndex = 1;
             // 
+            // txtCodigoProcesso
+            // 
+            this.txtCodigoProcesso.Location = new System.Drawing.Point(6, 27);
+            this.txtCodigoProcesso.Mask = "99999";
+            this.txtCodigoProcesso.Name = "txtCodigoProcesso";
+            this.txtCodigoProcesso.PromptChar = ' ';
+            this.txtCodigoProcesso.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoProcesso.TabIndex = 25;
+            // 
             // txtCabecaProcesso
             // 
             this.txtCabecaProcesso.Location = new System.Drawing.Point(6, 136);
@@ -311,17 +330,9 @@
             this.toolTip1.SetToolTip(this.btnPesquisar, "Pesquisar Cliente ou Processo");
             this.btnPesquisar.UseVisualStyleBackColor = true;
             // 
-            // txtCodigoCliente
-            // 
-            this.txtCodigoCliente.Location = new System.Drawing.Point(6, 27);
-            this.txtCodigoCliente.Mask = "99999";
-            this.txtCodigoCliente.Name = "txtCodigoCliente";
-            this.txtCodigoCliente.PromptChar = ' ';
-            this.txtCodigoCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigoCliente.TabIndex = 24;
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnSair);
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.rbtConsultaCliente);
             this.groupBox2.Controls.Add(this.rbtConsultaProcesso);
@@ -332,14 +343,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta Simples";
             // 
-            // txtCodigoProcesso
+            // btnSair
             // 
-            this.txtCodigoProcesso.Location = new System.Drawing.Point(6, 27);
-            this.txtCodigoProcesso.Mask = "99999";
-            this.txtCodigoProcesso.Name = "txtCodigoProcesso";
-            this.txtCodigoProcesso.PromptChar = ' ';
-            this.txtCodigoProcesso.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigoProcesso.TabIndex = 25;
+            this.btnSair.Image = global::Visao.Properties.Resources.sair24;
+            this.btnSair.Location = new System.Drawing.Point(683, 13);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(35, 28);
+            this.btnSair.TabIndex = 45;
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // ConsultaSimples
             // 
@@ -393,5 +405,6 @@
         private VisaoControles.NumberTextBox txtCodigoCliente;
         private System.Windows.Forms.GroupBox groupBox2;
         private VisaoControles.NumberTextBox txtCodigoProcesso;
+        private System.Windows.Forms.Button btnSair;
     }
 }

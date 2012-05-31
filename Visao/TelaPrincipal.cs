@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Threading;
 using VisaoEstrutura;
 using VisaoControles;
+using System.Reflection;
 
 namespace Visao
 {
@@ -39,9 +40,19 @@ namespace Visao
 
             this.Show();
 
-            LightBox.Show(this.Bounds);
+            LightBox.ShowLightBox(this.Bounds);
             login = new Login();
             login.ShowDialog();
+
+            Assembly assembly = Assembly.GetEntryAssembly();
+            AssemblyFileVersionAttribute[] attributes =
+                assembly.GetCustomAttributes(typeof(AssemblyFileVersionAttribute), false)
+                    as AssemblyFileVersionAttribute[];
+
+            if (attributes != null && attributes.Length == 1)
+            {
+                toolStripStatusLabel.Text  = attributes[0].Version;
+            }
         }
 
         private void Cliente_Click(object sender, EventArgs e)
@@ -271,7 +282,7 @@ namespace Visao
         private void EfetuarLogoff_Click(object sender, EventArgs e)
         {
             if (DialogoAlerta.Mostrar("Confirmação", "Deseja mesmo efetuar logoff?", MessageBoxIcon.Question, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) { 
-                LightBox.Show(this.Bounds);
+                LightBox.ShowLightBox(this.Bounds);
                 login = new Login();
                 login.ShowDialog();
             }

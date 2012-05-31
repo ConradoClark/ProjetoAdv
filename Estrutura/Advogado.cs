@@ -64,12 +64,17 @@ namespace Estrutura
             bool result =  Dados.AcessoAdvogado.ObterAdvogado(this);
             if (result)
             {
-                Dados.AcessoProcessoAdvogado.ListarProcessoAdvogado(new ProcessoAdvogado(this, new Processo()),
-                    () => (Modelo.Advogado.ModeloAdvogadoProcesso)new ProcessoAdvogado(this,new Processo()))
-                    .Cast<ProcessoAdvogado>().ToList()
-                    .ForEach((pro) => this.Processos.Add(pro));
+                ObterColecoes();
             }
             return result;
+        }
+
+        public void ObterColecoes()
+        {
+            Dados.AcessoProcessoAdvogado.ListarProcessoAdvogado(new ProcessoAdvogado(this, new Processo()),
+                               () => (Modelo.Advogado.ModeloAdvogadoProcesso)new ProcessoAdvogado(this, new Processo()))
+                               .Cast<ProcessoAdvogado>().ToList()
+                               .ForEach((pro) => this.Processos.Add(pro));
         }
 
         public int QuantidadeProcessos
@@ -109,7 +114,9 @@ namespace Estrutura
             foreach (Modelo.Advogado.ModeloAdvogado advogado in
                 Dados.AcessoAdvogado.ListarAdvogado(() => (Modelo.Advogado.ModeloAdvogado)new Advogado()))
             {
-                adv.Add((Advogado)advogado);
+                Advogado advogadoObj = (Advogado)advogado;
+                advogadoObj.ObterColecoes();
+                adv.Add(advogadoObj);
             }
             return adv;
         }
