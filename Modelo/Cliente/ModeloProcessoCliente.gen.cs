@@ -35,9 +35,9 @@ namespace Modelo.Cliente{
 					if (_cliente != value){
 						if (ClienteAlterado != null){
 							ClienteAlterado(_cliente,value);
-							this.NotifyPropertyChanged("Cliente");
 						}
 						_cliente = value;
+						this.NotifyPropertyChanged("Cliente");
 					}
 				}
 			}
@@ -51,9 +51,9 @@ namespace Modelo.Cliente{
 					if (_processo != value){
 						if (ProcessoAlterado != null){
 							ProcessoAlterado(_processo,value);
-							this.NotifyPropertyChanged("Processo");
 						}
 						_processo = value;
+						this.NotifyPropertyChanged("Processo");
 					}
 				}
 			}

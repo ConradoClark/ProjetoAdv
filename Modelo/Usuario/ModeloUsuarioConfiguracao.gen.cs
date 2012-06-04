@@ -76,9 +76,9 @@ namespace Modelo.Usuario{
 					if (_usuario != value){
 						if (UsuarioAlterado != null){
 							UsuarioAlterado(_usuario,value);
-							this.NotifyPropertyChanged("Usuario");
 						}
 						_usuario = value;
+						this.NotifyPropertyChanged("Usuario");
 					}
 				}
 			}
@@ -92,9 +92,9 @@ namespace Modelo.Usuario{
 					if (_pastaFicha != value){
 						if (PastaFichaAlterado != null){
 							PastaFichaAlterado(_pastaFicha,value);
-							this.NotifyPropertyChanged("PastaFicha");
 						}
 						_pastaFicha = value;
+						this.NotifyPropertyChanged("PastaFicha");
 					}
 				}
 			}
@@ -108,9 +108,9 @@ namespace Modelo.Usuario{
 					if (_pastaProcesso != value){
 						if (PastaProcessoAlterado != null){
 							PastaProcessoAlterado(_pastaProcesso,value);
-							this.NotifyPropertyChanged("PastaProcesso");
 						}
 						_pastaProcesso = value;
+						this.NotifyPropertyChanged("PastaProcesso");
 					}
 				}
 			}
@@ -124,9 +124,9 @@ namespace Modelo.Usuario{
 					if (_pastaLog != value){
 						if (PastaLogAlterado != null){
 							PastaLogAlterado(_pastaLog,value);
-							this.NotifyPropertyChanged("PastaLog");
 						}
 						_pastaLog = value;
+						this.NotifyPropertyChanged("PastaLog");
 					}
 				}
 			}
@@ -140,9 +140,9 @@ namespace Modelo.Usuario{
 					if (_pastaExtrato != value){
 						if (PastaExtratoAlterado != null){
 							PastaExtratoAlterado(_pastaExtrato,value);
-							this.NotifyPropertyChanged("PastaExtrato");
 						}
 						_pastaExtrato = value;
+						this.NotifyPropertyChanged("PastaExtrato");
 					}
 				}
 			}
@@ -156,9 +156,9 @@ namespace Modelo.Usuario{
 					if (_margemEsquerda != value){
 						if (MargemEsquerdaAlterado != null){
 							MargemEsquerdaAlterado(_margemEsquerda,value);
-							this.NotifyPropertyChanged("MargemEsquerda");
 						}
 						_margemEsquerda = value;
+						this.NotifyPropertyChanged("MargemEsquerda");
 					}
 				}
 			}
@@ -172,9 +172,9 @@ namespace Modelo.Usuario{
 					if (_margemDireita != value){
 						if (MargemDireitaAlterado != null){
 							MargemDireitaAlterado(_margemDireita,value);
-							this.NotifyPropertyChanged("MargemDireita");
 						}
 						_margemDireita = value;
+						this.NotifyPropertyChanged("MargemDireita");
 					}
 				}
 			}
@@ -188,9 +188,9 @@ namespace Modelo.Usuario{
 					if (_margemSuperior != value){
 						if (MargemSuperiorAlterado != null){
 							MargemSuperiorAlterado(_margemSuperior,value);
-							this.NotifyPropertyChanged("MargemSuperior");
 						}
 						_margemSuperior = value;
+						this.NotifyPropertyChanged("MargemSuperior");
 					}
 				}
 			}
@@ -204,9 +204,9 @@ namespace Modelo.Usuario{
 					if (_margemInferior != value){
 						if (MargemInferiorAlterado != null){
 							MargemInferiorAlterado(_margemInferior,value);
-							this.NotifyPropertyChanged("MargemInferior");
 						}
 						_margemInferior = value;
+						this.NotifyPropertyChanged("MargemInferior");
 					}
 				}
 			}

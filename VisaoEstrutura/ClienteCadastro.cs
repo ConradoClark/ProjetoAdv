@@ -78,11 +78,11 @@ namespace VisaoEstrutura
                 }
             };
             AoSalvar += () => { buscaNumeroReferenciaInterna.Text = ""; };
-            AoAdicionar += () => { };
-            AoBuscar += () => { };
-            AoCancelar += () => { };
-            AoLimpar += () => { };
-            AoRemover += () => { };
+            AoAdicionar += () => { buscaNumeroReferenciaInterna.Text = ""; };
+            AoBuscar += () => { buscaNumeroReferenciaInterna.Text = ""; };
+            AoCancelar += () => { buscaNumeroReferenciaInterna.Text = ""; };
+            AoLimpar += () => { buscaNumeroReferenciaInterna.Text = ""; };
+            AoRemover += () => { buscaNumeroReferenciaInterna.Text = ""; };
             AntesDeSalvar += () => {
                 if (ClienteAtivo.TipoPessoa == 'F' &&
                     !String.IsNullOrWhiteSpace(ClienteAtivo.Cpf) &&
@@ -381,6 +381,7 @@ namespace VisaoEstrutura
                 {
                     ClienteAtivo.Id = oldId;
                     DialogoAlerta.Mostrar("Informação", "Cliente não encontrado!", MessageBoxIcon.Exclamation);
+                    AoBuscar();
                 }
                 else
                 {
@@ -390,6 +391,7 @@ namespace VisaoEstrutura
             else
             {
                 DialogoAlerta.Mostrar("Erro", "O código digitado está em um formato inválido", MessageBoxIcon.Error);
+                AoBuscar();
             }
         }
 
@@ -624,7 +626,16 @@ namespace VisaoEstrutura
             )
         {
             contatoGrid.AutoGenerateColumns = false;
-            contatoGrid.DataSource = ClienteAtivo.Contatos;
+            BindingSource bs = new BindingSource();
+            bs.DataSource = ClienteAtivo.Contatos;
+            contatoGrid.DataSource = bs;
+            bs.AddingNew += (sender, args) =>
+            {
+                if (contatoGrid.Rows.Count == bs.Count)
+                {
+                    bs.RemoveAt(bs.Count - 1);
+                }
+            };            
         }
 
         public void PopularAbaDependente(

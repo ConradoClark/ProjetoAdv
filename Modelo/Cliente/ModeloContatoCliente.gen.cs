@@ -53,9 +53,9 @@ namespace Modelo.Cliente{
 					if (_cliente != value){
 						if (ClienteAlterado != null){
 							ClienteAlterado(_cliente,value);
-							this.NotifyPropertyChanged("Cliente");
 						}
 						_cliente = value;
+						this.NotifyPropertyChanged("Cliente");
 					}
 				}
 			}
@@ -69,9 +69,9 @@ namespace Modelo.Cliente{
 					if (_id != value){
 						if (IdAlterado != null){
 							IdAlterado(_id,value);
-							this.NotifyPropertyChanged("Id");
 						}
 						_id = value;
+						this.NotifyPropertyChanged("Id");
 					}
 				}
 			}
@@ -85,9 +85,9 @@ namespace Modelo.Cliente{
 					if (_tipoContato != value){
 						if (TipoContatoAlterado != null){
 							TipoContatoAlterado(_tipoContato,value);
-							this.NotifyPropertyChanged("TipoContato");
 						}
 						_tipoContato = value;
+						this.NotifyPropertyChanged("TipoContato");
 					}
 				}
 			}
@@ -101,9 +101,9 @@ namespace Modelo.Cliente{
 					if (_contato != value){
 						if (ContatoAlterado != null){
 							ContatoAlterado(_contato,value);
-							this.NotifyPropertyChanged("Contato");
 						}
 						_contato = value;
+						this.NotifyPropertyChanged("Contato");
 					}
 				}
 			}
@@ -117,9 +117,9 @@ namespace Modelo.Cliente{
 					if (_observacao != value){
 						if (ObservacaoAlterado != null){
 							ObservacaoAlterado(_observacao,value);
-							this.NotifyPropertyChanged("Observacao");
 						}
 						_observacao = value;
+						this.NotifyPropertyChanged("Observacao");
 					}
 				}
 			}

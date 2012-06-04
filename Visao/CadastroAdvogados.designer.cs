@@ -91,7 +91,7 @@
             this.txtCodigoAdv.Location = new System.Drawing.Point(9, 52);
             this.txtCodigoAdv.Name = "txtCodigoAdv";
             this.txtCodigoAdv.Size = new System.Drawing.Size(72, 20);
-            this.txtCodigoAdv.TabIndex = 1;
+            this.txtCodigoAdv.TabIndex = 0;
             // 
             // label2
             // 
@@ -105,7 +105,7 @@
             // maskCPF
             // 
             this.maskCPF.Location = new System.Drawing.Point(9, 92);
-            this.maskCPF.Mask = "999.999.999-99";
+            this.maskCPF.Mask = "999\\.999\\.999-99";
             this.maskCPF.Name = "maskCPF";
             this.maskCPF.Size = new System.Drawing.Size(106, 20);
             this.maskCPF.TabIndex = 3;
@@ -133,7 +133,7 @@
             this.txtOAB.MaxLength = 6;
             this.txtOAB.Name = "txtOAB";
             this.txtOAB.Size = new System.Drawing.Size(130, 20);
-            this.txtOAB.TabIndex = 7;
+            this.txtOAB.TabIndex = 1;
             // 
             // label6
             // 
@@ -156,10 +156,10 @@
             // maskRG
             // 
             this.maskRG.Location = new System.Drawing.Point(132, 92);
-            this.maskRG.Mask = "999.999.999-99";
+            this.maskRG.Mask = "999\\.999\\.999-99";
             this.maskRG.Name = "maskRG";
             this.maskRG.Size = new System.Drawing.Size(105, 20);
-            this.maskRG.TabIndex = 184;
+            this.maskRG.TabIndex = 4;
             this.maskRG.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // chkEstagiario
@@ -168,7 +168,7 @@
             this.chkEstagiario.Location = new System.Drawing.Point(253, 54);
             this.chkEstagiario.Name = "chkEstagiario";
             this.chkEstagiario.Size = new System.Drawing.Size(84, 17);
-            this.chkEstagiario.TabIndex = 187;
+            this.chkEstagiario.TabIndex = 2;
             this.chkEstagiario.Text = "Estagiário(a)";
             this.chkEstagiario.UseVisualStyleBackColor = true;
             this.chkEstagiario.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -275,14 +275,14 @@
             this.cmbSexo.Location = new System.Drawing.Point(509, 188);
             this.cmbSexo.Name = "cmbSexo";
             this.cmbSexo.Size = new System.Drawing.Size(46, 21);
-            this.cmbSexo.TabIndex = 202;
+            this.cmbSexo.TabIndex = 9;
             // 
             // txtNaturalidade
             // 
             this.txtNaturalidade.Location = new System.Drawing.Point(140, 189);
             this.txtNaturalidade.Name = "txtNaturalidade";
             this.txtNaturalidade.Size = new System.Drawing.Size(167, 20);
-            this.txtNaturalidade.TabIndex = 201;
+            this.txtNaturalidade.TabIndex = 7;
             // 
             // label10
             // 
@@ -308,14 +308,14 @@
             this.estadoCivil.Location = new System.Drawing.Point(9, 189);
             this.estadoCivil.Name = "estadoCivil";
             this.estadoCivil.Size = new System.Drawing.Size(121, 21);
-            this.estadoCivil.TabIndex = 199;
+            this.estadoCivil.TabIndex = 6;
             // 
             // nacionalidade
             // 
             this.nacionalidade.Location = new System.Drawing.Point(327, 189);
             this.nacionalidade.Name = "nacionalidade";
             this.nacionalidade.Size = new System.Drawing.Size(167, 20);
-            this.nacionalidade.TabIndex = 197;
+            this.nacionalidade.TabIndex = 8;
             // 
             // label4
             // 
@@ -350,7 +350,7 @@
             this.btnRemover.Location = new System.Drawing.Point(339, 9);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(35, 28);
-            this.btnRemover.TabIndex = 194;
+            this.btnRemover.TabIndex = 3;
             this.btnRemover.UseVisualStyleBackColor = true;
             // 
             // btnLimpar
@@ -359,7 +359,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(380, 9);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(35, 28);
-            this.btnLimpar.TabIndex = 193;
+            this.btnLimpar.TabIndex = 4;
             this.btnLimpar.UseVisualStyleBackColor = true;
             // 
             // btnBuscar
@@ -368,7 +368,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(257, 9);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(35, 28);
-            this.btnBuscar.TabIndex = 196;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // label8
@@ -386,7 +386,7 @@
             this.codigoBusca.Location = new System.Drawing.Point(144, 13);
             this.codigoBusca.Name = "codigoBusca";
             this.codigoBusca.Size = new System.Drawing.Size(100, 20);
-            this.codigoBusca.TabIndex = 194;
+            this.codigoBusca.TabIndex = 0;
             // 
             // btnSair
             // 
@@ -445,7 +445,7 @@
             this.btnAdicionar.Location = new System.Drawing.Point(298, 9);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(35, 28);
-            this.btnAdicionar.TabIndex = 200;
+            this.btnAdicionar.TabIndex = 2;
             this.btnAdicionar.UseVisualStyleBackColor = true;
             // 
             // CadastroAdvogados

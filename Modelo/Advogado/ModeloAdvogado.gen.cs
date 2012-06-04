@@ -83,9 +83,9 @@ namespace Modelo.Advogado{
 					if (_id != value){
 						if (IdAlterado != null){
 							IdAlterado(_id,value);
-							this.NotifyPropertyChanged("Id");
 						}
 						_id = value;
+						this.NotifyPropertyChanged("Id");
 					}
 				}
 			}
@@ -99,9 +99,9 @@ namespace Modelo.Advogado{
 					if (_oab != value){
 						if (OabAlterado != null){
 							OabAlterado(_oab,value);
-							this.NotifyPropertyChanged("Oab");
 						}
 						_oab = value;
+						this.NotifyPropertyChanged("Oab");
 					}
 				}
 			}
@@ -115,9 +115,9 @@ namespace Modelo.Advogado{
 					if (_cpf != value){
 						if (CpfAlterado != null){
 							CpfAlterado(_cpf,value);
-							this.NotifyPropertyChanged("Cpf");
 						}
 						_cpf = value;
+						this.NotifyPropertyChanged("Cpf");
 					}
 				}
 			}
@@ -131,9 +131,9 @@ namespace Modelo.Advogado{
 					if (_rg != value){
 						if (RgAlterado != null){
 							RgAlterado(_rg,value);
-							this.NotifyPropertyChanged("Rg");
 						}
 						_rg = value;
+						this.NotifyPropertyChanged("Rg");
 					}
 				}
 			}
@@ -147,9 +147,9 @@ namespace Modelo.Advogado{
 					if (_nome != value){
 						if (NomeAlterado != null){
 							NomeAlterado(_nome,value);
-							this.NotifyPropertyChanged("Nome");
 						}
 						_nome = value;
+						this.NotifyPropertyChanged("Nome");
 					}
 				}
 			}
@@ -163,9 +163,9 @@ namespace Modelo.Advogado{
 					if (_indicadorEstagiario != value){
 						if (IndicadorEstagiarioAlterado != null){
 							IndicadorEstagiarioAlterado(_indicadorEstagiario,value);
-							this.NotifyPropertyChanged("IndicadorEstagiario");
 						}
 						_indicadorEstagiario = value;
+						this.NotifyPropertyChanged("IndicadorEstagiario");
 					}
 				}
 			}
@@ -179,9 +179,9 @@ namespace Modelo.Advogado{
 					if (_estadoCivil != value){
 						if (EstadoCivilAlterado != null){
 							EstadoCivilAlterado(_estadoCivil,value);
-							this.NotifyPropertyChanged("EstadoCivil");
 						}
 						_estadoCivil = value;
+						this.NotifyPropertyChanged("EstadoCivil");
 					}
 				}
 			}
@@ -195,9 +195,9 @@ namespace Modelo.Advogado{
 					if (_naturalidade != value){
 						if (NaturalidadeAlterado != null){
 							NaturalidadeAlterado(_naturalidade,value);
-							this.NotifyPropertyChanged("Naturalidade");
 						}
 						_naturalidade = value;
+						this.NotifyPropertyChanged("Naturalidade");
 					}
 				}
 			}
@@ -211,9 +211,9 @@ namespace Modelo.Advogado{
 					if (_nacionalidade != value){
 						if (NacionalidadeAlterado != null){
 							NacionalidadeAlterado(_nacionalidade,value);
-							this.NotifyPropertyChanged("Nacionalidade");
 						}
 						_nacionalidade = value;
+						this.NotifyPropertyChanged("Nacionalidade");
 					}
 				}
 			}
@@ -227,9 +227,9 @@ namespace Modelo.Advogado{
 					if (_sexo != value){
 						if (SexoAlterado != null){
 							SexoAlterado(_sexo,value);
-							this.NotifyPropertyChanged("Sexo");
 						}
 						_sexo = value;
+						this.NotifyPropertyChanged("Sexo");
 					}
 				}
 			}

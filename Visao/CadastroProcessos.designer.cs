@@ -293,7 +293,7 @@
             this.codigo.Name = "codigo";
             this.codigo.ReadOnly = true;
             this.codigo.Size = new System.Drawing.Size(174, 20);
-            this.codigo.TabIndex = 178;
+            this.codigo.TabIndex = 0;
             // 
             // label67
             // 
@@ -2859,6 +2859,147 @@
             "White",
             "WhiteSmoke",
             "Yellow",
+            "YellowGreen",
+            "Transparent",
+            "AliceBlue",
+            "AntiqueWhite",
+            "Aqua",
+            "Aquamarine",
+            "Azure",
+            "Beige",
+            "Bisque",
+            "Black",
+            "BlanchedAlmond",
+            "Blue",
+            "BlueViolet",
+            "Brown",
+            "BurlyWood",
+            "CadetBlue",
+            "Chartreuse",
+            "Chocolate",
+            "Coral",
+            "CornflowerBlue",
+            "Cornsilk",
+            "Crimson",
+            "Cyan",
+            "DarkBlue",
+            "DarkCyan",
+            "DarkGoldenrod",
+            "DarkGray",
+            "DarkGreen",
+            "DarkKhaki",
+            "DarkMagenta",
+            "DarkOliveGreen",
+            "DarkOrange",
+            "DarkOrchid",
+            "DarkRed",
+            "DarkSalmon",
+            "DarkSeaGreen",
+            "DarkSlateBlue",
+            "DarkSlateGray",
+            "DarkTurquoise",
+            "DarkViolet",
+            "DeepPink",
+            "DeepSkyBlue",
+            "DimGray",
+            "DodgerBlue",
+            "Firebrick",
+            "FloralWhite",
+            "ForestGreen",
+            "Fuchsia",
+            "Gainsboro",
+            "GhostWhite",
+            "Gold",
+            "Goldenrod",
+            "Gray",
+            "Green",
+            "GreenYellow",
+            "Honeydew",
+            "HotPink",
+            "IndianRed",
+            "Indigo",
+            "Ivory",
+            "Khaki",
+            "Lavender",
+            "LavenderBlush",
+            "LawnGreen",
+            "LemonChiffon",
+            "LightBlue",
+            "LightCoral",
+            "LightCyan",
+            "LightGoldenrodYellow",
+            "LightGray",
+            "LightGreen",
+            "LightPink",
+            "LightSalmon",
+            "LightSeaGreen",
+            "LightSkyBlue",
+            "LightSlateGray",
+            "LightSteelBlue",
+            "LightYellow",
+            "Lime",
+            "LimeGreen",
+            "Linen",
+            "Magenta",
+            "Maroon",
+            "MediumAquamarine",
+            "MediumBlue",
+            "MediumOrchid",
+            "MediumPurple",
+            "MediumSeaGreen",
+            "MediumSlateBlue",
+            "MediumSpringGreen",
+            "MediumTurquoise",
+            "MediumVioletRed",
+            "MidnightBlue",
+            "MintCream",
+            "MistyRose",
+            "Moccasin",
+            "NavajoWhite",
+            "Navy",
+            "OldLace",
+            "Olive",
+            "OliveDrab",
+            "Orange",
+            "OrangeRed",
+            "Orchid",
+            "PaleGoldenrod",
+            "PaleGreen",
+            "PaleTurquoise",
+            "PaleVioletRed",
+            "PapayaWhip",
+            "PeachPuff",
+            "Peru",
+            "Pink",
+            "Plum",
+            "PowderBlue",
+            "Purple",
+            "Red",
+            "RosyBrown",
+            "RoyalBlue",
+            "SaddleBrown",
+            "Salmon",
+            "SandyBrown",
+            "SeaGreen",
+            "SeaShell",
+            "Sienna",
+            "Silver",
+            "SkyBlue",
+            "SlateBlue",
+            "SlateGray",
+            "Snow",
+            "SpringGreen",
+            "SteelBlue",
+            "Tan",
+            "Teal",
+            "Thistle",
+            "Tomato",
+            "Turquoise",
+            "Violet",
+            "Wheat",
+            "White",
+            "WhiteSmoke",
+            "Yellow",
             "YellowGreen"});
             this.colorComboBox.Location = new System.Drawing.Point(13, 53);
             this.colorComboBox.Name = "colorComboBox";
@@ -2883,7 +3024,7 @@
             this.txtObjetivo.Location = new System.Drawing.Point(13, 80);
             this.txtObjetivo.Name = "txtObjetivo";
             this.txtObjetivo.Size = new System.Drawing.Size(791, 255);
-            this.txtObjetivo.TabIndex = 8;
+            this.txtObjetivo.TabIndex = 0;
             // 
             // txtCabecaProc
             // 
@@ -2891,7 +3032,7 @@
             this.txtCabecaProc.Name = "txtCabecaProc";
             this.txtCabecaProc.ReadOnly = true;
             this.txtCabecaProc.Size = new System.Drawing.Size(447, 20);
-            this.txtCabecaProc.TabIndex = 53;
+            this.txtCabecaProc.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtCabecaProc, "Para alterar o cabeça do processo, vá até a aba Autores");
             // 
             // label10
@@ -2917,7 +3058,7 @@
             this.txtAlertaProc.Location = new System.Drawing.Point(115, 143);
             this.txtAlertaProc.Name = "txtAlertaProc";
             this.txtAlertaProc.Size = new System.Drawing.Size(50, 20);
-            this.txtAlertaProc.TabIndex = 67;
+            this.txtAlertaProc.TabIndex = 8;
             // 
             // label9
             // 
@@ -2934,7 +3075,7 @@
             this.txtDataProc.Mask = "00/00/0000";
             this.txtDataProc.Name = "txtDataProc";
             this.txtDataProc.Size = new System.Drawing.Size(77, 20);
-            this.txtDataProc.TabIndex = 65;
+            this.txtDataProc.TabIndex = 7;
             this.txtDataProc.ValidatingType = typeof(System.DateTime);
             // 
             // label8
@@ -2952,7 +3093,7 @@
             this.cbTipoAcao.Location = new System.Drawing.Point(350, 113);
             this.cbTipoAcao.Name = "cbTipoAcao";
             this.cbTipoAcao.Size = new System.Drawing.Size(158, 21);
-            this.cbTipoAcao.TabIndex = 63;
+            this.cbTipoAcao.TabIndex = 6;
             // 
             // label7
             // 
@@ -2968,7 +3109,7 @@
             this.txtReuPro.Location = new System.Drawing.Point(350, 70);
             this.txtReuPro.Name = "txtReuPro";
             this.txtReuPro.Size = new System.Drawing.Size(447, 20);
-            this.txtReuPro.TabIndex = 61;
+            this.txtReuPro.TabIndex = 4;
             // 
             // label6
             // 
@@ -2984,7 +3125,7 @@
             this.txtForumProc.Location = new System.Drawing.Point(23, 114);
             this.txtForumProc.Name = "txtForumProc";
             this.txtForumProc.Size = new System.Drawing.Size(317, 20);
-            this.txtForumProc.TabIndex = 59;
+            this.txtForumProc.TabIndex = 5;
             // 
             // label5
             // 
@@ -3000,7 +3141,7 @@
             this.txtNroOrdem.Location = new System.Drawing.Point(225, 70);
             this.txtNroOrdem.Name = "txtNroOrdem";
             this.txtNroOrdem.Size = new System.Drawing.Size(105, 20);
-            this.txtNroOrdem.TabIndex = 57;
+            this.txtNroOrdem.TabIndex = 3;
             // 
             // label4
             // 
@@ -3016,7 +3157,7 @@
             this.txtNroProc.Location = new System.Drawing.Point(23, 70);
             this.txtNroProc.Name = "txtNroProc";
             this.txtNroProc.Size = new System.Drawing.Size(174, 20);
-            this.txtNroProc.TabIndex = 55;
+            this.txtNroProc.TabIndex = 2;
             // 
             // label3
             // 
@@ -3150,6 +3291,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "N.R.I";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 60;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 60;
             // 
             // dataGridViewTextBoxColumn2
@@ -3159,6 +3301,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Nome de Cliente";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 300;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -3166,6 +3309,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "C.P.F";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 150;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // RG
@@ -3174,6 +3318,7 @@
             this.RG.HeaderText = "RG";
             this.RG.MinimumWidth = 100;
             this.RG.Name = "RG";
+            this.RG.ReadOnly = true;
             // 
             // txtPesquisaClienAut
             // 
@@ -3237,6 +3382,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "N.R.I";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 60;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 60;
             // 
             // dataGridViewTextBoxColumn5
@@ -3246,6 +3392,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Nome de Cliente";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 300;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -3253,6 +3400,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "C.P.F";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 150;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 150;
             // 
             // dataGridViewTextBoxColumn7
@@ -3261,6 +3409,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "RG";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 100;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // btnDefineCabeca
             // 
@@ -5005,6 +5154,147 @@
             "White",
             "WhiteSmoke",
             "Yellow",
+            "YellowGreen",
+            "Transparent",
+            "AliceBlue",
+            "AntiqueWhite",
+            "Aqua",
+            "Aquamarine",
+            "Azure",
+            "Beige",
+            "Bisque",
+            "Black",
+            "BlanchedAlmond",
+            "Blue",
+            "BlueViolet",
+            "Brown",
+            "BurlyWood",
+            "CadetBlue",
+            "Chartreuse",
+            "Chocolate",
+            "Coral",
+            "CornflowerBlue",
+            "Cornsilk",
+            "Crimson",
+            "Cyan",
+            "DarkBlue",
+            "DarkCyan",
+            "DarkGoldenrod",
+            "DarkGray",
+            "DarkGreen",
+            "DarkKhaki",
+            "DarkMagenta",
+            "DarkOliveGreen",
+            "DarkOrange",
+            "DarkOrchid",
+            "DarkRed",
+            "DarkSalmon",
+            "DarkSeaGreen",
+            "DarkSlateBlue",
+            "DarkSlateGray",
+            "DarkTurquoise",
+            "DarkViolet",
+            "DeepPink",
+            "DeepSkyBlue",
+            "DimGray",
+            "DodgerBlue",
+            "Firebrick",
+            "FloralWhite",
+            "ForestGreen",
+            "Fuchsia",
+            "Gainsboro",
+            "GhostWhite",
+            "Gold",
+            "Goldenrod",
+            "Gray",
+            "Green",
+            "GreenYellow",
+            "Honeydew",
+            "HotPink",
+            "IndianRed",
+            "Indigo",
+            "Ivory",
+            "Khaki",
+            "Lavender",
+            "LavenderBlush",
+            "LawnGreen",
+            "LemonChiffon",
+            "LightBlue",
+            "LightCoral",
+            "LightCyan",
+            "LightGoldenrodYellow",
+            "LightGray",
+            "LightGreen",
+            "LightPink",
+            "LightSalmon",
+            "LightSeaGreen",
+            "LightSkyBlue",
+            "LightSlateGray",
+            "LightSteelBlue",
+            "LightYellow",
+            "Lime",
+            "LimeGreen",
+            "Linen",
+            "Magenta",
+            "Maroon",
+            "MediumAquamarine",
+            "MediumBlue",
+            "MediumOrchid",
+            "MediumPurple",
+            "MediumSeaGreen",
+            "MediumSlateBlue",
+            "MediumSpringGreen",
+            "MediumTurquoise",
+            "MediumVioletRed",
+            "MidnightBlue",
+            "MintCream",
+            "MistyRose",
+            "Moccasin",
+            "NavajoWhite",
+            "Navy",
+            "OldLace",
+            "Olive",
+            "OliveDrab",
+            "Orange",
+            "OrangeRed",
+            "Orchid",
+            "PaleGoldenrod",
+            "PaleGreen",
+            "PaleTurquoise",
+            "PaleVioletRed",
+            "PapayaWhip",
+            "PeachPuff",
+            "Peru",
+            "Pink",
+            "Plum",
+            "PowderBlue",
+            "Purple",
+            "Red",
+            "RosyBrown",
+            "RoyalBlue",
+            "SaddleBrown",
+            "Salmon",
+            "SandyBrown",
+            "SeaGreen",
+            "SeaShell",
+            "Sienna",
+            "Silver",
+            "SkyBlue",
+            "SlateBlue",
+            "SlateGray",
+            "Snow",
+            "SpringGreen",
+            "SteelBlue",
+            "Tan",
+            "Teal",
+            "Thistle",
+            "Tomato",
+            "Turquoise",
+            "Violet",
+            "Wheat",
+            "White",
+            "WhiteSmoke",
+            "Yellow",
             "YellowGreen"});
             this.andamentoColorComboBox.Location = new System.Drawing.Point(9, 54);
             this.andamentoColorComboBox.Name = "andamentoColorComboBox";
@@ -5023,7 +5313,6 @@
             this.txtAndamentoRealizado.Name = "txtAndamentoRealizado";
             this.txtAndamentoRealizado.Size = new System.Drawing.Size(803, 219);
             this.txtAndamentoRealizado.TabIndex = 6;
-            this.txtAndamentoRealizado.TextBackColor = System.Drawing.Color.WhiteSmoke;
             this.txtAndamentoRealizado.ViewMode = TXTextControl.ViewMode.Normal;
             // 
             // andamentoButtonBar
@@ -5082,6 +5371,147 @@
             this.obsColorComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.obsColorComboBox.FormattingEnabled = true;
             this.obsColorComboBox.Items.AddRange(new object[] {
+            "Transparent",
+            "AliceBlue",
+            "AntiqueWhite",
+            "Aqua",
+            "Aquamarine",
+            "Azure",
+            "Beige",
+            "Bisque",
+            "Black",
+            "BlanchedAlmond",
+            "Blue",
+            "BlueViolet",
+            "Brown",
+            "BurlyWood",
+            "CadetBlue",
+            "Chartreuse",
+            "Chocolate",
+            "Coral",
+            "CornflowerBlue",
+            "Cornsilk",
+            "Crimson",
+            "Cyan",
+            "DarkBlue",
+            "DarkCyan",
+            "DarkGoldenrod",
+            "DarkGray",
+            "DarkGreen",
+            "DarkKhaki",
+            "DarkMagenta",
+            "DarkOliveGreen",
+            "DarkOrange",
+            "DarkOrchid",
+            "DarkRed",
+            "DarkSalmon",
+            "DarkSeaGreen",
+            "DarkSlateBlue",
+            "DarkSlateGray",
+            "DarkTurquoise",
+            "DarkViolet",
+            "DeepPink",
+            "DeepSkyBlue",
+            "DimGray",
+            "DodgerBlue",
+            "Firebrick",
+            "FloralWhite",
+            "ForestGreen",
+            "Fuchsia",
+            "Gainsboro",
+            "GhostWhite",
+            "Gold",
+            "Goldenrod",
+            "Gray",
+            "Green",
+            "GreenYellow",
+            "Honeydew",
+            "HotPink",
+            "IndianRed",
+            "Indigo",
+            "Ivory",
+            "Khaki",
+            "Lavender",
+            "LavenderBlush",
+            "LawnGreen",
+            "LemonChiffon",
+            "LightBlue",
+            "LightCoral",
+            "LightCyan",
+            "LightGoldenrodYellow",
+            "LightGray",
+            "LightGreen",
+            "LightPink",
+            "LightSalmon",
+            "LightSeaGreen",
+            "LightSkyBlue",
+            "LightSlateGray",
+            "LightSteelBlue",
+            "LightYellow",
+            "Lime",
+            "LimeGreen",
+            "Linen",
+            "Magenta",
+            "Maroon",
+            "MediumAquamarine",
+            "MediumBlue",
+            "MediumOrchid",
+            "MediumPurple",
+            "MediumSeaGreen",
+            "MediumSlateBlue",
+            "MediumSpringGreen",
+            "MediumTurquoise",
+            "MediumVioletRed",
+            "MidnightBlue",
+            "MintCream",
+            "MistyRose",
+            "Moccasin",
+            "NavajoWhite",
+            "Navy",
+            "OldLace",
+            "Olive",
+            "OliveDrab",
+            "Orange",
+            "OrangeRed",
+            "Orchid",
+            "PaleGoldenrod",
+            "PaleGreen",
+            "PaleTurquoise",
+            "PaleVioletRed",
+            "PapayaWhip",
+            "PeachPuff",
+            "Peru",
+            "Pink",
+            "Plum",
+            "PowderBlue",
+            "Purple",
+            "Red",
+            "RosyBrown",
+            "RoyalBlue",
+            "SaddleBrown",
+            "Salmon",
+            "SandyBrown",
+            "SeaGreen",
+            "SeaShell",
+            "Sienna",
+            "Silver",
+            "SkyBlue",
+            "SlateBlue",
+            "SlateGray",
+            "Snow",
+            "SpringGreen",
+            "SteelBlue",
+            "Tan",
+            "Teal",
+            "Thistle",
+            "Tomato",
+            "Turquoise",
+            "Violet",
+            "Wheat",
+            "White",
+            "WhiteSmoke",
+            "Yellow",
+            "YellowGreen",
             "Transparent",
             "AliceBlue",
             "AntiqueWhite",

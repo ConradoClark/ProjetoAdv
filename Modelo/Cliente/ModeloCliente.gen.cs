@@ -293,9 +293,9 @@ namespace Modelo.Cliente{
 					if (_id != value){
 						if (IdAlterado != null){
 							IdAlterado(_id,value);
-							this.NotifyPropertyChanged("Id");
 						}
 						_id = value;
+						this.NotifyPropertyChanged("Id");
 					}
 				}
 			}
@@ -309,9 +309,9 @@ namespace Modelo.Cliente{
 					if (_nome != value){
 						if (NomeAlterado != null){
 							NomeAlterado(_nome,value);
-							this.NotifyPropertyChanged("Nome");
 						}
 						_nome = value;
+						this.NotifyPropertyChanged("Nome");
 					}
 				}
 			}
@@ -325,9 +325,9 @@ namespace Modelo.Cliente{
 					if (_nomePai != value){
 						if (NomePaiAlterado != null){
 							NomePaiAlterado(_nomePai,value);
-							this.NotifyPropertyChanged("NomePai");
 						}
 						_nomePai = value;
+						this.NotifyPropertyChanged("NomePai");
 					}
 				}
 			}
@@ -341,9 +341,9 @@ namespace Modelo.Cliente{
 					if (_nomeMae != value){
 						if (NomeMaeAlterado != null){
 							NomeMaeAlterado(_nomeMae,value);
-							this.NotifyPropertyChanged("NomeMae");
 						}
 						_nomeMae = value;
+						this.NotifyPropertyChanged("NomeMae");
 					}
 				}
 			}
@@ -357,9 +357,9 @@ namespace Modelo.Cliente{
 					if (_dataNascimento != value){
 						if (DataNascimentoAlterado != null){
 							DataNascimentoAlterado(_dataNascimento,value);
-							this.NotifyPropertyChanged("DataNascimento");
 						}
 						_dataNascimento = value;
+						this.NotifyPropertyChanged("DataNascimento");
 					}
 				}
 			}
@@ -373,9 +373,9 @@ namespace Modelo.Cliente{
 					if (_profissao != value){
 						if (ProfissaoAlterado != null){
 							ProfissaoAlterado(_profissao,value);
-							this.NotifyPropertyChanged("Profissao");
 						}
 						_profissao = value;
+						this.NotifyPropertyChanged("Profissao");
 					}
 				}
 			}
@@ -389,9 +389,9 @@ namespace Modelo.Cliente{
 					if (_tipoPessoa != value){
 						if (TipoPessoaAlterado != null){
 							TipoPessoaAlterado(_tipoPessoa,value);
-							this.NotifyPropertyChanged("TipoPessoa");
 						}
 						_tipoPessoa = value;
+						this.NotifyPropertyChanged("TipoPessoa");
 					}
 				}
 			}
@@ -405,9 +405,9 @@ namespace Modelo.Cliente{
 					if (_cpf != value){
 						if (CpfAlterado != null){
 							CpfAlterado(_cpf,value);
-							this.NotifyPropertyChanged("Cpf");
 						}
 						_cpf = value;
+						this.NotifyPropertyChanged("Cpf");
 					}
 				}
 			}
@@ -421,9 +421,9 @@ namespace Modelo.Cliente{
 					if (_cnpj != value){
 						if (CnpjAlterado != null){
 							CnpjAlterado(_cnpj,value);
-							this.NotifyPropertyChanged("Cnpj");
 						}
 						_cnpj = value;
+						this.NotifyPropertyChanged("Cnpj");
 					}
 				}
 			}
@@ -437,9 +437,9 @@ namespace Modelo.Cliente{
 					if (_rg != value){
 						if (RgAlterado != null){
 							RgAlterado(_rg,value);
-							this.NotifyPropertyChanged("Rg");
 						}
 						_rg = value;
+						this.NotifyPropertyChanged("Rg");
 					}
 				}
 			}
@@ -453,9 +453,9 @@ namespace Modelo.Cliente{
 					if (_dataEmissaoRG != value){
 						if (DataEmissaoRGAlterado != null){
 							DataEmissaoRGAlterado(_dataEmissaoRG,value);
-							this.NotifyPropertyChanged("DataEmissaoRG");
 						}
 						_dataEmissaoRG = value;
+						this.NotifyPropertyChanged("DataEmissaoRG");
 					}
 				}
 			}
@@ -469,9 +469,9 @@ namespace Modelo.Cliente{
 					if (_orgaoExpedidorRG != value){
 						if (OrgaoExpedidorRGAlterado != null){
 							OrgaoExpedidorRGAlterado(_orgaoExpedidorRG,value);
-							this.NotifyPropertyChanged("OrgaoExpedidorRG");
 						}
 						_orgaoExpedidorRG = value;
+						this.NotifyPropertyChanged("OrgaoExpedidorRG");
 					}
 				}
 			}
@@ -485,9 +485,9 @@ namespace Modelo.Cliente{
 					if (_estadoCivil != value){
 						if (EstadoCivilAlterado != null){
 							EstadoCivilAlterado(_estadoCivil,value);
-							this.NotifyPropertyChanged("EstadoCivil");
 						}
 						_estadoCivil = value;
+						this.NotifyPropertyChanged("EstadoCivil");
 					}
 				}
 			}
@@ -501,9 +501,9 @@ namespace Modelo.Cliente{
 					if (_nacionalidade != value){
 						if (NacionalidadeAlterado != null){
 							NacionalidadeAlterado(_nacionalidade,value);
-							this.NotifyPropertyChanged("Nacionalidade");
 						}
 						_nacionalidade = value;
+						this.NotifyPropertyChanged("Nacionalidade");
 					}
 				}
 			}
@@ -517,9 +517,9 @@ namespace Modelo.Cliente{
 					if (_endereco != value){
 						if (EnderecoAlterado != null){
 							EnderecoAlterado(_endereco,value);
-							this.NotifyPropertyChanged("Endereco");
 						}
 						_endereco = value;
+						this.NotifyPropertyChanged("Endereco");
 					}
 				}
 			}
@@ -533,9 +533,9 @@ namespace Modelo.Cliente{
 					if (_tituloEleitor != value){
 						if (TituloEleitorAlterado != null){
 							TituloEleitorAlterado(_tituloEleitor,value);
-							this.NotifyPropertyChanged("TituloEleitor");
 						}
 						_tituloEleitor = value;
+						this.NotifyPropertyChanged("TituloEleitor");
 					}
 				}
 			}
@@ -549,9 +549,9 @@ namespace Modelo.Cliente{
 					if (_zonaEleitoral != value){
 						if (ZonaEleitoralAlterado != null){
 							ZonaEleitoralAlterado(_zonaEleitoral,value);
-							this.NotifyPropertyChanged("ZonaEleitoral");
 						}
 						_zonaEleitoral = value;
+						this.NotifyPropertyChanged("ZonaEleitoral");
 					}
 				}
 			}
@@ -565,9 +565,9 @@ namespace Modelo.Cliente{
 					if (_secaoEleitoral != value){
 						if (SecaoEleitoralAlterado != null){
 							SecaoEleitoralAlterado(_secaoEleitoral,value);
-							this.NotifyPropertyChanged("SecaoEleitoral");
 						}
 						_secaoEleitoral = value;
+						this.NotifyPropertyChanged("SecaoEleitoral");
 					}
 				}
 			}
@@ -581,9 +581,9 @@ namespace Modelo.Cliente{
 					if (_ctps1 != value){
 						if (Ctps1Alterado != null){
 							Ctps1Alterado(_ctps1,value);
-							this.NotifyPropertyChanged("Ctps1");
 						}
 						_ctps1 = value;
+						this.NotifyPropertyChanged("Ctps1");
 					}
 				}
 			}
@@ -597,9 +597,9 @@ namespace Modelo.Cliente{
 					if (_ctps2 != value){
 						if (Ctps2Alterado != null){
 							Ctps2Alterado(_ctps2,value);
-							this.NotifyPropertyChanged("Ctps2");
 						}
 						_ctps2 = value;
+						this.NotifyPropertyChanged("Ctps2");
 					}
 				}
 			}
@@ -613,9 +613,9 @@ namespace Modelo.Cliente{
 					if (_ctps3 != value){
 						if (Ctps3Alterado != null){
 							Ctps3Alterado(_ctps3,value);
-							this.NotifyPropertyChanged("Ctps3");
 						}
 						_ctps3 = value;
+						this.NotifyPropertyChanged("Ctps3");
 					}
 				}
 			}
@@ -629,9 +629,9 @@ namespace Modelo.Cliente{
 					if (_ctps4 != value){
 						if (Ctps4Alterado != null){
 							Ctps4Alterado(_ctps4,value);
-							this.NotifyPropertyChanged("Ctps4");
 						}
 						_ctps4 = value;
+						this.NotifyPropertyChanged("Ctps4");
 					}
 				}
 			}
@@ -645,9 +645,9 @@ namespace Modelo.Cliente{
 					if (_ctps5 != value){
 						if (Ctps5Alterado != null){
 							Ctps5Alterado(_ctps5,value);
-							this.NotifyPropertyChanged("Ctps5");
 						}
 						_ctps5 = value;
+						this.NotifyPropertyChanged("Ctps5");
 					}
 				}
 			}
@@ -661,9 +661,9 @@ namespace Modelo.Cliente{
 					if (_indGrupo != value){
 						if (IndGrupoAlterado != null){
 							IndGrupoAlterado(_indGrupo,value);
-							this.NotifyPropertyChanged("IndGrupo");
 						}
 						_indGrupo = value;
+						this.NotifyPropertyChanged("IndGrupo");
 					}
 				}
 			}
@@ -677,9 +677,9 @@ namespace Modelo.Cliente{
 					if (_indCliente != value){
 						if (IndClienteAlterado != null){
 							IndClienteAlterado(_indCliente,value);
-							this.NotifyPropertyChanged("IndCliente");
 						}
 						_indCliente = value;
+						this.NotifyPropertyChanged("IndCliente");
 					}
 				}
 			}
@@ -693,9 +693,9 @@ namespace Modelo.Cliente{
 					if (_indContato != value){
 						if (IndContatoAlterado != null){
 							IndContatoAlterado(_indContato,value);
-							this.NotifyPropertyChanged("IndContato");
 						}
 						_indContato = value;
+						this.NotifyPropertyChanged("IndContato");
 					}
 				}
 			}
@@ -709,9 +709,9 @@ namespace Modelo.Cliente{
 					if (_indDependente != value){
 						if (IndDependenteAlterado != null){
 							IndDependenteAlterado(_indDependente,value);
-							this.NotifyPropertyChanged("IndDependente");
 						}
 						_indDependente = value;
+						this.NotifyPropertyChanged("IndDependente");
 					}
 				}
 			}
@@ -725,9 +725,9 @@ namespace Modelo.Cliente{
 					if (_indPendencia != value){
 						if (IndPendenciaAlterado != null){
 							IndPendenciaAlterado(_indPendencia,value);
-							this.NotifyPropertyChanged("IndPendencia");
 						}
 						_indPendencia = value;
+						this.NotifyPropertyChanged("IndPendencia");
 					}
 				}
 			}
@@ -741,9 +741,9 @@ namespace Modelo.Cliente{
 					if (_indFalecido != value){
 						if (IndFalecidoAlterado != null){
 							IndFalecidoAlterado(_indFalecido,value);
-							this.NotifyPropertyChanged("IndFalecido");
 						}
 						_indFalecido = value;
+						this.NotifyPropertyChanged("IndFalecido");
 					}
 				}
 			}
@@ -757,9 +757,9 @@ namespace Modelo.Cliente{
 					if (_dataFalecimento != value){
 						if (DataFalecimentoAlterado != null){
 							DataFalecimentoAlterado(_dataFalecimento,value);
-							this.NotifyPropertyChanged("DataFalecimento");
 						}
 						_dataFalecimento = value;
+						this.NotifyPropertyChanged("DataFalecimento");
 					}
 				}
 			}
@@ -773,9 +773,9 @@ namespace Modelo.Cliente{
 					if (_naturalidade != value){
 						if (NaturalidadeAlterado != null){
 							NaturalidadeAlterado(_naturalidade,value);
-							this.NotifyPropertyChanged("Naturalidade");
 						}
 						_naturalidade = value;
+						this.NotifyPropertyChanged("Naturalidade");
 					}
 				}
 			}
@@ -789,9 +789,9 @@ namespace Modelo.Cliente{
 					if (_pisPasep1 != value){
 						if (PisPasep1Alterado != null){
 							PisPasep1Alterado(_pisPasep1,value);
-							this.NotifyPropertyChanged("PisPasep1");
 						}
 						_pisPasep1 = value;
+						this.NotifyPropertyChanged("PisPasep1");
 					}
 				}
 			}
@@ -805,9 +805,9 @@ namespace Modelo.Cliente{
 					if (_pisPasep2 != value){
 						if (PisPasep2Alterado != null){
 							PisPasep2Alterado(_pisPasep2,value);
-							this.NotifyPropertyChanged("PisPasep2");
 						}
 						_pisPasep2 = value;
+						this.NotifyPropertyChanged("PisPasep2");
 					}
 				}
 			}
@@ -821,9 +821,9 @@ namespace Modelo.Cliente{
 					if (_pisPasep3 != value){
 						if (PisPasep3Alterado != null){
 							PisPasep3Alterado(_pisPasep3,value);
-							this.NotifyPropertyChanged("PisPasep3");
 						}
 						_pisPasep3 = value;
+						this.NotifyPropertyChanged("PisPasep3");
 					}
 				}
 			}
@@ -837,9 +837,9 @@ namespace Modelo.Cliente{
 					if (_pisPasep4 != value){
 						if (PisPasep4Alterado != null){
 							PisPasep4Alterado(_pisPasep4,value);
-							this.NotifyPropertyChanged("PisPasep4");
 						}
 						_pisPasep4 = value;
+						this.NotifyPropertyChanged("PisPasep4");
 					}
 				}
 			}
@@ -853,9 +853,9 @@ namespace Modelo.Cliente{
 					if (_nit1 != value){
 						if (Nit1Alterado != null){
 							Nit1Alterado(_nit1,value);
-							this.NotifyPropertyChanged("Nit1");
 						}
 						_nit1 = value;
+						this.NotifyPropertyChanged("Nit1");
 					}
 				}
 			}
@@ -869,9 +869,9 @@ namespace Modelo.Cliente{
 					if (_nit2 != value){
 						if (Nit2Alterado != null){
 							Nit2Alterado(_nit2,value);
-							this.NotifyPropertyChanged("Nit2");
 						}
 						_nit2 = value;
+						this.NotifyPropertyChanged("Nit2");
 					}
 				}
 			}
@@ -885,9 +885,9 @@ namespace Modelo.Cliente{
 					if (_nit3 != value){
 						if (Nit3Alterado != null){
 							Nit3Alterado(_nit3,value);
-							this.NotifyPropertyChanged("Nit3");
 						}
 						_nit3 = value;
+						this.NotifyPropertyChanged("Nit3");
 					}
 				}
 			}
@@ -901,9 +901,9 @@ namespace Modelo.Cliente{
 					if (_nit4 != value){
 						if (Nit4Alterado != null){
 							Nit4Alterado(_nit4,value);
-							this.NotifyPropertyChanged("Nit4");
 						}
 						_nit4 = value;
+						this.NotifyPropertyChanged("Nit4");
 					}
 				}
 			}
@@ -917,9 +917,9 @@ namespace Modelo.Cliente{
 					if (_ctpsSerie1 != value){
 						if (CtpsSerie1Alterado != null){
 							CtpsSerie1Alterado(_ctpsSerie1,value);
-							this.NotifyPropertyChanged("CtpsSerie1");
 						}
 						_ctpsSerie1 = value;
+						this.NotifyPropertyChanged("CtpsSerie1");
 					}
 				}
 			}
@@ -933,9 +933,9 @@ namespace Modelo.Cliente{
 					if (_ctpsSerie2 != value){
 						if (CtpsSerie2Alterado != null){
 							CtpsSerie2Alterado(_ctpsSerie2,value);
-							this.NotifyPropertyChanged("CtpsSerie2");
 						}
 						_ctpsSerie2 = value;
+						this.NotifyPropertyChanged("CtpsSerie2");
 					}
 				}
 			}
@@ -949,9 +949,9 @@ namespace Modelo.Cliente{
 					if (_ctpsSerie3 != value){
 						if (CtpsSerie3Alterado != null){
 							CtpsSerie3Alterado(_ctpsSerie3,value);
-							this.NotifyPropertyChanged("CtpsSerie3");
 						}
 						_ctpsSerie3 = value;
+						this.NotifyPropertyChanged("CtpsSerie3");
 					}
 				}
 			}
@@ -965,9 +965,9 @@ namespace Modelo.Cliente{
 					if (_ctpsSerie4 != value){
 						if (CtpsSerie4Alterado != null){
 							CtpsSerie4Alterado(_ctpsSerie4,value);
-							this.NotifyPropertyChanged("CtpsSerie4");
 						}
 						_ctpsSerie4 = value;
+						this.NotifyPropertyChanged("CtpsSerie4");
 					}
 				}
 			}
@@ -981,9 +981,9 @@ namespace Modelo.Cliente{
 					if (_ctpsSerie5 != value){
 						if (CtpsSerie5Alterado != null){
 							CtpsSerie5Alterado(_ctpsSerie5,value);
-							this.NotifyPropertyChanged("CtpsSerie5");
 						}
 						_ctpsSerie5 = value;
+						this.NotifyPropertyChanged("CtpsSerie5");
 					}
 				}
 			}
@@ -997,9 +997,9 @@ namespace Modelo.Cliente{
 					if (_nomeClienteIndicacao != value){
 						if (NomeClienteIndicacaoAlterado != null){
 							NomeClienteIndicacaoAlterado(_nomeClienteIndicacao,value);
-							this.NotifyPropertyChanged("NomeClienteIndicacao");
 						}
 						_nomeClienteIndicacao = value;
+						this.NotifyPropertyChanged("NomeClienteIndicacao");
 					}
 				}
 			}

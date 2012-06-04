@@ -101,9 +101,9 @@ namespace Modelo.Cliente{
 					if (_cliente != value){
 						if (ClienteAlterado != null){
 							ClienteAlterado(_cliente,value);
-							this.NotifyPropertyChanged("Cliente");
 						}
 						_cliente = value;
+						this.NotifyPropertyChanged("Cliente");
 					}
 				}
 			}
@@ -117,9 +117,9 @@ namespace Modelo.Cliente{
 					if (_id != value){
 						if (IdAlterado != null){
 							IdAlterado(_id,value);
-							this.NotifyPropertyChanged("Id");
 						}
 						_id = value;
+						this.NotifyPropertyChanged("Id");
 					}
 				}
 			}
@@ -133,9 +133,9 @@ namespace Modelo.Cliente{
 					if (_tipoBeneficio != value){
 						if (TipoBeneficioAlterado != null){
 							TipoBeneficioAlterado(_tipoBeneficio,value);
-							this.NotifyPropertyChanged("TipoBeneficio");
 						}
 						_tipoBeneficio = value;
+						this.NotifyPropertyChanged("TipoBeneficio");
 					}
 				}
 			}
@@ -149,9 +149,9 @@ namespace Modelo.Cliente{
 					if (_numero != value){
 						if (NumeroAlterado != null){
 							NumeroAlterado(_numero,value);
-							this.NotifyPropertyChanged("Numero");
 						}
 						_numero = value;
+						this.NotifyPropertyChanged("Numero");
 					}
 				}
 			}
@@ -165,9 +165,9 @@ namespace Modelo.Cliente{
 					if (_tempoContribuicao != value){
 						if (TempoContribuicaoAlterado != null){
 							TempoContribuicaoAlterado(_tempoContribuicao,value);
-							this.NotifyPropertyChanged("TempoContribuicao");
 						}
 						_tempoContribuicao = value;
+						this.NotifyPropertyChanged("TempoContribuicao");
 					}
 				}
 			}
@@ -181,9 +181,9 @@ namespace Modelo.Cliente{
 					if (_somaSalariosContribuicao != value){
 						if (SomaSalariosContribuicaoAlterado != null){
 							SomaSalariosContribuicaoAlterado(_somaSalariosContribuicao,value);
-							this.NotifyPropertyChanged("SomaSalariosContribuicao");
 						}
 						_somaSalariosContribuicao = value;
+						this.NotifyPropertyChanged("SomaSalariosContribuicao");
 					}
 				}
 			}
@@ -197,9 +197,9 @@ namespace Modelo.Cliente{
 					if (_inicioBeneficio != value){
 						if (InicioBeneficioAlterado != null){
 							InicioBeneficioAlterado(_inicioBeneficio,value);
-							this.NotifyPropertyChanged("InicioBeneficio");
 						}
 						_inicioBeneficio = value;
+						this.NotifyPropertyChanged("InicioBeneficio");
 					}
 				}
 			}
@@ -213,9 +213,9 @@ namespace Modelo.Cliente{
 					if (_rendaMensalInicial != value){
 						if (RendaMensalInicialAlterado != null){
 							RendaMensalInicialAlterado(_rendaMensalInicial,value);
-							this.NotifyPropertyChanged("RendaMensalInicial");
 						}
 						_rendaMensalInicial = value;
+						this.NotifyPropertyChanged("RendaMensalInicial");
 					}
 				}
 			}
@@ -229,9 +229,9 @@ namespace Modelo.Cliente{
 					if (_divisor != value){
 						if (DivisorAlterado != null){
 							DivisorAlterado(_divisor,value);
-							this.NotifyPropertyChanged("Divisor");
 						}
 						_divisor = value;
+						this.NotifyPropertyChanged("Divisor");
 					}
 				}
 			}
@@ -245,9 +245,9 @@ namespace Modelo.Cliente{
 					if (_fatorPrevidenciario != value){
 						if (FatorPrevidenciarioAlterado != null){
 							FatorPrevidenciarioAlterado(_fatorPrevidenciario,value);
-							this.NotifyPropertyChanged("FatorPrevidenciario");
 						}
 						_fatorPrevidenciario = value;
+						this.NotifyPropertyChanged("FatorPrevidenciario");
 					}
 				}
 			}
@@ -261,9 +261,9 @@ namespace Modelo.Cliente{
 					if (_salarioBeneficio != value){
 						if (SalarioBeneficioAlterado != null){
 							SalarioBeneficioAlterado(_salarioBeneficio,value);
-							this.NotifyPropertyChanged("SalarioBeneficio");
 						}
 						_salarioBeneficio = value;
+						this.NotifyPropertyChanged("SalarioBeneficio");
 					}
 				}
 			}
@@ -277,9 +277,9 @@ namespace Modelo.Cliente{
 					if (_coeficienteCalculo != value){
 						if (CoeficienteCalculoAlterado != null){
 							CoeficienteCalculoAlterado(_coeficienteCalculo,value);
-							this.NotifyPropertyChanged("CoeficienteCalculo");
 						}
 						_coeficienteCalculo = value;
+						this.NotifyPropertyChanged("CoeficienteCalculo");
 					}
 				}
 			}
@@ -293,9 +293,9 @@ namespace Modelo.Cliente{
 					if (_media != value){
 						if (MediaAlterado != null){
 							MediaAlterado(_media,value);
-							this.NotifyPropertyChanged("Media");
 						}
 						_media = value;
+						this.NotifyPropertyChanged("Media");
 					}
 				}
 			}

@@ -29,9 +29,9 @@ namespace Modelo.Comum{
 					if (_origemDados != value){
 						if (OrigemDadosAlterado != null){
 							OrigemDadosAlterado(_origemDados,value);
-							this.NotifyPropertyChanged("OrigemDados");
 						}
 						_origemDados = value;
+						this.NotifyPropertyChanged("OrigemDados");
 					}
 				}
 			}

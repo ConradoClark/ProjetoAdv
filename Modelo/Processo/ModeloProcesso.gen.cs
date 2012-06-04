@@ -90,9 +90,9 @@ namespace Modelo.Processo{
 					if (_id != value){
 						if (IdAlterado != null){
 							IdAlterado(_id,value);
-							this.NotifyPropertyChanged("Id");
 						}
 						_id = value;
+						this.NotifyPropertyChanged("Id");
 					}
 				}
 			}
@@ -106,9 +106,9 @@ namespace Modelo.Processo{
 					if (_numeroProcesso != value){
 						if (NumeroProcessoAlterado != null){
 							NumeroProcessoAlterado(_numeroProcesso,value);
-							this.NotifyPropertyChanged("NumeroProcesso");
 						}
 						_numeroProcesso = value;
+						this.NotifyPropertyChanged("NumeroProcesso");
 					}
 				}
 			}
@@ -122,9 +122,9 @@ namespace Modelo.Processo{
 					if (_tipoAcao != value){
 						if (TipoAcaoAlterado != null){
 							TipoAcaoAlterado(_tipoAcao,value);
-							this.NotifyPropertyChanged("TipoAcao");
 						}
 						_tipoAcao = value;
+						this.NotifyPropertyChanged("TipoAcao");
 					}
 				}
 			}
@@ -138,9 +138,9 @@ namespace Modelo.Processo{
 					if (_objetivo != value){
 						if (ObjetivoAlterado != null){
 							ObjetivoAlterado(_objetivo,value);
-							this.NotifyPropertyChanged("Objetivo");
 						}
 						_objetivo = value;
+						this.NotifyPropertyChanged("Objetivo");
 					}
 				}
 			}
@@ -154,9 +154,9 @@ namespace Modelo.Processo{
 					if (_vara != value){
 						if (VaraAlterado != null){
 							VaraAlterado(_vara,value);
-							this.NotifyPropertyChanged("Vara");
 						}
 						_vara = value;
+						this.NotifyPropertyChanged("Vara");
 					}
 				}
 			}
@@ -170,9 +170,9 @@ namespace Modelo.Processo{
 					if (_cabeca != value){
 						if (CabecaAlterado != null){
 							CabecaAlterado(_cabeca,value);
-							this.NotifyPropertyChanged("Cabeca");
 						}
 						_cabeca = value;
+						this.NotifyPropertyChanged("Cabeca");
 					}
 				}
 			}
@@ -186,9 +186,9 @@ namespace Modelo.Processo{
 					if (_dataAjuizamentoAcao != value){
 						if (DataAjuizamentoAcaoAlterado != null){
 							DataAjuizamentoAcaoAlterado(_dataAjuizamentoAcao,value);
-							this.NotifyPropertyChanged("DataAjuizamentoAcao");
 						}
 						_dataAjuizamentoAcao = value;
+						this.NotifyPropertyChanged("DataAjuizamentoAcao");
 					}
 				}
 			}
@@ -202,9 +202,9 @@ namespace Modelo.Processo{
 					if (_observacao != value){
 						if (ObservacaoAlterado != null){
 							ObservacaoAlterado(_observacao,value);
-							this.NotifyPropertyChanged("Observacao");
 						}
 						_observacao = value;
+						this.NotifyPropertyChanged("Observacao");
 					}
 				}
 			}
@@ -218,9 +218,9 @@ namespace Modelo.Processo{
 					if (_reu != value){
 						if (ReuAlterado != null){
 							ReuAlterado(_reu,value);
-							this.NotifyPropertyChanged("Reu");
 						}
 						_reu = value;
+						this.NotifyPropertyChanged("Reu");
 					}
 				}
 			}
@@ -234,9 +234,9 @@ namespace Modelo.Processo{
 					if (_numeroOrdem != value){
 						if (NumeroOrdemAlterado != null){
 							NumeroOrdemAlterado(_numeroOrdem,value);
-							this.NotifyPropertyChanged("NumeroOrdem");
 						}
 						_numeroOrdem = value;
+						this.NotifyPropertyChanged("NumeroOrdem");
 					}
 				}
 			}
@@ -250,9 +250,9 @@ namespace Modelo.Processo{
 					if (_quantidadeDiasAlerta != value){
 						if (QuantidadeDiasAlertaAlterado != null){
 							QuantidadeDiasAlertaAlterado(_quantidadeDiasAlerta,value);
-							this.NotifyPropertyChanged("QuantidadeDiasAlerta");
 						}
 						_quantidadeDiasAlerta = value;
+						this.NotifyPropertyChanged("QuantidadeDiasAlerta");
 					}
 				}
 			}

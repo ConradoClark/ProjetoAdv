@@ -1,0 +1,25 @@
+﻿*** V1.003 *** 
+- Correção de erro ao editar tabelas 
+- Correção de erro ao vincular autores ao processo
+- Correções internas nos modelos dos objetos
+- Permitido preencher OAB para advogados estagiários
+- Correções de TAB da Tela de Cliente,Advogado e Processos
+- Criação do Log de Alterações
+- Apagando campo de busca ao Limpar/Adicionar/Pesquisar Clientes ou Processos
+- Correção ao definir cabeça do processo (não estava aparecendo)
+
+*** V1.002 ***
+- Inclusão do programa executável + atualizador
+- Correções do Tipo de Cliente (Pessoa Física ou Jurídica)
+- Correções da lista de processos dos Advogados
+- Correções de TAB da Tela de Clientes
+- Correção do Tamanho da Tela de Consulta de Processos Por Cliente
+- Correções de Máscara de Texto na Tela de Consulta Simples
+- Correções do LightBox (Tela escura ao fundo)
+- Correções no Diálogo de Confirmação de Busca
+
+*** V1.001 ***
+- Inclusão do Tipo de Cliente (Pessoa Física ou Jurídica)
+
+*** V1.000 ***
+- Versão inicial do programa

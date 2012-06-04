@@ -68,9 +68,9 @@ namespace <#= getNamespace(origin)#>{
 					if (<#=tuple2.Item2#> != value){
 						if (<#=PascalWordify(tuple2.Item2.Substring(1))#>Alterado != null){
 							<#=PascalWordify(tuple2.Item2.Substring(1))#>Alterado(<#=tuple2.Item2#>,value);
-							this.NotifyPropertyChanged("<#=PascalWordify(tuple2.Item2.Substring(1))#>");
 						}
 						<#=tuple2.Item2#> = value;
+						this.NotifyPropertyChanged("<#=PascalWordify(tuple2.Item2.Substring(1))#>");
 					}
 				}
 			}

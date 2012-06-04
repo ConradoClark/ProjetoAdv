@@ -44,11 +44,11 @@
             this.hONORÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pROCURAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Ferramentas = new System.Windows.Forms.ToolStripMenuItem();
-            this.GrupoDiferencial = new System.Windows.Forms.ToolStripMenuItem();
             this.Pendencias = new System.Windows.Forms.ToolStripMenuItem();
-            this.TipoAcao = new System.Windows.Forms.ToolStripMenuItem();
-            this.Advogados = new System.Windows.Forms.ToolStripMenuItem();
             this.Beneficios = new System.Windows.Forms.ToolStripMenuItem();
+            this.GrupoDiferencial = new System.Windows.Forms.ToolStripMenuItem();
+            this.Advogados = new System.Windows.Forms.ToolStripMenuItem();
+            this.TipoAcao = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.Preferencias = new System.Windows.Forms.ToolStripMenuItem();
             this.Sair = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +59,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChangeLog = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -203,15 +205,6 @@
             this.Ferramentas.Size = new System.Drawing.Size(132, 46);
             this.Ferramentas.Text = "FERRAMENTAS";
             // 
-            // GrupoDiferencial
-            // 
-            this.GrupoDiferencial.Image = global::Visao.Properties.Resources.grupo24;
-            this.GrupoDiferencial.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.GrupoDiferencial.Name = "GrupoDiferencial";
-            this.GrupoDiferencial.Size = new System.Drawing.Size(194, 30);
-            this.GrupoDiferencial.Text = "GRUPO DIFERENCIAL";
-            this.GrupoDiferencial.Click += new System.EventHandler(this.GrupoDiferencial_Click);
-            // 
             // Pendencias
             // 
             this.Pendencias.Image = global::Visao.Properties.Resources.pend24;
@@ -221,14 +214,23 @@
             this.Pendencias.Text = "PENDÊNCIAS";
             this.Pendencias.Click += new System.EventHandler(this.Pendencias_Click);
             // 
-            // TipoAcao
+            // Beneficios
             // 
-            this.TipoAcao.Image = global::Visao.Properties.Resources.param24;
-            this.TipoAcao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.TipoAcao.Name = "TipoAcao";
-            this.TipoAcao.Size = new System.Drawing.Size(194, 30);
-            this.TipoAcao.Text = "TIPO DE AÇÃO";
-            this.TipoAcao.Click += new System.EventHandler(this.TipoAcao_Click);
+            this.Beneficios.Image = global::Visao.Properties.Resources.abono24;
+            this.Beneficios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.Beneficios.Name = "Beneficios";
+            this.Beneficios.Size = new System.Drawing.Size(194, 30);
+            this.Beneficios.Text = "BENEFÍCIO";
+            this.Beneficios.Click += new System.EventHandler(this.Beneficios_Click);
+            // 
+            // GrupoDiferencial
+            // 
+            this.GrupoDiferencial.Image = global::Visao.Properties.Resources.grupo24;
+            this.GrupoDiferencial.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.GrupoDiferencial.Name = "GrupoDiferencial";
+            this.GrupoDiferencial.Size = new System.Drawing.Size(194, 30);
+            this.GrupoDiferencial.Text = "GRUPO DIFERENCIAL";
+            this.GrupoDiferencial.Click += new System.EventHandler(this.GrupoDiferencial_Click);
             // 
             // Advogados
             // 
@@ -239,14 +241,14 @@
             this.Advogados.Text = "ADVOGADOS";
             this.Advogados.Click += new System.EventHandler(this.Advogados_Click);
             // 
-            // Beneficios
+            // TipoAcao
             // 
-            this.Beneficios.Image = global::Visao.Properties.Resources.abono24;
-            this.Beneficios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.Beneficios.Name = "Beneficios";
-            this.Beneficios.Size = new System.Drawing.Size(194, 30);
-            this.Beneficios.Text = "BENEFÍCIO";
-            this.Beneficios.Click += new System.EventHandler(this.Beneficios_Click);
+            this.TipoAcao.Image = global::Visao.Properties.Resources.param24;
+            this.TipoAcao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.TipoAcao.Name = "TipoAcao";
+            this.TipoAcao.Size = new System.Drawing.Size(194, 30);
+            this.TipoAcao.Text = "TIPO DE AÇÃO";
+            this.TipoAcao.Click += new System.EventHandler(this.TipoAcao_Click);
             // 
             // toolStripSeparator1
             // 
@@ -265,6 +267,8 @@
             // Sair
             // 
             this.Sair.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ChangeLog,
+            this.toolStripSeparator3,
             this.EfetuarLogoff,
             this.SairPrograma,
             this.toolStripSeparator2});
@@ -281,7 +285,7 @@
             this.EfetuarLogoff.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.EfetuarLogoff.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.EfetuarLogoff.Name = "EfetuarLogoff";
-            this.EfetuarLogoff.Size = new System.Drawing.Size(194, 30);
+            this.EfetuarLogoff.Size = new System.Drawing.Size(196, 30);
             this.EfetuarLogoff.Text = "EFETUAR LOGOFF";
             this.EfetuarLogoff.Click += new System.EventHandler(this.EfetuarLogoff_Click);
             // 
@@ -290,14 +294,14 @@
             this.SairPrograma.Image = global::Visao.Properties.Resources.SairPrograma24x24;
             this.SairPrograma.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.SairPrograma.Name = "SairPrograma";
-            this.SairPrograma.Size = new System.Drawing.Size(194, 30);
+            this.SairPrograma.Size = new System.Drawing.Size(196, 30);
             this.SairPrograma.Text = "SAIR DO PROGRAMA";
             this.SairPrograma.Click += new System.EventHandler(this.sAIRDOPROGRAMAToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(191, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
             // 
             // notifyIcon1
             // 
@@ -327,6 +331,21 @@
             this.fecharToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.fecharToolStripMenuItem.Text = "Fechar";
             this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
+            // 
+            // ChangeLog
+            // 
+            this.ChangeLog.Image = global::Visao.Properties.Resources.date24;
+            this.ChangeLog.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ChangeLog.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ChangeLog.Name = "ChangeLog";
+            this.ChangeLog.Size = new System.Drawing.Size(196, 30);
+            this.ChangeLog.Text = "LOG DE ALTERAÇÕES";
+            this.ChangeLog.Click += new System.EventHandler(this.ChangeLog_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(193, 6);
             // 
             // TelaPrincipal
             // 
@@ -385,6 +404,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ChangeLog;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

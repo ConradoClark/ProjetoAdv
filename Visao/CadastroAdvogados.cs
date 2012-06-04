@@ -104,14 +104,6 @@ namespace Visao
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkEstagiario.Checked == true)
-            {
-                txtOAB.Enabled = false;
-            }
-            if (chkEstagiario.Checked == false)
-            {
-                txtOAB.Enabled = true;
-            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)

@@ -35,9 +35,9 @@ namespace Modelo.Advogado{
 					if (_advogado != value){
 						if (AdvogadoAlterado != null){
 							AdvogadoAlterado(_advogado,value);
-							this.NotifyPropertyChanged("Advogado");
 						}
 						_advogado = value;
+						this.NotifyPropertyChanged("Advogado");
 					}
 				}
 			}
@@ -51,9 +51,9 @@ namespace Modelo.Advogado{
 					if (_processo != value){
 						if (ProcessoAlterado != null){
 							ProcessoAlterado(_processo,value);
-							this.NotifyPropertyChanged("Processo");
 						}
 						_processo = value;
+						this.NotifyPropertyChanged("Processo");
 					}
 				}
 			}

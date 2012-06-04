@@ -34,9 +34,9 @@ namespace Modelo.GrupoDiferencial{
 					if (_id != value){
 						if (IdAlterado != null){
 							IdAlterado(_id,value);
-							this.NotifyPropertyChanged("Id");
 						}
 						_id = value;
+						this.NotifyPropertyChanged("Id");
 					}
 				}
 			}
@@ -50,9 +50,9 @@ namespace Modelo.GrupoDiferencial{
 					if (_nome != value){
 						if (NomeAlterado != null){
 							NomeAlterado(_nome,value);
-							this.NotifyPropertyChanged("Nome");
 						}
 						_nome = value;
+						this.NotifyPropertyChanged("Nome");
 					}
 				}
 			}

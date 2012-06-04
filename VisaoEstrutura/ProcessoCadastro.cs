@@ -217,6 +217,7 @@ namespace VisaoEstrutura
 
             if (resposta == DialogResult.No) return;
             ProcessoAtivo.Limpar();
+            AoAdicionar();
         }
 
         void Botao_Busca_Click(object sender, EventArgs e)
@@ -231,6 +232,7 @@ namespace VisaoEstrutura
                 {
                     ProcessoAtivo.Id = oldId;
                     DialogoAlerta.Mostrar("Informação", "Processo não encontrado!", MessageBoxIcon.Exclamation);
+                    AoBuscar();
                 }
                 else
                 {
@@ -240,6 +242,7 @@ namespace VisaoEstrutura
             else
             {
                 DialogoAlerta.Mostrar("Erro", "O código digitado está em um formato inválido", MessageBoxIcon.Error);
+                AoBuscar();
             }
         }
 
@@ -414,6 +417,13 @@ namespace VisaoEstrutura
             //Bindings
             ProcessoAtivo.IdAlterado += (antigo, novo) => codigo.Text = novo.ToString();
 
+            //Ao trocar o cabeça do processo, altera a referencia.
+            ProcessoAtivo.CabecaAlterado += (antigo, novo) =>
+            {
+                cabeca.Text = novo.Nome;
+            };
+
+            //Ao Buscar, só altera os dados do cabeça.
             ProcessoAtivo.Cabeca.NomeAlterado += (antigo, novo) =>
             {
                 cabeca.Text = novo;
@@ -455,9 +465,25 @@ namespace VisaoEstrutura
             };
             ProcessoAtivo.DataAjuizamentoAcaoAlterado += (antigo, novo) => dataAjuizamento.Text = novo.HasValue ? novo.Value.ToString("ddMMyyyy") : null;
 
-            alerta.TextChanged += (sender, args) => { ProcessoAtivo.QuantidadeDiasAlerta = Int32.Parse(alerta.Text); };
+            alerta.TextChanged += (sender, args) => {
+                int valor = 0;
+                if (Int32.TryParse(alerta.Text, out valor))
+                {
+                    ProcessoAtivo.QuantidadeDiasAlerta = valor;
+                }
+                else if (String.IsNullOrWhiteSpace(alerta.Text))
+                {
+                    ProcessoAtivo.QuantidadeDiasAlerta = null;
+                }
+                else
+                {
+                    alerta.Text = ProcessoAtivo.QuantidadeDiasAlerta.HasValue ? ProcessoAtivo.QuantidadeDiasAlerta.Value.ToString() : String.Empty;
+                }
+            };
             ProcessoAtivo.QuantidadeDiasAlertaAlterado += (antigo, novo) => alerta.Text = novo.ToString();
 
+            AoAdicionar += () => CarregarObjetivo(objetivo);
+            AoLimpar += () => CarregarObjetivo(objetivo);
             AoBuscar += () =>
             {
                 CarregarObjetivo(objetivo);
@@ -490,7 +516,11 @@ namespace VisaoEstrutura
 
         protected void CarregarObjetivo(TextControl objetivo)
         {
-            if (ProcessoAtivo.Objetivo == null) return;
+            if (ProcessoAtivo.Objetivo == null)
+            {
+                objetivo.Text = String.Empty;
+                return;
+            }
             objetivo.Text = String.Empty;
             objetivo.Select(objetivo.Text.Length - 1, 1);
             objetivo.Selection.Load(ProcessoAtivo.Objetivo, StringStreamType.HTMLFormat);

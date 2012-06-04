@@ -64,9 +64,9 @@ namespace Modelo.Comum{
 					if (_logradouro != value){
 						if (LogradouroAlterado != null){
 							LogradouroAlterado(_logradouro,value);
-							this.NotifyPropertyChanged("Logradouro");
 						}
 						_logradouro = value;
+						this.NotifyPropertyChanged("Logradouro");
 					}
 				}
 			}
@@ -80,9 +80,9 @@ namespace Modelo.Comum{
 					if (_numero != value){
 						if (NumeroAlterado != null){
 							NumeroAlterado(_numero,value);
-							this.NotifyPropertyChanged("Numero");
 						}
 						_numero = value;
+						this.NotifyPropertyChanged("Numero");
 					}
 				}
 			}
@@ -96,9 +96,9 @@ namespace Modelo.Comum{
 					if (_complemento != value){
 						if (ComplementoAlterado != null){
 							ComplementoAlterado(_complemento,value);
-							this.NotifyPropertyChanged("Complemento");
 						}
 						_complemento = value;
+						this.NotifyPropertyChanged("Complemento");
 					}
 				}
 			}
@@ -112,9 +112,9 @@ namespace Modelo.Comum{
 					if (_bairro != value){
 						if (BairroAlterado != null){
 							BairroAlterado(_bairro,value);
-							this.NotifyPropertyChanged("Bairro");
 						}
 						_bairro = value;
+						this.NotifyPropertyChanged("Bairro");
 					}
 				}
 			}
@@ -128,9 +128,9 @@ namespace Modelo.Comum{
 					if (_cidade != value){
 						if (CidadeAlterado != null){
 							CidadeAlterado(_cidade,value);
-							this.NotifyPropertyChanged("Cidade");
 						}
 						_cidade = value;
+						this.NotifyPropertyChanged("Cidade");
 					}
 				}
 			}
@@ -144,9 +144,9 @@ namespace Modelo.Comum{
 					if (_uf != value){
 						if (UfAlterado != null){
 							UfAlterado(_uf,value);
-							this.NotifyPropertyChanged("Uf");
 						}
 						_uf = value;
+						this.NotifyPropertyChanged("Uf");
 					}
 				}
 			}
@@ -160,9 +160,9 @@ namespace Modelo.Comum{
 					if (_cep != value){
 						if (CepAlterado != null){
 							CepAlterado(_cep,value);
-							this.NotifyPropertyChanged("Cep");
 						}
 						_cep = value;
+						this.NotifyPropertyChanged("Cep");
 					}
 				}
 			}

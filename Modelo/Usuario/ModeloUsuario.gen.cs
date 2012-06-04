@@ -58,9 +58,9 @@ namespace Modelo.Usuario{
 					if (_id != value){
 						if (IdAlterado != null){
 							IdAlterado(_id,value);
-							this.NotifyPropertyChanged("Id");
 						}
 						_id = value;
+						this.NotifyPropertyChanged("Id");
 					}
 				}
 			}
@@ -74,9 +74,9 @@ namespace Modelo.Usuario{
 					if (_nome != value){
 						if (NomeAlterado != null){
 							NomeAlterado(_nome,value);
-							this.NotifyPropertyChanged("Nome");
 						}
 						_nome = value;
+						this.NotifyPropertyChanged("Nome");
 					}
 				}
 			}
@@ -90,9 +90,9 @@ namespace Modelo.Usuario{
 					if (_login != value){
 						if (LoginAlterado != null){
 							LoginAlterado(_login,value);
-							this.NotifyPropertyChanged("Login");
 						}
 						_login = value;
+						this.NotifyPropertyChanged("Login");
 					}
 				}
 			}
@@ -106,9 +106,9 @@ namespace Modelo.Usuario{
 					if (_senha != value){
 						if (SenhaAlterado != null){
 							SenhaAlterado(_senha,value);
-							this.NotifyPropertyChanged("Senha");
 						}
 						_senha = value;
+						this.NotifyPropertyChanged("Senha");
 					}
 				}
 			}
@@ -122,9 +122,9 @@ namespace Modelo.Usuario{
 					if (_permissao != value){
 						if (PermissaoAlterado != null){
 							PermissaoAlterado(_permissao,value);
-							this.NotifyPropertyChanged("Permissao");
 						}
 						_permissao = value;
+						this.NotifyPropertyChanged("Permissao");
 					}
 				}
 			}
@@ -138,9 +138,9 @@ namespace Modelo.Usuario{
 					if (_status != value){
 						if (StatusAlterado != null){
 							StatusAlterado(_status,value);
-							this.NotifyPropertyChanged("Status");
 						}
 						_status = value;
+						this.NotifyPropertyChanged("Status");
 					}
 				}
 			}

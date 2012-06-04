@@ -19,16 +19,12 @@ namespace Estrutura
 
         protected override object AddNewCore()
         {
-            try
+            lock (this)
             {
                 T obj = CriacaoObjeto();
                 this.OnAddingNew(new AddingNewEventArgs(obj));
                 this.Add(obj);
                 return obj;
-            }
-            catch (Exception)
-            {
-                return null;
             }
         }
         protected override bool SupportsChangeNotificationCore

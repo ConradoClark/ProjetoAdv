@@ -59,9 +59,9 @@ namespace Modelo.Cliente{
 					if (_cliente != value){
 						if (ClienteAlterado != null){
 							ClienteAlterado(_cliente,value);
-							this.NotifyPropertyChanged("Cliente");
 						}
 						_cliente = value;
+						this.NotifyPropertyChanged("Cliente");
 					}
 				}
 			}
@@ -75,9 +75,9 @@ namespace Modelo.Cliente{
 					if (_id != value){
 						if (IdAlterado != null){
 							IdAlterado(_id,value);
-							this.NotifyPropertyChanged("Id");
 						}
 						_id = value;
+						this.NotifyPropertyChanged("Id");
 					}
 				}
 			}
@@ -91,9 +91,9 @@ namespace Modelo.Cliente{
 					if (_grauParentesco != value){
 						if (GrauParentescoAlterado != null){
 							GrauParentescoAlterado(_grauParentesco,value);
-							this.NotifyPropertyChanged("GrauParentesco");
 						}
 						_grauParentesco = value;
+						this.NotifyPropertyChanged("GrauParentesco");
 					}
 				}
 			}
@@ -107,9 +107,9 @@ namespace Modelo.Cliente{
 					if (_nome != value){
 						if (NomeAlterado != null){
 							NomeAlterado(_nome,value);
-							this.NotifyPropertyChanged("Nome");
 						}
 						_nome = value;
+						this.NotifyPropertyChanged("Nome");
 					}
 				}
 			}
@@ -123,9 +123,9 @@ namespace Modelo.Cliente{
 					if (_indCadastro != value){
 						if (IndCadastroAlterado != null){
 							IndCadastroAlterado(_indCadastro,value);
-							this.NotifyPropertyChanged("IndCadastro");
 						}
 						_indCadastro = value;
+						this.NotifyPropertyChanged("IndCadastro");
 					}
 				}
 			}
@@ -139,9 +139,9 @@ namespace Modelo.Cliente{
 					if (_observacao != value){
 						if (ObservacaoAlterado != null){
 							ObservacaoAlterado(_observacao,value);
-							this.NotifyPropertyChanged("Observacao");
 						}
 						_observacao = value;
+						this.NotifyPropertyChanged("Observacao");
 					}
 				}
 			}

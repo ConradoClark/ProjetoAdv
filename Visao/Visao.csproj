@@ -789,6 +789,9 @@
     <None Include="Resources\cabeca32.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\changelog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Referencias\de\TXTextControl.resources.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -826,6 +829,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /y $(TargetDir)Referencias $(TargetDir)

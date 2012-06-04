@@ -228,12 +228,17 @@ namespace Estrutura
             this.Responsaveis.Clear();
         }
 
+        public override void Limpar()
+        {
+            base.Limpar();
+            LimparColecoes();
+        }
+
         #region Metodos Cliente
         private void InserirCliente(Modelo.Cliente.ModeloProcessoCliente processoCliente)
         {
             processoCliente.ConferirOrigemParaInserir();
             Dados.AcessoClienteProcesso.InserirProcessoCliente(processoCliente);
-            AcertarColecoes();
         }
 
         private void InserirCliente(Modelo.Cliente.ModeloCliente cliente)
@@ -243,14 +248,12 @@ namespace Estrutura
             processoCliente.Obter();
             processoCliente.ConferirOrigemParaInserir();
             Dados.AcessoClienteProcesso.InserirProcessoCliente(processoCliente);
-            AcertarColecoes();
         }
 
         private void RemoverCliente(Modelo.Cliente.ModeloProcessoCliente processoCliente)
         {
             processoCliente.ConferirOrigemParaManipularDados();
             Dados.AcessoClienteProcesso.RemoverProcessoCliente(processoCliente);
-            AcertarColecoes();
         }
 
         private void RemoverCliente(Modelo.Cliente.ModeloCliente cliente)
@@ -265,7 +268,7 @@ namespace Estrutura
 
         private void AcertarClientes()
         {
-            Action acertar = new Action(() => { });
+            List<Modelo.Cliente.ModeloProcessoCliente> clientesAdicionar = new List<Modelo.Cliente.ModeloProcessoCliente>();
             foreach (Cliente cliente in this.Clientes)
             {
                 Cliente tempCliente = new Cliente();
@@ -273,10 +276,10 @@ namespace Estrutura
                 ProcessoCliente processoCliente = new ProcessoCliente(this, cliente);
                 if (!Dados.AcessoProcessoCliente.ObterClienteProcesso(processoCliente))
                 {
-                    acertar += () => this.InserirCliente(processoCliente);
+                    clientesAdicionar.Add(processoCliente);
                 }
             }
-            acertar();
+            clientesAdicionar.ForEach((procli) => this.InserirCliente(procli));
             IEnumerable<ProcessoCliente> clientesListados = Dados.AcessoProcessoCliente.ListarClienteProcesso(this, () => (Modelo.Cliente.ModeloProcessoCliente)new ProcessoCliente(this, new Cliente())).Cast<ProcessoCliente>();
             foreach (ProcessoCliente processoCliente in clientesListados)
             {

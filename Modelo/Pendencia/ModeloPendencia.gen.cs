@@ -34,9 +34,9 @@ namespace Modelo.Pendencia{
 					if (_id != value){
 						if (IdAlterado != null){
 							IdAlterado(_id,value);
-							this.NotifyPropertyChanged("Id");
 						}
 						_id = value;
+						this.NotifyPropertyChanged("Id");
 					}
 				}
 			}
@@ -50,9 +50,9 @@ namespace Modelo.Pendencia{
 					if (_descricao != value){
 						if (DescricaoAlterado != null){
 							DescricaoAlterado(_descricao,value);
-							this.NotifyPropertyChanged("Descricao");
 						}
 						_descricao = value;
+						this.NotifyPropertyChanged("Descricao");
 					}
 				}
 			}

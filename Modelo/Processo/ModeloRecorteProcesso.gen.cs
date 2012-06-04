@@ -46,9 +46,9 @@ namespace Modelo.Processo{
 					if (_processo != value){
 						if (ProcessoAlterado != null){
 							ProcessoAlterado(_processo,value);
-							this.NotifyPropertyChanged("Processo");
 						}
 						_processo = value;
+						this.NotifyPropertyChanged("Processo");
 					}
 				}
 			}
@@ -62,9 +62,9 @@ namespace Modelo.Processo{
 					if (_dataInclusao != value){
 						if (DataInclusaoAlterado != null){
 							DataInclusaoAlterado(_dataInclusao,value);
-							this.NotifyPropertyChanged("DataInclusao");
 						}
 						_dataInclusao = value;
+						this.NotifyPropertyChanged("DataInclusao");
 					}
 				}
 			}
@@ -78,9 +78,9 @@ namespace Modelo.Processo{
 					if (_usuarioInclusao != value){
 						if (UsuarioInclusaoAlterado != null){
 							UsuarioInclusaoAlterado(_usuarioInclusao,value);
-							this.NotifyPropertyChanged("UsuarioInclusao");
 						}
 						_usuarioInclusao = value;
+						this.NotifyPropertyChanged("UsuarioInclusao");
 					}
 				}
 			}
@@ -94,9 +94,9 @@ namespace Modelo.Processo{
 					if (_textoRecorte != value){
 						if (TextoRecorteAlterado != null){
 							TextoRecorteAlterado(_textoRecorte,value);
-							this.NotifyPropertyChanged("TextoRecorte");
 						}
 						_textoRecorte = value;
+						this.NotifyPropertyChanged("TextoRecorte");
 					}
 				}
 			}

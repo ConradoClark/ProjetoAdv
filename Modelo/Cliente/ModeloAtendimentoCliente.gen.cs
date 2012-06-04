@@ -53,9 +53,9 @@ namespace Modelo.Cliente{
 					if (_cliente != value){
 						if (ClienteAlterado != null){
 							ClienteAlterado(_cliente,value);
-							this.NotifyPropertyChanged("Cliente");
 						}
 						_cliente = value;
+						this.NotifyPropertyChanged("Cliente");
 					}
 				}
 			}
@@ -69,9 +69,9 @@ namespace Modelo.Cliente{
 					if (_dataHoraAtendimento != value){
 						if (DataHoraAtendimentoAlterado != null){
 							DataHoraAtendimentoAlterado(_dataHoraAtendimento,value);
-							this.NotifyPropertyChanged("DataHoraAtendimento");
 						}
 						_dataHoraAtendimento = value;
+						this.NotifyPropertyChanged("DataHoraAtendimento");
 					}
 				}
 			}
@@ -85,9 +85,9 @@ namespace Modelo.Cliente{
 					if (_usuarioAtendimento != value){
 						if (UsuarioAtendimentoAlterado != null){
 							UsuarioAtendimentoAlterado(_usuarioAtendimento,value);
-							this.NotifyPropertyChanged("UsuarioAtendimento");
 						}
 						_usuarioAtendimento = value;
+						this.NotifyPropertyChanged("UsuarioAtendimento");
 					}
 				}
 			}
@@ -101,9 +101,9 @@ namespace Modelo.Cliente{
 					if (_atendimentoInterno != value){
 						if (AtendimentoInternoAlterado != null){
 							AtendimentoInternoAlterado(_atendimentoInterno,value);
-							this.NotifyPropertyChanged("AtendimentoInterno");
 						}
 						_atendimentoInterno = value;
+						this.NotifyPropertyChanged("AtendimentoInterno");
 					}
 				}
 			}
@@ -117,9 +117,9 @@ namespace Modelo.Cliente{
 					if (_atendimentoExterno != value){
 						if (AtendimentoExternoAlterado != null){
 							AtendimentoExternoAlterado(_atendimentoExterno,value);
-							this.NotifyPropertyChanged("AtendimentoExterno");
 						}
 						_atendimentoExterno = value;
+						this.NotifyPropertyChanged("AtendimentoExterno");
 					}
 				}
 			}

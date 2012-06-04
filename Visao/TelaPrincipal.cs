@@ -10,6 +10,7 @@ using System.Threading;
 using VisaoEstrutura;
 using VisaoControles;
 using System.Reflection;
+using System.IO;
 
 namespace Visao
 {
@@ -315,6 +316,19 @@ namespace Visao
             {
                 formProcesso.Show();
                 formProcesso.Update();
+            }
+        }
+
+        private void ChangeLog_Click(object sender, EventArgs e)
+        {
+            string file = Path.Combine(Environment.CurrentDirectory, "Data","changelog.txt");
+            if (File.Exists(file))
+            {
+                System.Diagnostics.Process.Start(file);
+            }
+            else
+            {
+                DialogoAlerta.Mostrar("Alterações", "A Lista de alterações do programa não existe.",MessageBoxIcon.Information,MessageBoxButtons.OK);
             }
         }
     }
