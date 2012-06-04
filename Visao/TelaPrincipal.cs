@@ -321,7 +321,7 @@ namespace Visao
 
         private void ChangeLog_Click(object sender, EventArgs e)
         {
-            string file = Path.Combine(Environment.CurrentDirectory, "Data","changelog.txt");
+            string file = Path.Combine(Path.GetDirectoryName(this.GetType().Assembly.Location), "Data","changelog.txt");
             if (File.Exists(file))
             {
                 System.Diagnostics.Process.Start(file);

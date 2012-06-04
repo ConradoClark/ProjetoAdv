@@ -1,4 +1,7 @@
-﻿*** V1.003 *** 
+﻿*** V1.003a *** 
+- Correção do Log de Alterações
+
+*** V1.003 *** 
 - Correção de erro ao editar tabelas 
 - Correção de erro ao vincular autores ao processo
 - Correções internas nos modelos dos objetos
