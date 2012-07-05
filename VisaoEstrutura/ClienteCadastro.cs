@@ -84,6 +84,14 @@ namespace VisaoEstrutura
             AoLimpar += () => { buscaNumeroReferenciaInterna.Text = ""; };
             AoRemover += () => { buscaNumeroReferenciaInterna.Text = ""; };
             AntesDeSalvar += () => {
+                if (String.IsNullOrWhiteSpace(ClienteAtivo.Nome))
+                {
+                    DialogoAlerta.Mostrar("Erro",
+                                                "O campo nome é obrigatório! Favor conferir.",
+                                                                    MessageBoxIcon.Error,
+                                                                    MessageBoxButtons.OK);
+                    return false;
+                }
                 if (ClienteAtivo.TipoPessoa == 'F' &&
                     !String.IsNullOrWhiteSpace(ClienteAtivo.Cpf) &&
                     !ValidaCpf(ClienteAtivo.Cpf))
@@ -647,7 +655,7 @@ namespace VisaoEstrutura
             dependenteGrid.DataSource = ClienteAtivo.Dependentes;
             parentescoColumn.DataSource = GrausParentesco.Lista;
             parentescoColumn.DisplayMember = "Nome";
-            parentescoColumn.ValueMember = "Self";
+            parentescoColumn.ValueMember = "Self";              
         }
 
         public void PopularAbaBeneficio(
@@ -656,7 +664,16 @@ namespace VisaoEstrutura
             )
         {
             beneficioGrid.AutoGenerateColumns = false;
-            beneficioGrid.DataSource = ClienteAtivo.Beneficios;
+            BindingSource bs = new BindingSource();
+            bs.DataSource = ClienteAtivo.Beneficios;
+            bs.AddingNew += (sender, args) =>
+            {
+                if (beneficioGrid.Rows.Count == bs.Count)
+                {
+                    bs.RemoveAt(bs.Count - 1);
+                }
+            };
+            beneficioGrid.DataSource = bs;            
             TiposBeneficio.Atualizar += () => {
                 tipoBeneficioColumn.DataSource = TiposBeneficio.Listar().Cast<TipoBeneficio>().ToList();              
             };
@@ -679,52 +696,38 @@ namespace VisaoEstrutura
         }
 
         public void PopularAbaAtendimento(
-            TextControl txtAtendimento,
-            TextControl txtAtendimentosRealizados
+            TextControl txtAtendimento
             )
         {
-            AoBuscar += () => { getAtendimentos(txtAtendimentosRealizados); };
-            AoAdicionar += () => { getAtendimentos(txtAtendimentosRealizados); };
-            AoLimpar += () => { getAtendimentos(txtAtendimentosRealizados); };
-            AoCancelar += () => { getAtendimentos(txtAtendimentosRealizados); };
-            
+            AoBuscar += () =>
+            {
+                CarregarAndamento(txtAtendimento);
+            };
+
+            AoCancelar += () =>
+            {
+                CarregarAndamento(txtAtendimento);
+            };
+
             AntesDeSalvar += () =>
             {
                 if (!String.IsNullOrWhiteSpace(txtAtendimento.Text))
                 {
-                    Atendimento atendimento = new Atendimento(ClienteAtivo,Sessao.UsuarioAtual);
-                    string result;
+                    string result = String.Empty;
                     txtAtendimento.Save(out result, StringStreamType.HTMLFormat);
-                    atendimento.AtendimentoExterno = result;
-                    atendimento.DataHoraAtendimento = DateTime.Now;
-                    ClienteAtivo.Atendimentos.Add(atendimento);
-                    txtAtendimento.Text = String.Empty;
-                    getAtendimentos(txtAtendimentosRealizados);
+                    ClienteAtivo.Atendimento = result;
+                    CarregarAndamento(txtAtendimento);
                 }
                 return true;
             };
         }
 
-        void getAtendimentos(TextControl txtAtendimentosRealizados)
-        {    
-            txtAtendimentosRealizados.Text = "";
-            ClienteAtivo.Atendimentos.OrderByDescending((at)=>at.DataHoraAtendimento).ToList().ForEach((ate) =>    
-            {                
-                if (ate.DataHoraAtendimento.HasValue)
-                {
-                    txtAtendimentosRealizados.Select(txtAtendimentosRealizados.Text.Length - 1, 1);            
-
-                    string append = ate.DataHoraAtendimento.Value.ToString("dd/MM/yyyy hh:mm:ss") + " - " + ate.UsuarioAtendimento.Nome;
-                    
-                    txtAtendimentosRealizados.Selection.Load(String.Concat("<p style='color:midnightblue;'>",append,"</p>"),StringStreamType.HTMLFormat);
-                    txtAtendimentosRealizados.Select(txtAtendimentosRealizados.Text.Length - 1, 1);                    
-
-                    append = ate.AtendimentoExterno;
-                    txtAtendimentosRealizados.Selection.Load(append, StringStreamType.HTMLFormat);
-                    txtAtendimentosRealizados.Select(txtAtendimentosRealizados.Text.Length - 1, 1);
-                    
-                }
-            });
+        protected void CarregarAndamento(TextControl txtAtendimento)
+        {
+            txtAtendimento.Text = String.Empty;
+            if (ClienteAtivo.Atendimento == null) return;            
+            txtAtendimento.Select(txtAtendimento.Text.Length - 1, 1);
+            txtAtendimento.Selection.Load(ClienteAtivo.Atendimento, StringStreamType.HTMLFormat);
         }
 
         void allowRows(DataGridView grid)

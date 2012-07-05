@@ -79,6 +79,8 @@ namespace Modelo.Cliente
         private string _ctpsSerie5;
         [NomeDisplay("Indicado Por?")]
         private string _nomeClienteIndicacao;
+        [Browsable(false)]
+        private string _atendimento;
     }
     #pragma warning restore 0169
 }

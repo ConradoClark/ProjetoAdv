@@ -528,8 +528,8 @@ namespace VisaoEstrutura
 
         protected void CarregarObservacoes(TextControl observacao)
         {
-            if (ProcessoAtivo.Observacao == null) return;
             observacao.Text = String.Empty;
+            if (ProcessoAtivo.Observacao == null) return;            
             observacao.Select(observacao.Text.Length - 1, 1);
             observacao.Selection.Load(ProcessoAtivo.Observacao, StringStreamType.HTMLFormat);
         }

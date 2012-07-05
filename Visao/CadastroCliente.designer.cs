@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.codigoBusca = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -44,6 +44,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.contatoGridView = new System.Windows.Forms.DataGridView();
+            this.conTipoContato = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.conContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pispasep4 = new System.Windows.Forms.TextBox();
@@ -174,10 +177,8 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.colorComboBox1 = new VisaoControles.ColorComboBox();
-            this.txtAtendimentoRealizado = new TXTextControl.TextControl();
             this.buttonBar = new TXTextControl.ButtonBar();
             this.txtAtendimento = new TXTextControl.TextControl();
-            this.label36 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
@@ -190,9 +191,6 @@
             this.btnPDF = new System.Windows.Forms.Button();
             this.menuGridView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removerLinhaContextButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.conTipoContato = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.conContato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dependenteGridView)).BeginInit();
@@ -229,20 +227,22 @@
             // 
             // codigoBusca
             // 
-            this.codigoBusca.Location = new System.Drawing.Point(127, 29);
+            this.codigoBusca.Location = new System.Drawing.Point(760, 29);
             this.codigoBusca.Name = "codigoBusca";
             this.codigoBusca.Size = new System.Drawing.Size(136, 20);
             this.codigoBusca.TabIndex = 0;
+            this.codigoBusca.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 32);
+            this.label1.Location = new System.Drawing.Point(648, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Código do Cliente:";
+            this.label1.Visible = false;
             // 
             // tabPage4
             // 
@@ -266,14 +266,15 @@
             // 
             // dependenteGridView
             // 
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dependenteGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dependenteGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dependenteGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dependenteGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.depParentesco,
             this.depNome,
             this.depIndCadastro,
             this.depObservacao});
+            this.dependenteGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dependenteGridView.Location = new System.Drawing.Point(6, 19);
             this.dependenteGridView.Name = "dependenteGridView";
             this.dependenteGridView.Size = new System.Drawing.Size(990, 483);
@@ -330,8 +331,8 @@
             // 
             // contatoGridView
             // 
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.contatoGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.contatoGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.contatoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contatoGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.conTipoContato,
@@ -342,6 +343,39 @@
             this.contatoGridView.Name = "contatoGridView";
             this.contatoGridView.Size = new System.Drawing.Size(986, 483);
             this.contatoGridView.TabIndex = 98;
+            // 
+            // conTipoContato
+            // 
+            this.conTipoContato.DataPropertyName = "TipoContato";
+            this.conTipoContato.HeaderText = "Tipo";
+            this.conTipoContato.Items.AddRange(new object[] {
+            "Telefone Residencial",
+            "Telefone Celular",
+            "Telefone Comercial",
+            "E-Mail",
+            "Fax",
+            "Website"});
+            this.conTipoContato.MinimumWidth = 160;
+            this.conTipoContato.Name = "conTipoContato";
+            this.conTipoContato.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.conTipoContato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.conTipoContato.Width = 160;
+            // 
+            // conContato
+            // 
+            this.conContato.DataPropertyName = "Contato";
+            this.conContato.HeaderText = "Telefone, E-Mail, etc";
+            this.conContato.MinimumWidth = 200;
+            this.conContato.Name = "conContato";
+            this.conContato.Width = 200;
+            // 
+            // conObservacao
+            // 
+            this.conObservacao.DataPropertyName = "Observacao";
+            this.conObservacao.HeaderText = "Observação";
+            this.conObservacao.MinimumWidth = 490;
+            this.conObservacao.Name = "conObservacao";
+            this.conObservacao.Width = 490;
             // 
             // tabPage2
             // 
@@ -1458,8 +1492,8 @@
             // 
             // beneficiosGridView
             // 
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.beneficiosGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.beneficiosGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.beneficiosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.beneficiosGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.benTipoBeneficio,
@@ -1473,6 +1507,7 @@
             this.benCC,
             this.benRMI,
             this.benTS});
+            this.beneficiosGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.beneficiosGridView.Location = new System.Drawing.Point(6, 19);
             this.beneficiosGridView.Name = "beneficiosGridView";
             this.beneficiosGridView.Size = new System.Drawing.Size(1117, 483);
@@ -1601,10 +1636,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.colorComboBox1);
-            this.groupBox1.Controls.Add(this.txtAtendimentoRealizado);
             this.groupBox1.Controls.Add(this.buttonBar);
             this.groupBox1.Controls.Add(this.txtAtendimento);
-            this.groupBox1.Controls.Add(this.label36);
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1117, 496);
@@ -3450,6 +3483,147 @@
             "White",
             "WhiteSmoke",
             "Yellow",
+            "YellowGreen",
+            "Transparent",
+            "AliceBlue",
+            "AntiqueWhite",
+            "Aqua",
+            "Aquamarine",
+            "Azure",
+            "Beige",
+            "Bisque",
+            "Black",
+            "BlanchedAlmond",
+            "Blue",
+            "BlueViolet",
+            "Brown",
+            "BurlyWood",
+            "CadetBlue",
+            "Chartreuse",
+            "Chocolate",
+            "Coral",
+            "CornflowerBlue",
+            "Cornsilk",
+            "Crimson",
+            "Cyan",
+            "DarkBlue",
+            "DarkCyan",
+            "DarkGoldenrod",
+            "DarkGray",
+            "DarkGreen",
+            "DarkKhaki",
+            "DarkMagenta",
+            "DarkOliveGreen",
+            "DarkOrange",
+            "DarkOrchid",
+            "DarkRed",
+            "DarkSalmon",
+            "DarkSeaGreen",
+            "DarkSlateBlue",
+            "DarkSlateGray",
+            "DarkTurquoise",
+            "DarkViolet",
+            "DeepPink",
+            "DeepSkyBlue",
+            "DimGray",
+            "DodgerBlue",
+            "Firebrick",
+            "FloralWhite",
+            "ForestGreen",
+            "Fuchsia",
+            "Gainsboro",
+            "GhostWhite",
+            "Gold",
+            "Goldenrod",
+            "Gray",
+            "Green",
+            "GreenYellow",
+            "Honeydew",
+            "HotPink",
+            "IndianRed",
+            "Indigo",
+            "Ivory",
+            "Khaki",
+            "Lavender",
+            "LavenderBlush",
+            "LawnGreen",
+            "LemonChiffon",
+            "LightBlue",
+            "LightCoral",
+            "LightCyan",
+            "LightGoldenrodYellow",
+            "LightGray",
+            "LightGreen",
+            "LightPink",
+            "LightSalmon",
+            "LightSeaGreen",
+            "LightSkyBlue",
+            "LightSlateGray",
+            "LightSteelBlue",
+            "LightYellow",
+            "Lime",
+            "LimeGreen",
+            "Linen",
+            "Magenta",
+            "Maroon",
+            "MediumAquamarine",
+            "MediumBlue",
+            "MediumOrchid",
+            "MediumPurple",
+            "MediumSeaGreen",
+            "MediumSlateBlue",
+            "MediumSpringGreen",
+            "MediumTurquoise",
+            "MediumVioletRed",
+            "MidnightBlue",
+            "MintCream",
+            "MistyRose",
+            "Moccasin",
+            "NavajoWhite",
+            "Navy",
+            "OldLace",
+            "Olive",
+            "OliveDrab",
+            "Orange",
+            "OrangeRed",
+            "Orchid",
+            "PaleGoldenrod",
+            "PaleGreen",
+            "PaleTurquoise",
+            "PaleVioletRed",
+            "PapayaWhip",
+            "PeachPuff",
+            "Peru",
+            "Pink",
+            "Plum",
+            "PowderBlue",
+            "Purple",
+            "Red",
+            "RosyBrown",
+            "RoyalBlue",
+            "SaddleBrown",
+            "Salmon",
+            "SandyBrown",
+            "SeaGreen",
+            "SeaShell",
+            "Sienna",
+            "Silver",
+            "SkyBlue",
+            "SlateBlue",
+            "SlateGray",
+            "Snow",
+            "SpringGreen",
+            "SteelBlue",
+            "Tan",
+            "Teal",
+            "Thistle",
+            "Tomato",
+            "Turquoise",
+            "Violet",
+            "Wheat",
+            "White",
+            "WhiteSmoke",
+            "Yellow",
             "YellowGreen"});
             this.colorComboBox1.Location = new System.Drawing.Point(815, 21);
             this.colorComboBox1.Name = "colorComboBox1";
@@ -3457,19 +3631,6 @@
             this.colorComboBox1.Size = new System.Drawing.Size(194, 21);
             this.colorComboBox1.TabIndex = 7;
             this.colorComboBox1.ValueMember = "Color";
-            // 
-            // txtAtendimentoRealizado
-            // 
-            this.txtAtendimentoRealizado.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtAtendimentoRealizado.DisplayColors.DarkShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.txtAtendimentoRealizado.EditMode = TXTextControl.EditMode.ReadAndSelect;
-            this.txtAtendimentoRealizado.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtAtendimentoRealizado.Location = new System.Drawing.Point(9, 271);
-            this.txtAtendimentoRealizado.Name = "txtAtendimentoRealizado";
-            this.txtAtendimentoRealizado.Size = new System.Drawing.Size(1102, 219);
-            this.txtAtendimentoRealizado.TabIndex = 6;
-            this.txtAtendimentoRealizado.TextBackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtAtendimentoRealizado.ViewMode = TXTextControl.ViewMode.Normal;
             // 
             // buttonBar
             // 
@@ -3486,17 +3647,8 @@
             this.txtAtendimento.HideSelection = false;
             this.txtAtendimento.Location = new System.Drawing.Point(9, 48);
             this.txtAtendimento.Name = "txtAtendimento";
-            this.txtAtendimento.Size = new System.Drawing.Size(1102, 202);
+            this.txtAtendimento.Size = new System.Drawing.Size(1102, 442);
             this.txtAtendimento.TabIndex = 4;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(6, 254);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(126, 13);
-            this.label36.TabIndex = 3;
-            this.label36.Text = "Atendimentos Realizados";
             // 
             // groupBox6
             // 
@@ -3529,7 +3681,7 @@
             // btnSair
             // 
             this.btnSair.Image = global::Visao.Properties.Resources.sair24;
-            this.btnSair.Location = new System.Drawing.Point(607, 25);
+            this.btnSair.Location = new System.Drawing.Point(264, 25);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(35, 28);
             this.btnSair.TabIndex = 9;
@@ -3539,7 +3691,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Image = global::Visao.Properties.Resources.canc24;
-            this.btnCancelar.Location = new System.Drawing.Point(566, 25);
+            this.btnCancelar.Location = new System.Drawing.Point(223, 25);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(35, 28);
             this.btnCancelar.TabIndex = 8;
@@ -3548,7 +3700,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Image = global::Visao.Properties.Resources.conf24;
-            this.btnSalvar.Location = new System.Drawing.Point(525, 25);
+            this.btnSalvar.Location = new System.Drawing.Point(182, 25);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(35, 28);
             this.btnSalvar.TabIndex = 7;
@@ -3557,16 +3709,17 @@
             // btnPesquisar
             // 
             this.btnPesquisar.Image = global::Visao.Properties.Resources.search_24x24;
-            this.btnPesquisar.Location = new System.Drawing.Point(276, 25);
+            this.btnPesquisar.Location = new System.Drawing.Point(909, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(35, 28);
             this.btnPesquisar.TabIndex = 2;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Visible = false;
             // 
             // btnLimpar
             // 
             this.btnLimpar.Image = global::Visao.Properties.Resources.limpar;
-            this.btnLimpar.Location = new System.Drawing.Point(484, 25);
+            this.btnLimpar.Location = new System.Drawing.Point(141, 25);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(35, 28);
             this.btnLimpar.TabIndex = 6;
@@ -3575,7 +3728,7 @@
             // btnNovo
             // 
             this.btnNovo.Image = global::Visao.Properties.Resources.add24;
-            this.btnNovo.Location = new System.Drawing.Point(319, 25);
+            this.btnNovo.Location = new System.Drawing.Point(18, 25);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(35, 28);
             this.btnNovo.TabIndex = 3;
@@ -3584,7 +3737,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Image = global::Visao.Properties.Resources.SairPrograma24x24;
-            this.btnExcluir.Location = new System.Drawing.Point(443, 25);
+            this.btnExcluir.Location = new System.Drawing.Point(100, 25);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(35, 28);
             this.btnExcluir.TabIndex = 5;
@@ -3593,7 +3746,7 @@
             // btnPDF
             // 
             this.btnPDF.Image = global::Visao.Properties.Resources.pdf_24x24;
-            this.btnPDF.Location = new System.Drawing.Point(402, 25);
+            this.btnPDF.Location = new System.Drawing.Point(59, 25);
             this.btnPDF.Name = "btnPDF";
             this.btnPDF.Size = new System.Drawing.Size(35, 28);
             this.btnPDF.TabIndex = 4;
@@ -3611,39 +3764,6 @@
             this.removerLinhaContextButton.Name = "removerLinhaContextButton";
             this.removerLinhaContextButton.Size = new System.Drawing.Size(153, 22);
             this.removerLinhaContextButton.Text = "&Remover Linha";
-            // 
-            // conTipoContato
-            // 
-            this.conTipoContato.DataPropertyName = "TipoContato";
-            this.conTipoContato.HeaderText = "Tipo";
-            this.conTipoContato.Items.AddRange(new object[] {
-            "Telefone Residencial",
-            "Telefone Celular",
-            "Telefone Comercial",
-            "E-Mail",
-            "Fax",
-            "Website"});
-            this.conTipoContato.MinimumWidth = 160;
-            this.conTipoContato.Name = "conTipoContato";
-            this.conTipoContato.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.conTipoContato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.conTipoContato.Width = 160;
-            // 
-            // conContato
-            // 
-            this.conContato.DataPropertyName = "Contato";
-            this.conContato.HeaderText = "Telefone, E-Mail, etc";
-            this.conContato.MinimumWidth = 200;
-            this.conContato.Name = "conContato";
-            this.conContato.Width = 200;
-            // 
-            // conObservacao
-            // 
-            this.conObservacao.DataPropertyName = "Observacao";
-            this.conObservacao.HeaderText = "Observação";
-            this.conObservacao.MinimumWidth = 490;
-            this.conObservacao.Name = "conObservacao";
-            this.conObservacao.Width = 490;
             // 
             // CadastroCliente
             // 
@@ -3703,7 +3823,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grupoGridView)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.menuGridView.ResumeLayout(false);
@@ -3850,10 +3969,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn benRMI;
         private System.Windows.Forms.DataGridViewTextBoxColumn benTS;
         private System.Windows.Forms.DataGridViewComboBoxColumn grpNome;
-        private System.Windows.Forms.Label label36;
         private TXTextControl.TextControl txtAtendimento;
         private TXTextControl.ButtonBar buttonBar;
-        private TXTextControl.TextControl txtAtendimentoRealizado;
         private VisaoControles.ColorComboBox colorComboBox1;
         private System.Windows.Forms.ContextMenuStrip menuGridView;
         private System.Windows.Forms.ToolStripMenuItem removerLinhaContextButton;

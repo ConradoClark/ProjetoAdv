@@ -238,15 +238,7 @@ namespace Constantes
             public const string NIT3 = "_nit3";
             public const string NIT4 = "_nit4";
             public const string Indicacao = "_indicacao";
-
-            public static class Atendimento
-            {
-                public const string IdCliente = "_idCliente";
-                public const string DataHoraAtendimento = "_dataHoraAtendimento";
-                public const string IdUsuario = "_idUsuario";
-                public const string AtendimentoInterno = "_atendimentoInterno";
-                public const string AtendimentoExterno = "_atendimentoExterno";
-            }
+            public const string Atendimento = "_atendimento";
 
             public static class Beneficio
             {

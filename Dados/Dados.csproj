@@ -48,7 +48,6 @@
     <Compile Include="Acao\AcessoTipoAcao.cs" />
     <Compile Include="Beneficio\AcessoTipoBeneficio.cs" />
     <Compile Include="Cliente\AcessoCliente.cs" />
-    <Compile Include="Cliente\AcessoClienteAtendimento.cs" />
     <Compile Include="Cliente\AcessoClienteBeneficio.cs" />
     <Compile Include="Cliente\AcessoClienteContato.cs" />
     <Compile Include="Cliente\AcessoClienteDependente.cs" />

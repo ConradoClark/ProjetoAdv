@@ -490,59 +490,5 @@ namespace Estrutura.Test
             Assert.IsFalse(pendencia.Obter());
         }
 
-        [TestMethod]
-        public void TesteAtendimentoCliente()
-        {
-            Usuario usuario = new Usuario();
-            usuario.Login = "conrado.clarke";
-            usuario.Senha = "12345";
-            usuario.Nome = "Conrado Adevany Clarke";
-            usuario.Inserir();
-            Assert.AreEqual(usuario.OrigemDados, OrigemDados.Banco);
-
-            usuario.Logar();
-            Assert.AreEqual(usuario.OrigemDados, OrigemDados.Banco);
-
-            Cliente cliente = new Cliente();
-            cliente.Nome = "Jennifer Aniston";
-            cliente.Inserir();
-            Assert.AreEqual(cliente.OrigemDados, OrigemDados.Banco);
-
-            Atendimento atendimento = new Atendimento(cliente, Sessao.UsuarioAtual);
-            atendimento.AtendimentoInterno = "Atendimento visível apenas para os advogados, não aparece na página de clientes";
-            atendimento.AtendimentoExterno = "Atendimento visível a todos";
-
-            cliente.Atendimentos.Add(atendimento);
-            cliente.Salvar();
-
-            Cliente cliente2 = new Cliente();
-            cliente2.Id = cliente.Id;
-            cliente2.Obter();
-            Assert.AreEqual(cliente.OrigemDados, OrigemDados.Banco);
-
-            Atendimento atendimento2 = cliente.Atendimentos.FirstOrDefault();
-            Assert.IsNotNull(atendimento2);
-            Assert.AreEqual(atendimento.AtendimentoInterno, atendimento2.AtendimentoInterno);
-            Assert.AreEqual(atendimento.AtendimentoExterno, atendimento2.AtendimentoExterno);
-            Assert.AreEqual(atendimento.DataHoraAtendimento, atendimento2.DataHoraAtendimento);
-
-            cliente.Atendimentos.Clear();
-            cliente.Salvar();
-
-            Cliente cliente3 = new Cliente();
-            cliente3.Id = cliente.Id;
-            cliente3.Obter();
-            Assert.AreEqual(cliente.OrigemDados, OrigemDados.Banco);
-
-            Assert.AreEqual(0,cliente.Atendimentos.Count);
-
-            cliente.Remover();
-            Assert.IsNull(cliente.Id);
-            Assert.AreEqual(cliente.OrigemDados, OrigemDados.Local);
-
-            usuario.Remover();
-            Assert.AreEqual(usuario.OrigemDados, OrigemDados.Local);
-        }
-        
     }
 }

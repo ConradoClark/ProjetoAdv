@@ -15,16 +15,6 @@ namespace Estrutura
         }
     }
 
-    public class Atendimento : Modelo.Cliente.ModeloAtendimentoCliente
-    {
-        public Atendimento(Modelo.Cliente.ModeloCliente cliente, Modelo.Usuario.ModeloUsuario usuario) : base()
-        {
-            this.UsuarioAtendimento = usuario;
-            this.Cliente = cliente;
-            this.DataHoraAtendimento = DateTime.Now;
-        }
-    }
-
     public class Beneficio : Modelo.Cliente.ModeloBeneficioCliente
     {
         public Beneficio(Modelo.Cliente.ModeloCliente cliente)
@@ -128,7 +118,6 @@ namespace Estrutura
         public ListaAssociada<Dependente> Dependentes { get; private set; }
         public ListaAssociada<GrupoDiferencial> GruposDiferenciais { get; private set; }
         public ObservableCollection<Processo> Processos { get; private set; }
-        public ListaAssociada<Atendimento> Atendimentos { get; private set; }
 
         public override string ToString()
         {
@@ -145,7 +134,6 @@ namespace Estrutura
             this.Dependentes = new ListaAssociada<Dependente>(()=> new Dependente(this));
             this.GruposDiferenciais = new ListaAssociada<GrupoDiferencial>(() => new GrupoDiferencial(this));
             this.Processos = new ObservableCollection<Processo>();
-            this.Atendimentos = new ListaAssociada<Atendimento>(()=>new Atendimento(this,Sessao.UsuarioAtual));
 
             Processos.CollectionChanged += (sender, args) => Processos.ToList().ForEach((pro) =>
             {
@@ -161,24 +149,6 @@ namespace Estrutura
                         if (pro.Clientes.Contains(this))
                         {
                             pro.Clientes.Remove(this);
-                        }
-                        break;
-                }
-            });
-            this.Atendimentos.ListChanged += (sender, args) => Atendimentos.ToList().ForEach((att) =>
-            {
-                switch (args.ListChangedType)
-                {
-                    case System.ComponentModel.ListChangedType.ItemAdded:
-                        if (att.Cliente != this)
-                        {
-                            att.Cliente = this;
-                        }
-                        break;
-                    case System.ComponentModel.ListChangedType.ItemDeleted:
-                        if (att.Cliente == this)
-                        {
-                            att.Cliente = null;
                         }
                         break;
                 }
@@ -231,10 +201,6 @@ namespace Estrutura
                     () => (Modelo.Cliente.ModeloProcessoCliente)new ProcessoCliente(new Processo(),this))
                     .Cast<ProcessoCliente>().ToList()
                     .ForEach((pro) => this.Processos.Add((Processo)pro.Processo));
-            Dados.AcessoClienteAtendimento.ListarAtendimentoCliente(this,
-                    () => (Modelo.Cliente.ModeloAtendimentoCliente)new Atendimento(this, new Usuario()))
-                    .Cast<Atendimento>().ToList()
-                    .ForEach((att) => this.Atendimentos.Add((Atendimento)att));
         }
 
         public void Salvar()
@@ -259,7 +225,6 @@ namespace Estrutura
             this.AcertarDependentes();
             this.AcertarGruposDiferenciais();
             this.AcertarProcessos();
-            this.AcertarAtendimentos();
         }
 
         private void LimparColecoes()
@@ -269,7 +234,6 @@ namespace Estrutura
             this.Dependentes.Clear();
             this.GruposDiferenciais.Clear();
             this.Processos.Clear();
-            this.Atendimentos.Clear();
         }
         #endregion
 
@@ -526,42 +490,6 @@ namespace Estrutura
                 if (this.Processos.All((pro) => pro.Id != processoCliente.Processo.Id))
                 {
                     this.RemoverProcesso(processoCliente);
-                }
-            }
-        }
-        #endregion
-
-        #region Metodos Atendimento
-        private void InserirAtendimento(Modelo.Cliente.ModeloAtendimentoCliente Atendimento)
-        {
-            Atendimento.ConferirOrigemParaInserir();
-            Dados.AcessoClienteAtendimento.InserirAtendimentoCliente(Atendimento);
-        }
-
-        private void RemoverAtendimento(Modelo.Cliente.ModeloAtendimentoCliente Atendimento)
-        {
-            Atendimento.ConferirOrigemParaManipularDados();
-            Dados.AcessoClienteAtendimento.RemoverAtendimentoCliente(Atendimento);
-        }
-
-        private void AcertarAtendimentos()
-        {
-            List<Modelo.Cliente.ModeloAtendimentoCliente> atendimentosAdicionar = new List<Modelo.Cliente.ModeloAtendimentoCliente>();
-
-            foreach (Atendimento atendimento in this.Atendimentos)
-            {
-                if (!Dados.AcessoClienteAtendimento.ObterAtendimentoCliente(atendimento))
-                {
-                    atendimentosAdicionar.Add(atendimento);
-                }
-            }
-            atendimentosAdicionar.ForEach((att) => InserirAtendimento(att));
-            IEnumerable<Atendimento> AtendimentosListados = Dados.AcessoClienteAtendimento.ListarAtendimentoCliente(this, () => (Modelo.Cliente.ModeloAtendimentoCliente)new Atendimento(this, new Usuario())).Cast<Atendimento>();
-            foreach (Atendimento atendimento in AtendimentosListados)
-            {
-                if (this.Atendimentos.All((att) => att.Cliente.Id != atendimento.Cliente.Id && att.DataHoraAtendimento != atendimento.DataHoraAtendimento))
-                {
-                    this.RemoverAtendimento(atendimento);
                 }
             }
         }

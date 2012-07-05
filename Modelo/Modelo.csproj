@@ -59,8 +59,6 @@
     <Compile Include="Advogado\ModeloAdvogadoProcesso.gen.cs" />
     <Compile Include="Beneficio\ModeloTipoBeneficio.cs" />
     <Compile Include="Beneficio\ModeloTipoBeneficio.gen.cs" />
-    <Compile Include="Cliente\ModeloAtendimentoCliente.cs" />
-    <Compile Include="Cliente\ModeloAtendimentoCliente.gen.cs" />
     <Compile Include="Cliente\ModeloBeneficioCliente.cs" />
     <Compile Include="Cliente\ModeloBeneficioCliente.gen.cs" />
     <Compile Include="Cliente\ModeloCliente.cs" />

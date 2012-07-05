@@ -113,8 +113,7 @@ namespace Visao
                 grpNome);
 
             Link.PopularAbaAtendimento(
-                txtAtendimento,
-                txtAtendimentoRealizado);
+                txtAtendimento);
 
             estadoCivil.Items.AddRange(
                 Enum.GetNames(typeof(EstadoCivil))

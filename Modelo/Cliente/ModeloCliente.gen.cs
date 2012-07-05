@@ -102,6 +102,8 @@ namespace Modelo.Cliente{
 							
 																		NomeClienteIndicacaoAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
 							
+																		AtendimentoAlterado+= (_old,_new) =>{if (_old!=_new) Sujo=true;};
+							
 								}
      		#region Eventos do Id
 				public delegate void _idAlterado(int? valorAntigo, int? valorNovo);
@@ -282,6 +284,10 @@ namespace Modelo.Cliente{
 			#region Eventos do NomeClienteIndicacao
 				public delegate void _nomeClienteIndicacaoAlterado(string valorAntigo, string valorNovo);
 				public event _nomeClienteIndicacaoAlterado NomeClienteIndicacaoAlterado;				
+			#endregion			
+			#region Eventos do Atendimento
+				public delegate void _atendimentoAlterado(string valorAntigo, string valorNovo);
+				public event _atendimentoAlterado AtendimentoAlterado;				
 			#endregion			
 									
 			
@@ -1003,6 +1009,22 @@ namespace Modelo.Cliente{
 					}
 				}
 			}
+					
+			[Browsable(false)]
+			public string Atendimento{
+				get{
+					return _atendimento;
+				}
+				set{
+					if (_atendimento != value){
+						if (AtendimentoAlterado != null){
+							AtendimentoAlterado(_atendimento,value);
+						}
+						_atendimento = value;
+						this.NotifyPropertyChanged("Atendimento");
+					}
+				}
+			}
 					public override void Limpar(){
 			    this.OrigemDados = Modelo.Comum.OrigemDados.Local;
 															Id = default(int?);
@@ -1096,6 +1118,8 @@ namespace Modelo.Cliente{
 										
 															NomeClienteIndicacao = default(string);
 										
+															Atendimento = default(string);
+										
 							}
 			private void NotifyPropertyChanged(string name)
   			{
@@ -1149,6 +1173,7 @@ namespace Modelo.Cliente{
 									clone.CtpsSerie4 = this.CtpsSerie4;
 									clone.CtpsSerie5 = this.CtpsSerie5;
 									clone.NomeClienteIndicacao = this.NomeClienteIndicacao;
+									clone.Atendimento = this.Atendimento;
 								clone.OrigemDados = this.OrigemDados;
 				return clone;
 			}
@@ -1158,5 +1183,5 @@ namespace Modelo.Cliente{
 						}
 						return false;
 					}
-																																																																																																																																																																																																																																																																																																																											 	}
+																																																																																																																																																																																																																																																																																																																																		 	}
 }

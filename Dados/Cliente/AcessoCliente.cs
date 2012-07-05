@@ -63,7 +63,8 @@ namespace Dados
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.NIT2, cliente.Nit2),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.NIT3, cliente.Nit3),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.NIT4, cliente.Nit4),
-                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.Indicacao, cliente.NomeClienteIndicacao)
+                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.Indicacao, cliente.NomeClienteIndicacao),
+                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.Atendimento, cliente.Atendimento)
                 );
                 dynamic dados = objeto as dynamic;
                 objeto.Reader.Read();
@@ -140,7 +141,8 @@ namespace Dados
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.NIT2, cliente.Nit2),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.NIT3, cliente.Nit3),
                     new KeyValuePair<string, object>(Constantes.Parametros.Cliente.NIT4, cliente.Nit4),
-                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.Indicacao, cliente.NomeClienteIndicacao)
+                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.Indicacao, cliente.NomeClienteIndicacao),
+                    new KeyValuePair<string, object>(Constantes.Parametros.Cliente.Atendimento, cliente.Atendimento)
                 );
                 cliente.OrigemDados = Modelo.Comum.OrigemDados.Banco;
                 cliente.Sujo = false;
@@ -220,7 +222,8 @@ namespace Dados
                     cliente.PisPasep3 = @dados.pispasep3;
                     cliente.PisPasep4 = @dados.pispasep4;
                     cliente.NomeClienteIndicacao = @dados.indicacao;
-                    cliente.OrigemDados = Modelo.Comum.OrigemDados.Banco;
+                    cliente.Atendimento = @dados.atendimento;
+                    cliente.OrigemDados = Modelo.Comum.OrigemDados.Banco;                    
                     return true;
                 }
                 else return false;
@@ -323,6 +326,7 @@ namespace Dados
                     cliente.PisPasep3 = @dados.pispasep3;
                     cliente.PisPasep4 = @dados.pispasep4;
                     cliente.NomeClienteIndicacao = @dados.indicacao;
+                    cliente.Atendimento = @dados.atendimento;
                     cliente.OrigemDados = Modelo.Comum.OrigemDados.Banco;
                     yield return cliente;
                 }
@@ -405,6 +409,7 @@ namespace Dados
                     cliente.PisPasep3 = @dados.pispasep3;
                     cliente.PisPasep4 = @dados.pispasep4;
                     cliente.NomeClienteIndicacao = @dados.indicacao;
+                    cliente.Atendimento = @dados.atendimento;
                     cliente.OrigemDados = Modelo.Comum.OrigemDados.Banco;
                     yield return cliente;
                 }

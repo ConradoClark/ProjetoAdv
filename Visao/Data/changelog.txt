@@ -1,4 +1,11 @@
-﻿*** V1.003a *** 
+﻿*** V1.004 ***
+- Correção do DataGrid de Beneficios no Cadastro de Clientes
+- Alteração do Histórico do Atendimento do Cliente para ter um único registro editável
+- Correção básica no histórico do processo
+- Campo nome no Cadastro de Clientes agora é obrigatório
+- Removido campo de consulta no cadastro de clientes
+
+*** V1.003a *** 
 - Correção do Log de Alterações
 
 *** V1.003 *** 
